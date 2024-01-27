@@ -23,7 +23,8 @@ export default function DefaultLayout() {
     useEffect(() => {
       axiosClient.get('/user')
         .then(({data}) => {
-           setUser(data)
+          console.log(data) 
+          setUser(data)
         })
     }, [])
   
@@ -33,12 +34,43 @@ export default function DefaultLayout() {
         <div className="content">
           <header>
             <div>
-              Header
+              <div className="logoAion">
+              </div>
             </div>
-  
+                <div className="headerInfo">
+                    <div>
+                      <a href="#" className="active">ГЛАВНАЯ</a>
+                    </div>
+                    <div>
+                      <a href="#">СКАЧАТЬ</a>
+                    </div>
+                    <div>
+                      <a href="#">ПРЕМИУМ</a>
+                    </div>
+                    <div>
+                      <a href="#">САЙТ</a>
+                    </div>
+                </div>
+                <div className="languageChange">
+                    <div className="flag">
+                    </div>
+                    <p>РУССКИЙ</p>
+                    <div className="arrowChange">
+                    </div>
+                </div>
             <div>
-              {user.name} &nbsp; &nbsp;
-              <a onClick={onLogout} className="btn-logout" href="#">Logout</a>
+              <div className="playerInfo">
+                <div className="username">
+                  {user.name} &nbsp; &nbsp;
+                </div>
+                  <hr />
+                <div className="balance">
+                  <p>Баланс:</p>
+                  {user.coin} &nbsp; &nbsp;
+                </div>
+              </div>
+
+              {/* <a onClick={onLogout} className="btn-logout" href="#">Logout</a> */}
             </div>
           </header>
           <main>

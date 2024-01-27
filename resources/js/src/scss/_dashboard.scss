@@ -1,0 +1,305 @@
+.wrapper {
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mainBoard {
+  display: flex;
+  min-width: 870px;
+  min-height: 460px;
+  
+  .account {
+    width: 590px;
+    height: 456px;
+    border-radius: 7px 0px 0px 7px;
+    background: #191919;
+  }
+  .accountStatus {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 281px;
+    height: 456px;
+    border-radius: 0px 7px 7px 0px;
+    background: #222;
+  }
+}
+
+.accountTitle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  p {
+    color: #FFF;
+    font-size: 25px;
+    gap: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+
+.toolBar {
+  display: flex;
+  gap: 45px;
+  align-items: center;
+  margin: 24px 0px 0px 130px;
+}
+
+.accountTitle > .username{
+  color: #FFF;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+}
+
+.settings {
+  display: flex;
+  gap: 5px;
+  .tool {
+    width: 26px;
+    height: 26px;
+    background: url(../img/svg/settings/settings.svg);
+  }
+  .exitBtn{ 
+    button {
+      width: 78px;
+      height: 26px;
+      background: url(../img/svg/settings/btnExit.svg);
+      color: #FFF;
+      font-family: "Source Serif Pro";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+}
+
+.payment {
+  display: flex;
+  align-items: center;
+  margin-top: 52px;
+  gap: 10px;
+
+  .topUp {
+    display: flex;
+    width: 248px;
+    height: 119px;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+      
+      .balanceStatus {
+        display: flex;
+        align-items: center;
+        // gap: 10px;
+        justify-content: space-evenly;
+
+        hr {
+          background-color: #FFF; /* Цвет линии */
+          min-width: 100px;
+          height: 1px;
+          margin: 8px 0px 8px 0px;
+        }
+
+        p {
+          font-size: 12px;
+        }
+      }
+  }
+  .vipAccount {
+    display: flex;
+    justify-content: center;
+    width: 248px;
+    height: 119px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+
+.paymentInAccount {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+
+  input {
+    width: 123px;
+    height: 24px;
+  }
+  button {
+    width: 75px;
+    height: 24px;
+    background: url(../img/svg/settings/btnTopUp.svg);
+      p {
+      color: #FFF;
+      font-size: 9px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      }
+  }
+}
+
+.paymentBoard {
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+}
+
+.vipAccount {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 29px;
+
+  p {
+    color: #FFF;
+    font-family: "Source Serif Pro";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  button {
+    width: 207px;
+    height: 24px;
+    background: url(../img/svg/settings/vipAccountBtn.svg);
+
+    p{ 
+    color: #FFF;
+    font-family: "Source Serif Pro";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    }
+  }
+}
+
+.imageVip {
+  width: 21px;
+  height: 21px;
+  background: url(../img/svg/settings/starVip.svg);
+}
+
+.statusVipAccount {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+
+.bonusTitle p {
+  color: #FFF;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.bonusCoin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mmotopBonus {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+
+    p {
+    color: #FFF;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    }
+
+}
+
+.mmotopBtn button{
+  width: 61px;
+  height: 26px;
+  background: url(../img/svg/settings/btnMmotop.svg);
+}
+
+.getPresentBtn button{
+  width: 104px;
+  height: 26px;
+  background: url(../img/svg/settings/get.svg);
+}
+
+.advancedTitle {
+  display: flex;
+  justify-content: center
+}
+
+.advancedTitle > p {
+  color: #FFF;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.create {
+  display: flex;
+  gap: 20px;
+}
+
+.lastVisit {
+  display: flex;
+  gap: 20px;
+}
+
+.lastPayment {
+  display: flex;
+  gap: 20px;
+}
+
+.vipStatusAccount {
+  display: flex;
+  gap: 20px;
+}
+
+.accountDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    color: #FFF;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  h1 {
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background: linear-gradient(88deg, #FC7317 -9.41%, #FFDB5A 131.68%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+
+.decorative {
+  height: 35px;
+  background: url(../img/svg/decorative/decorative.svg) top no-repeat ;
+}
