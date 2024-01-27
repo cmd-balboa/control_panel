@@ -1,0 +1,492 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+:before, :after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body, #root, #defaultLayout, #guestLayout {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+body {
+  font-family: "El Messiri", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  color: #fff;
+  background-color: #101010;
+}
+
+input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  outline: 0;
+  background: #2E2E2E;
+  color: #FFF;
+  width: 100%;
+  font-family: "El Messiri", sans-serif;
+  font-size: 17px;
+  border-radius: 4px;
+  margin: 0 0 15px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+input:focus {
+  border-color: #96D3FF;
+}
+
+.btn,
+.btn-add,
+.btn-edit,
+.btn-delete {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #96D3FF;
+  border: 0;
+  text-decoration: none;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 16px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-add,
+.btn-edit,
+.btn-delete {
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.btn-add {
+  background-color: #00a762;
+}
+
+.btn-delete {
+  background-color: #b72424;
+}
+
+.btn-logout {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 6px;
+}
+
+.btn-logout:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+  background: #afdeff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+table > thead > tr > th {
+  text-align: left;
+  padding: 0.5rem 0.5rem;
+  background-color: #efefef;
+}
+
+table > tbody > tr > td {
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px solid #efefef;
+  white-space: nowrap;
+}
+
+.card {
+  background-color: #FFF;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.alert {
+  padding: 1rem;
+  background-color: rgba(255, 64, 64, 0.6666666667);
+  color: white;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.notification {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  padding: 1rem 1.5rem;
+  background-color: #00a762;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+/* Login/Signup forms*/
+.login-signup-form {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-signup-form .form {
+  width: 360px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  background: rgba(28, 28, 28, 0.7);
+  max-width: 360px;
+  padding: 34px;
+  -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.login-signup-form .title {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #FFF;
+}
+
+.login-signup-form .form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 16px;
+  text-align: center;
+}
+
+.login-signup-form .form .message a {
+  color: #96D3FF;
+  text-decoration: none;
+}
+
+/* Login/Signup form */
+#defaultLayout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#defaultLayout aside {
+  width: 240px;
+  background-color: #5b08a7;
+  padding: 1rem;
+}
+
+#defaultLayout aside > a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+#defaultLayout aside > a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#defaultLayout .content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+#defaultLayout header {
+  height: 80px;
+  padding: 2rem 3rem;
+  background-color: #101010;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#defaultLayout main {
+  padding: 2rem;
+}
+
+.animated {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.aion__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 35px;
+}
+.aion__logo .logo {
+  background: url("../img/svg/aion__logo.svg") center/cover no-repeat;
+  width: 184px;
+  height: 101px;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+.dark-theme .btn {
+  background-color: #96D3FF;
+  color: #ffffff;
+}
+
+.light-theme {
+  background-color: #ffffff;
+  -webkit-transition: background 0.4s, -webkit-transform 0.4s;
+  transition: background 0.4s, -webkit-transform 0.4s;
+  transition: background 0.4s, transform 0.4s;
+  transition: background 0.4s, transform 0.4s, -webkit-transform 0.4s;
+}
+
+.light-theme .form {
+  background-color: #959595;
+  -webkit-transition: background 0.3s, -webkit-transform 0.3s;
+  transition: background 0.3s, -webkit-transform 0.3s;
+  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s, transform 0.3s, -webkit-transform 0.3s;
+}
+
+/* Стили для светлой темы */
+.light-theme .btn {
+  background-color: #dadada;
+  color: #000000;
+  -webkit-transition: background 0.4s, -webkit-transform 0.4s;
+  transition: background 0.4s, -webkit-transform 0.4s;
+  transition: background 0.4s, transform 0.4s;
+  transition: background 0.4s, transform 0.4s, -webkit-transform 0.4s;
+}
+
+/* Дополнительные стили для наведения курсора */
+.btn:hover {
+  background-color: #555; /* Цвет при наведении для обоих тем */
+  color: #ffffff; /* Цвет текста при наведении для обоих тем */
+}
+
+/* Стиль для кнопки переключения темы */
+.theme-switch-btn {
+  width: 80px;
+  height: 40px;
+  background: #fff; /* начальный фон кнопки */
+  position: fixed;
+  border-radius: 20px; /* половина высоты кнопки, чтобы сделать ее круглой */
+  cursor: pointer;
+  -webkit-transition: background 0.3s, -webkit-transform 0.3s, -webkit-box-shadow 0.3s;
+  transition: background 0.3s, -webkit-transform 0.3s, -webkit-box-shadow 0.3s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s, -webkit-transform 0.3s, -webkit-box-shadow 0.3s;
+  top: 20px;
+  right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; /* добавлено выравнивание по центру */
+  padding: 0 10px;
+}
+
+.theme-switch-btn.dark-mode {
+  background: #2E2E2E; /* фон для темной темы */
+  color: #fff; /* цвет текста для темной темы */
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* тень для темной темы */
+}
+
+.theme-switch-btn.light-mode {
+  background: #dadada; /* фон для светлой темы */
+  color: #000; /* цвет текста для светлой темы */
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* тень для светлой темы */
+}
+
+.theme-switch-btn.active {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1); /* увеличиваем размер кнопки при активации */
+}
+
+.theme-switch-btn span {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase; /* делаем текст заглавными буквами */
+  letter-spacing: 1px; /* увеличиваем расстояние между буквами */
+}
+
+/* Стили для формы */
+.dark-theme input,
+.dark-theme button {
+  background-color: #2E2E2E;
+  color: #ffffff;
+  /* Добавьте другие стили для темной темы */
+}
+
+.light-theme input,
+.light-theme button {
+  background-color: #dadada;
+  color: #000000;
+  /* Добавьте другие стили для светлой темы */
+}
+
+/* Стили для текста и сообщений об ошибках */
+.title {
+  color: #ffffff; /* цвет заголовка для темной темы */
+}

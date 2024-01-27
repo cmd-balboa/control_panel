@@ -1,0 +1,90 @@
+.dark-theme .btn {
+  background-color: #96D3FF;
+  color: #ffffff;
+}
+
+.light-theme {
+  background-color: #ffffff;
+  transition: background 0.4s, transform 0.4s;
+}
+
+.light-theme .form {
+  background-color: #959595;
+  transition: background 0.3s, transform 0.3s;
+}
+
+
+
+/* Стили для светлой темы */
+.light-theme .btn {
+  background-color: #dadada;
+  color: #000000;
+  transition: background 0.4s, transform 0.4s;
+}
+
+/* Дополнительные стили для наведения курсора */
+.btn:hover {
+  background-color: #555; /* Цвет при наведении для обоих тем */
+  color: #ffffff; /* Цвет текста при наведении для обоих тем */
+}
+
+/* Стиль для кнопки переключения темы */
+.theme-switch-btn {
+  width: 80px;
+  height: 40px;
+  background: #fff; /* начальный фон кнопки */
+  position: fixed;
+  border-radius: 20px; /* половина высоты кнопки, чтобы сделать ее круглой */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* добавлено выравнивание по центру */
+  padding: 0 10px;
+}
+
+.theme-switch-btn.dark-mode {
+  background: #2E2E2E; /* фон для темной темы */
+  color: #fff; /* цвет текста для темной темы */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* тень для темной темы */
+}
+
+.theme-switch-btn.light-mode {
+  background: #dadada; /* фон для светлой темы */
+  color: #000; /* цвет текста для светлой темы */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* тень для светлой темы */
+}
+
+.theme-switch-btn.active {
+  transform: scale(1.1); /* увеличиваем размер кнопки при активации */
+}
+
+.theme-switch-btn span {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase; /* делаем текст заглавными буквами */
+  letter-spacing: 1px; /* увеличиваем расстояние между буквами */
+}
+
+
+/* Стили для формы */
+.dark-theme input,
+.dark-theme button {
+  background-color: #2E2E2E;
+  color: #ffffff;
+  /* Добавьте другие стили для темной темы */
+}
+
+.light-theme input,
+.light-theme button {
+  background-color: #dadada;
+  color: #000000;
+  /* Добавьте другие стили для светлой темы */
+}
+
+/* Стили для текста и сообщений об ошибках */
+.title {
+  color: #ffffff; /* цвет заголовка для темной темы */
+}
