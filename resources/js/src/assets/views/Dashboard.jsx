@@ -1,9 +1,22 @@
 import { useStateContext } from "../../contexts/ContextProvider";
 import moment from 'moment'
+import { Link } from "react-router-dom";
+import axiosClient from "../../axios-client";
+
 
 export default function Dashboard() {
-    const {user} = useStateContext();
-
+    const {user, account, setUser, setToken, setAccount} = useStateContext();
+    const onLogout = ev => {
+      ev.preventDefault()
+    
+      axiosClient.post('/logout')
+        .then(() => {
+          setUser({})
+          setAccount({})
+          setToken(null)
+        })
+    }
+    
     return (
         <div className="controlPanel">
                 <div className="wrapper">
@@ -13,11 +26,14 @@ export default function Dashboard() {
                                 <div className="toolBar">
                                     <p>ЛИЧНЫЙ КАБИНЕТ</p>
                                     <div className="settings">
-                                        <div className="tool">
-
-                                        </div>
+                                        <Link to="/settings">
+                                            <div className="tool">
+                                            </div>
+                                        </Link>
                                         <div className="exitBtn">
-                                            <button>ВЫЙТИ</button>
+                                            <a href="#" onClick={onLogout}>
+                                                <button>ВЫЙТИ</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -70,19 +86,32 @@ export default function Dashboard() {
                                     <p>АККАУНТ</p>
                                 </div>
                                 <div className="accountDetails">
-                                    <div className="create">
+                                    <div className="titleBar">
                                         <p>Создан:</p>
-                                        <h1>{moment(user.created_at).format('YYYY.MM.DD')}</h1>
-                                    </div>
-                                    <div className="lastVisit">
                                         <p>Последний вход:</p>
+                                        <p>Статус аккаунта:</p>
+                                        <p>VIP статус:</p>
+                                        
+                                    </div>
+                                    <div className="dataAccount">
+                                        <h1>{moment(user.created_at).format('YYYY.MM.DD')}</h1>
+                                        <h1>{moment(account.expire_access_level).format('YYYY.MM.DD HH:mm')}</h1>
+                                        <h1>{account.activated == 0 ? "Заблокирован" : "Активен"}</h1>
+                                        <h1>{account.membership == 0 ? "Неактивен" : "Активен"}</h1>
+                                    </div>
+
+                                    {/* <div className="lastVisit">
+                                        <p>Последний вход:</p>
+                                        <h1>{moment(account.expire_access_level).format('YYYY.MM.DD HH:mm')}</h1>
                                     </div>
                                     <div className="lastPayment">
-                                        <p>Пополнение:</p>
+                                        <p>Статус аккаунта:</p>
+                                        <h1>{user.activated == 0 ? "Заблокирован" : "Активен"}</h1>
                                     </div>
                                     <div className="vipStatusAccount">
                                         <p>VIP статус:</p>
-                                    </div>
+                                        <h1>{account.membership == 0 ? "Неактивен" : "Активен"}</h1>
+                                    </div> */}
                                 </div>
                                 <div className="decorative">
                                 </div>

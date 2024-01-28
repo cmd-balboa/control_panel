@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import axiosClient from "../axios-client";
 
 export default function DefaultLayout() {
-    const {user, token, setUser, setToken, notification} = useStateContext();
-  
+    const {user, token, account, setUser, setAccount, setToken, notification} = useStateContext();
+
     if (!token) {
       return <Navigate to="/login"/>
     }
@@ -24,7 +24,8 @@ export default function DefaultLayout() {
       axiosClient.get('/user')
         .then(({data}) => {
           console.log(data) 
-          setUser(data)
+          setUser(data.user)
+          setAccount(data.account)
         })
     }, [])
   

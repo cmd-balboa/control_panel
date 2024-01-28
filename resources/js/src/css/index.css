@@ -520,7 +520,6 @@ table > tbody > tr > td {
   background: #191919;
 }
 .mainBoard .accountStatus {
-  gap: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -528,9 +527,6 @@ table > tbody > tr > td {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   width: 281px;
   height: 456px;
   border-radius: 0px 7px 7px 0px;
@@ -755,6 +751,7 @@ table > tbody > tr > td {
 }
 
 .bonusCoin {
+  margin-top: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -803,6 +800,7 @@ table > tbody > tr > td {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 15px;
 }
 
 .advancedTitle > p {
@@ -813,55 +811,84 @@ table > tbody > tr > td {
   line-height: normal;
 }
 
-.create {
+.titleBar {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 20px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.dataAccount {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .lastVisit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 20px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  gap: 116px;
 }
 
 .lastPayment {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 20px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  gap: 116px;
 }
 
 .vipStatusAccount {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 20px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  gap: 116px;
 }
 
 .accountDetails {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: right;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 15px;
 }
 .accountDetails p {
   color: #FFF;
-  font-size: 11px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
 .accountDetails h1 {
-  font-size: 11px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -869,10 +896,12 @@ table > tbody > tr > td {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-align: end;
 }
 
 .decorative {
   height: 35px;
+  margin: 30px 0px 20px 0px;
   background: url(../img/svg/decorative/decorative.svg) top no-repeat;
 }
 
