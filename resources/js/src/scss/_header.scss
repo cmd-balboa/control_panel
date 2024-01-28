@@ -1,0 +1,65 @@
+.logoAion {
+  min-width: 184px;
+  min-height: 102px;
+  background: url(../img/svg/aion__logo.svg),;
+}
+.headerInfo {
+  min-width: 525px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flag {
+  width: 30px;
+  height: 21px;
+  background: url(../img/svg/flag/Flag_of_Russia.svg),;
+}
+
+.languageChange {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .arrowChange {
+    width: 16px;
+    height: 16px;
+    background: url(../img/svg/arrow/arrow_back.svg),;
+  }
+}
+
+
+
+#defaultLayout a {
+  color: #797979;
+  font-family: "Source Serif Pro";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#defaultLayout .active {
+  color: #FFF;
+  font-family: "Source Serif Pro";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.balance { 
+  display: flex;
+  justify-content: space-between;
+}
+
+.playerInfo {
+  min-width: 151px;
+  min-height: 35px;
+  hr {
+    background-color: #FFF; /* Цвет линии */
+    min-width: 190px;
+    height: 1px;
+    margin: 8px 0px 8px 0px;
+  }
+}
