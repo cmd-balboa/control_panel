@@ -10,8 +10,14 @@ Route::middleware('auth:sanctum')->group(function() {
     // info about current user
     Route::get('/user', [UserController::class, 'getUser']);
     
+    Route::post('/updatePassword', [UserController::class, 'updatePassword']);
+    Route::post('/updateEmail', [UserController::class, 'updateEmail']);
+
+
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::apiResource('/users', UserController::class);
+
+
 });
 
 

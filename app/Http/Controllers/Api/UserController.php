@@ -5,22 +5,56 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UpdatePasswordRequest;
+use App\Http\Requests\UpdateEmailRequest;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use App\Services\UserService;
 
 class UserController extends Controller
 {
 
+    protected $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
 
     public function getUser(Request $request)
     {
-        if ($request->user()) {
-            return $request->user();
-        } else {
-            return response()->json(['message' => 'Unauthorized'], 401);
-        }
+        $this->userService->getAccountInfo($request);
     }
+
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+
+        $data = $request->validated();
+
+        return $this->userService->changeUserPassword($data, $request->user());
+    }
+
+    public function updateEmail(UpdateEmailRequest $request)
+    {
+        $data = $request->validated();
+
+        return $this->userService->changeUserEmail($data, $request->user());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function index()
     {
@@ -46,7 +80,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        // return new UserResource($user);
+        return new UserResource($user);
     }
 
     /**
@@ -56,9 +90,7 @@ class UserController extends Controller
     {
         $data = $request->validated();
 
-        // при обновлении проверить если поля с паролем
-        // если есть -> зашифровать
-        if(isset($data['password'])) {
+        if (isset($data['password'])) {
             $data['password'] = bcrypt($data['password']);
         }
 
