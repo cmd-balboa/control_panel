@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
+use App\Rules\UniqueAionNameRule;
 
 class SignupRequest extends FormRequest
 {
@@ -23,14 +24,14 @@ class SignupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
+            'name' => ['required', 'string', 'unique:users,name', new UniqueAionNameRule],
             'email' => ['required', 'email', 'unique:users,email'],
             'password' => [
                 'required',
                 'confirmed',
                 Password::min(8)
                     ->letters()
-                    ->symbols()
+                    // ->symbols()
                     ->numbers()
             ]
         ];
