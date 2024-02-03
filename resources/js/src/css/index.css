@@ -72,11 +72,21 @@ h1, h2, h3, h4, h5, h6 {
           box-sizing: border-box;
 }
 
-html, body, #root, #defaultLayout, #guestLayout {
+html,
+body,
+#root,
+#defaultLayout,
+#guestLayout {
   min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
 }
 
@@ -101,8 +111,8 @@ input {
       -ms-flex-align: center;
           align-items: center;
   outline: 0;
-  background: #2E2E2E;
-  color: #FFF;
+  background: #2e2e2e;
+  color: #fff;
   width: 100%;
   font-family: "El Messiri", sans-serif;
   font-size: 17px;
@@ -113,8 +123,80 @@ input {
   transition: all 0.3s;
 }
 
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.login input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  outline: 0;
+  background: #2e2e2e;
+  color: #fff;
+  width: 100%;
+  font-family: "El Messiri", sans-serif;
+  font-size: 17px;
+  border-radius: 4px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.loginSignup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.loginSignup input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  outline: 0;
+  background: #2e2e2e;
+  color: #fff;
+  width: 100%;
+  font-family: "El Messiri", sans-serif;
+  font-size: 17px;
+  border-radius: 4px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
 input:focus {
-  border-color: #96D3FF;
+  border-color: #96d3ff;
 }
 
 .btn,
@@ -123,11 +205,11 @@ input:focus {
 .btn-delete {
   font-family: "Roboto", sans-serif;
   outline: 0;
-  background: #96D3FF;
+  background: #96d3ff;
   border: 0;
   text-decoration: none;
   padding: 15px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
@@ -196,7 +278,7 @@ table > tbody > tr > td {
 }
 
 .card {
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 0.5rem;
   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
           box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -254,7 +336,7 @@ table > tbody > tr > td {
   font-size: 20px;
   margin-bottom: 1rem;
   text-align: center;
-  color: #FFF;
+  color: #fff;
 }
 
 .login-signup-form .form .message {
@@ -265,7 +347,7 @@ table > tbody > tr > td {
 }
 
 .login-signup-form .form .message a {
-  color: #96D3FF;
+  color: #96d3ff;
   text-decoration: none;
 }
 
@@ -489,21 +571,13 @@ table > tbody > tr > td {
   color: #ffffff; /* цвет заголовка для темной темы */
 }
 
-.wrapper {
-  height: 100dvh;
+.controlPanel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .mainBoard {
@@ -546,7 +620,7 @@ table > tbody > tr > td {
           flex-direction: column;
 }
 .accountTitle p {
-  color: #FFF;
+  color: #fff;
   font-size: 25px;
   gap: 20px;
   font-style: normal;
@@ -566,7 +640,7 @@ table > tbody > tr > td {
 }
 
 .accountTitle > .username {
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -588,7 +662,7 @@ table > tbody > tr > td {
   width: 78px;
   height: 26px;
   background: url(../img/svg/settings/btnExit.svg);
-  color: #FFF;
+  color: #fff;
   font-family: "Source Serif Pro";
   font-size: 14px;
   font-style: normal;
@@ -633,7 +707,7 @@ table > tbody > tr > td {
           justify-content: space-evenly;
 }
 .payment .topUp .balanceStatus hr {
-  background-color: #FFF; /* Цвет линии */
+  background-color: #fff; /* Цвет линии */
   min-width: 100px;
   height: 1px;
   margin: 8px 0px 8px 0px;
@@ -673,7 +747,7 @@ table > tbody > tr > td {
   background: url(../img/svg/settings/btnTopUp.svg);
 }
 .paymentInAccount button p {
-  color: #FFF;
+  color: #fff;
   font-size: 9px;
   font-style: normal;
   font-weight: 700;
@@ -705,7 +779,7 @@ table > tbody > tr > td {
   gap: 29px;
 }
 .vipAccount p {
-  color: #FFF;
+  color: #fff;
   font-family: "Source Serif Pro";
   font-size: 14px;
   font-style: normal;
@@ -718,7 +792,7 @@ table > tbody > tr > td {
   background: url(../img/svg/settings/vipAccountBtn.svg);
 }
 .vipAccount button p {
-  color: #FFF;
+  color: #fff;
   font-family: "Source Serif Pro";
   font-size: 11px;
   font-style: normal;
@@ -743,7 +817,7 @@ table > tbody > tr > td {
 }
 
 .bonusTitle p {
-  color: #FFF;
+  color: #fff;
   font-size: 19px;
   font-style: normal;
   font-weight: 700;
@@ -774,7 +848,7 @@ table > tbody > tr > td {
           align-items: flex-end;
 }
 .mmotopBonus p {
-  color: #FFF;
+  color: #fff;
   font-size: 11px;
   font-style: normal;
   font-weight: 700;
@@ -804,7 +878,7 @@ table > tbody > tr > td {
 }
 
 .advancedTitle > p {
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -881,7 +955,7 @@ table > tbody > tr > td {
   gap: 15px;
 }
 .accountDetails p {
-  color: #FFF;
+  color: #fff;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -892,7 +966,7 @@ table > tbody > tr > td {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  background: linear-gradient(88deg, #FC7317 -9.41%, #FFDB5A 131.68%);
+  background: linear-gradient(88deg, #fc7317 -9.41%, #ffdb5a 131.68%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -903,6 +977,321 @@ table > tbody > tr > td {
   height: 35px;
   margin: 30px 0px 20px 0px;
   background: url(../img/svg/decorative/decorative.svg) top no-repeat;
+}
+
+.settingsBoard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.settingsChange {
+  width: 564px;
+  height: 399px;
+  border-radius: 7px 0px 0px 7px;
+  background: #191919;
+}
+.settingsChange .changeTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 71px;
+}
+.settingsChange .changeTitle p {
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.changeData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 36px;
+  width: 564px;
+  height: 399px;
+}
+
+.changeBoard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 17px;
+}
+.changeBoard .passwordChangeBoard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+  width: 209px;
+  height: 276px;
+  border-radius: 7px 7px 7px 7px;
+  background: #232323;
+}
+.changeBoard .emailChangeBoard {
+  width: 209px;
+  height: 276px;
+  border-radius: 7px 7px 7px 7px;
+  background: #232323;
+}
+
+.titleChange {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 209px;
+  height: 34px;
+  border-radius: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(#f58400), to(#f5ce00));
+  background: linear-gradient(90deg, #f58400 0%, #f5ce00 100%);
+}
+.titleChange h1 {
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.inputData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+}
+.inputData input {
+  width: 181px;
+  height: 26px;
+  border-radius: 4px;
+  background: #353535;
+  text-align: center;
+}
+
+.settingsInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 257px;
+  height: 399px;
+  border-radius: 0px 7px 7px 0px;
+  background: #222;
+}
+
+::-webkit-input-placeholder {
+  color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+::-moz-placeholder {
+  color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+:-ms-input-placeholder {
+  color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+::-ms-input-placeholder {
+  color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+::placeholder {
+  color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+}
+
+.btnChangePassword {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.btnChangePassword button {
+  width: 182px;
+  height: 24px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border-radius: 2px;
+  background: linear-gradient(88deg, #fc7317 -9.41%, #ffdb5a 131.68%);
+}
+.btnChangePassword button h1 {
+  color: #fff;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.btnChangeEmail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.btnChangeEmail button {
+  width: 182px;
+  height: 24px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border-radius: 2px;
+  background: linear-gradient(88deg, #fc7317 -9.41%, #ffdb5a 131.68%);
+}
+.btnChangeEmail button h1 {
+  color: #fff;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.inputDataEmail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+}
+.inputDataEmail input {
+  width: 181px;
+  height: 26px;
+  border-radius: 4px;
+  background: #353535;
+  text-align: center;
+}
+
+.undo {
+  width: 30px;
+  height: 30px;
+  background: url(../img/svg/settings/undo.svg) top no-repeat;
+}
+
+.error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 183px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border-radius: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(#c44c4c), to(#d33c3c));
+  background: linear-gradient(90deg, #c44c4c 0%, #d33c3c 100%);
+}
+.error p {
+  color: #fff;
+  padding: 0.5em;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.success {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 183px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border-radius: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(#60c44c), to(#3cd364));
+  background: linear-gradient(90deg, #60c44c 0%, #3cd364 100%);
+}
+.success p {
+  color: #fff;
+  padding: 0.5em;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .logoAion {
