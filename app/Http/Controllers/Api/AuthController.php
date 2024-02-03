@@ -8,10 +8,11 @@ use App\Http\Requests\SignupRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Services\AuthAionService;
 
 class AuthController extends Controller
 {
-    public function signup(SignupRequest $request)
+    public function signup(SignupRequest $request, AuthAionService $aionService)
     {
 
         $data = $request->validated();
@@ -23,6 +24,10 @@ class AuthController extends Controller
         ]);
 
         $token = $user->createToken('main')->plainTextToken;
+
+        // NOTE registration in the Aion
+        $aion_pass = base64_encode(sha1($data['password'], true));
+        $aionService->aionRegistration($data['name'], $aion_pass);
 
         return response(compact('user', 'token'));
     }

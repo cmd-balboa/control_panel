@@ -23,9 +23,13 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
+    
     public function getUser(Request $request)
     {
-        $this->userService->getAccountInfo($request);
+        $user = $request->user();
+        $account = $this->userService->getAccountInfo($user->name);
+
+        return response(compact('user', 'account'));
     }
 
     public function updatePassword(UpdatePasswordRequest $request)
@@ -108,4 +112,5 @@ class UserController extends Controller
 
         return response("", 204);
     }
+
 }
