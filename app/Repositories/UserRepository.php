@@ -12,14 +12,14 @@ class UserRepository{
         $this->AionDB = DB::connection('aiondb');
     }
 
-    public function accountInfo($request){
+    public function accountInfo($name){
 
-        
+
         $account = $this->AionDB->table('account_data')
-            ->where('name', '=', 'bob2')
-            ->select('activated', 'membership', 'last_ip', 'expire_access_level')
-            ->first();
-
+                ->where('name', '=', $name)
+                ->select('activated', 'membership', 'last_ip', 'expire_access_level')
+                ->first();
+        
         return $account;
 
     }

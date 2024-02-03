@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Repositories\UserRepository;
@@ -14,27 +12,15 @@ class UserService
     protected $userRepository;
     protected $AionDB;
 
-    public function __construct(UserRepository $userRepository){
+    public function __construct(UserRepository $userRepository)
+    {
         $this->userRepository = $userRepository;
         $this->AionDB = DB::connection('aiondb');
     }
 
-    public function getAccountInfo($request){
-        
-        // try {
-            if ($request->user()) {
-                $user = $request->user();
-                $account = $this->userRepository->accountInfo($request);
-            } else {
-                return response()->json(['message' => 'Unauthorized'], 401);
-            }
-        // } catch (\PDOException $e) {
-        //     return response()->json(['message' => 'Database connection error'], 500);
-        // }
-        
-        return response(compact('user', 'account'));
-
-
+    public function getAccountInfo($name)
+    {
+        return $this->userRepository->accountInfo($name);
     }
 
     public function changeUserPassword($request, $user)
@@ -54,13 +40,11 @@ class UserService
         return response()->json(['message' => 'Пароль успешно изменен'], 200);
     }
 
-    public function changeUserEmail($request, $user)
+    public function changeUserEmail($data, $user)
     {
 
-        $email = $request->input('email');
-
         $user->update([
-            'email' => $email,
+            'email' => $data['email'],
             'updated_email' => Carbon::now()->addHours(3)
         ]);
 
