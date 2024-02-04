@@ -10,9 +10,11 @@ export default function Login() {
     const { setUser, setToken } = useStateContext();
     const [message, setMessage] = useState(null);
     const [isDarkMode, setIsDarkMode] = useState(true);
+    const [skin, skinSet] = useState(true);
 
     const toggleTheme = () => {
         setIsDarkMode((prevMode) => !prevMode);
+        skinSet((prevMode) => !prevMode);
     };
 
     const onSubmit = (ev) => {
@@ -39,50 +41,62 @@ export default function Login() {
 
     return (
         <div
-            className={`login-signup-form animated fadeInDown ${
+            className={`login-signup-form ${
                 isDarkMode ? "dark-theme" : "light-theme"
             }`}
         >
-            <div className="form">
-                <form onSubmit={onSubmit}>
-                    <div className="loginTitle">
-                        <h1 className="title">Login</h1>
+            <div
+                className={`skinWhite animatedSwipe fadeInLeft ${
+                    skin ? "skinVisible" : "skinHide"
+                }`}
+            ></div>
+            <div className="formWrapper animated fadeInDown">
+                <div className="form">
+                    <form onSubmit={onSubmit}>
+                        <div className="loginTitle">
+                            <h1 className="title">Login</h1>
+                        </div>
+                        <div className="login">
+                            <input
+                                ref={emailRef}
+                                type="email"
+                                placeholder="Email"
+                            />
+                            <input
+                                ref={passwordRef}
+                                type="password"
+                                placeholder="Password"
+                            />
+                            <button className="btn btn-block">Login</button>
+                            <p className="message">
+                                Not registered?{" "}
+                                <Link to="/signup">Create an account</Link>
+                            </p>
+                        </div>
+                    </form>
+                    <div className="aion__logo">
+                        <div className="logo"></div>
                     </div>
-                    <div className="login">
-                        <input
-                            ref={emailRef}
-                            type="email"
-                            placeholder="Email"
-                        />
-                        <input
-                            ref={passwordRef}
-                            type="password"
-                            placeholder="Password"
-                        />
-                        <button className="btn btn-block">Login</button>
-                        <p className="message">
-                            Not registered?{" "}
-                            <Link to="/signup">Create an account</Link>
-                        </p>
-                    </div>
-                </form>
-                <div className="aion__logo">
-                    <div className="logo"></div>
+                    {message && (
+                        <div className="alert">
+                            <p>{message}</p>
+                        </div>
+                    )}
                 </div>
-                <div
-                    className={`theme-switch-btn ${
-                        isDarkMode ? "dark-mode" : "light-mode"
-                    } ${isDarkMode ? "active" : ""}`}
-                    onClick={toggleTheme}
-                >
-                    <span>{isDarkMode ? "Dark" : "Light"}</span>
-                </div>
-                {message && (
-                    <div className="alert">
-                        <p>{message}</p>
-                    </div>
-                )}
             </div>
+            <div
+                className={`theme-switch-btn ${
+                    isDarkMode ? "dark-mode" : "light-mode"
+                } ${isDarkMode ? "active" : ""}`}
+                onClick={toggleTheme}
+            >
+                <span>{isDarkMode ? "Dark" : "Light"}</span>
+            </div>
+            <div
+                className={`skinBlack animatedSwipe fadeInRight ${
+                    skin ? "skinHide" : "skinVisible"
+                }`}
+            ></div>
         </div>
     );
 }
