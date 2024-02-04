@@ -80,6 +80,7 @@ export default function DefaultLayout() {
                         </a> */}
                     </div>
                 </header>
+                <div className="backgroundViews"></div>
                 <main>
                     <Outlet />
                 </main>

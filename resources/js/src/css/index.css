@@ -402,12 +402,51 @@ table > tbody > tr > td {
 }
 
 #defaultLayout main {
-  padding: 2rem;
+  padding: 10rem;
 }
 
+.backgroundViews {
+  position: absolute;
+  min-height: 100vh;
+  width: 100%;
+  background: url(https://fonoteka.top/uploads/posts/2022-01/1642451358_26-phonoteka-org-p-aion-fon-krasivo-28.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-animation: bgAnimation 4s ease infinite alternate;
+          animation: bgAnimation 4s ease infinite alternate;
+}
+
+@-webkit-keyframes bgAnimation {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 50%;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes bgAnimation {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 50%;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
 .animated {
   -webkit-animation-duration: 0.3s;
-  animation-duration: 0.3s;
+  animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animatedSwipe {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.6s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -415,6 +454,16 @@ table > tbody > tr > td {
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
 }
 
 .aion__logo {
@@ -461,13 +510,61 @@ table > tbody > tr > td {
             transform: translateY(0);
   }
 }
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
 .dark-theme .btn {
-  background-color: #96D3FF;
+  background-color: #96d3ff;
   color: #ffffff;
 }
 
 .light-theme {
-  background-color: #ffffff;
+  background-color: #fff;
   -webkit-transition: background 0.4s, -webkit-transform 0.4s;
   transition: background 0.4s, -webkit-transform 0.4s;
   transition: background 0.4s, transform 0.4s;
@@ -525,7 +622,7 @@ table > tbody > tr > td {
 }
 
 .theme-switch-btn.dark-mode {
-  background: #2E2E2E; /* фон для темной темы */
+  background: #2e2e2e; /* фон для темной темы */
   color: #fff; /* цвет текста для темной темы */
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* тень для темной темы */
@@ -554,7 +651,7 @@ table > tbody > tr > td {
 /* Стили для формы */
 .dark-theme input,
 .dark-theme button {
-  background-color: #2E2E2E;
+  background-color: #2e2e2e;
   color: #ffffff;
   /* Добавьте другие стили для темной темы */
 }
@@ -1297,7 +1394,7 @@ table > tbody > tr > td {
 .logoAion {
   min-width: 184px;
   min-height: 102px;
-  background: url(../img/svg/aion__logo.svg);
+  background: url(../img/svg/aion__logo.svg) top no-repeat;
 }
 
 .headerInfo {
@@ -1344,7 +1441,7 @@ table > tbody > tr > td {
 }
 
 #defaultLayout .active {
-  color: #FFF;
+  color: #fff;
   font-family: "Source Serif Pro";
   font-size: 15px;
   font-style: normal;
@@ -1366,8 +1463,35 @@ table > tbody > tr > td {
   min-height: 35px;
 }
 .playerInfo hr {
-  background-color: #FFF; /* Цвет линии */
+  background-color: #fff; /* Цвет линии */
   min-width: 190px;
   height: 1px;
   margin: 8px 0px 8px 0px;
+}
+
+.skinWhite {
+  width: 634px;
+  min-height: 634px;
+  background: url(../img/skin/skin2.png) top no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 100px;
+}
+
+.skinBlack {
+  width: 634px;
+  min-height: 634px;
+  background: url(../img/skin/skin3.png) top no-repeat fixed;
+  background-size: contain;
+  background-position: 50% 50%;
+  position: absolute;
+  right: 100px;
+}
+
+.skinVisible {
+  display: block;
+}
+
+.skinHide {
+  display: none;
 }
