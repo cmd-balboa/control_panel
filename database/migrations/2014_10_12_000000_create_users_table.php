@@ -22,6 +22,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('updated_password')->nullable();
             $table->timestamp('updated_email')->nullable();
+            $table->timestamp('repair_date')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
