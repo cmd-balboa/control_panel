@@ -27,6 +27,7 @@ class User extends Authenticatable
         'bonus',
         'updated_password',
         'updated_email',
+        'repair_date',
     ];
 
     /**

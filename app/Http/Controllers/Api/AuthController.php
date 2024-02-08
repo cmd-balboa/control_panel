@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\AuthAionService;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -21,6 +22,8 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'updated_password' => Carbon::now()->addHours(3),
+            'updated_email' => Carbon::now()->addHours(3)
         ]);
 
         $token = $user->createToken('main')->plainTextToken;
