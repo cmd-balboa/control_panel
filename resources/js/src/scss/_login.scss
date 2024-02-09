@@ -1,0 +1,27 @@
+.skinWhite {
+    width: 634px;
+    min-height: 634px;
+    background: url(../img/skin/skin2.png) top no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 100px;
+}
+
+.skinBlack {
+    width: 634px;
+    min-height: 634px;
+    background: url(../img/skin/skin3.png) top no-repeat fixed;
+    background-size: contain;
+    background-position: 50% 50%;
+    position: absolute;
+    right: 100px;
+}
+
+.skinVisible {
+    display: block;
+}
+
+.skinHide {
+    display: none;
+}
+

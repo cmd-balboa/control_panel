@@ -1,61 +1,70 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import DefaultLayout from "./components/DefaultLayout";
 import GuestLayout from "./components/GuestLayout";
-
 import Login from "./assets/views/Login";
 import Signup from "./assets/views/Signup";
 import NotFound from "./assets/views/NotFound";
 import Dashboard from "./assets/views/Dashboard";
 import Users from "./assets/views/Users";
 import UserForm from "./assets/views/UserForm";
+import Settings from "./assets/views/Settings";
+import Achievement from "./assets/views/Achievement";
 
-const router = createBrowserRouter ([
+const router = createBrowserRouter([
     {
-        path: '/',
+        path: "/",
         element: <DefaultLayout />,
         children: [
             {
                 // Теперь при переходе на / попадем на Users
-                path: '/',
-                element: <Navigate to="/Users" />
+                path: "/",
+                element: <Navigate to="/Dashboard" />,
             },
             {
-                path: '/dashboard',
-                element: <Dashboard />
+                path: "/dashboard",
+                element: <Dashboard />,
             },
             {
-                path: '/users',
-                element: <Users />
+                path: "/settings",
+                element: <Settings />,
             },
             {
-                path: '/users/new',
-                element: <UserForm key="userCreate"/>
+                path: "/users",
+                element: <Users />,
             },
             {
-                path: '/users/:id',
-                element: <UserForm key="userUpdate"/>
+                path: "/achievement",
+                element: <Achievement />,
             },
-        ]
+            {
+                path: "/users/new",
+                element: <UserForm key="userCreate" />,
+            },
+            {
+                path: "/users/:id",
+                element: <UserForm key="userUpdate" />,
+            },
+        ],
     },
 
     {
-        path: '/',
+        path: "/",
         element: <GuestLayout />,
         children: [
             {
-                path: '/login',
-                element: <Login />
+                path: "/login",
+                element: <Login />,
             },
             {
-                path: '/signup',
-                element: <Signup />
-            }
-        ]
+                path: "/signup",
+                element: <Signup />,
+            },
+        ],
     },
     {
-        path: '*',
-        element: <NotFound />
+        path: "*",
+        element: <NotFound />,
     },
-])
+]);
 
 export default router;

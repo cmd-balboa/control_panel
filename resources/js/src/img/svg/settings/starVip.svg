@@ -1,0 +1,16 @@
+<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="hotel_class">
+<mask id="mask0_52_59" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="21" height="21">
+<rect id="Bounding box" width="21" height="21" fill="#F9F9F9"/>
+</mask>
+<g mask="url(#mask0_52_59)">
+<path id="hotel_class_2" d="M14.6125 13.5625L17.9375 10.7188L20.5625 10.9375L16.7125 14.2844L17.85 19.25L15.6188 17.8938L14.6125 13.5625ZM12.5563 7.175L11.6375 5.03125L12.6438 2.625L14.6562 7.37188L12.5563 7.175ZM3.78437 19.25L5.20625 13.1031L0.4375 8.96875L6.7375 8.42188L9.1875 2.625L11.6375 8.42188L17.9375 8.96875L13.1687 13.1031L14.5906 19.25L9.1875 15.9906L3.78437 19.25Z" fill="url(#paint0_linear_52_59)"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_52_59" x1="-0.777778" y1="34.8359" x2="28.6798" y2="33.4121" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FC7317"/>
+<stop offset="1" stop-color="#FFDB5A"/>
+</linearGradient>
+</defs>
+</svg>

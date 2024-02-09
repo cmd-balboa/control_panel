@@ -24,6 +24,10 @@ class User extends Authenticatable
         'role',
         'kinah',
         'coin',
+        'bonus',
+        'updated_password',
+        'updated_email',
+        'repair_date',
     ];
 
     /**

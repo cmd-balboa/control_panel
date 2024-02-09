@@ -8,10 +8,13 @@ use App\Http\Requests\SignupRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Services\AuthAionService;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
-    public function signup(SignupRequest $request) {
+    public function signup(SignupRequest $request, AuthAionService $aionService)
+    {
 
         $data = $request->validated();
 
@@ -19,19 +22,21 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'updated_password' => Carbon::now()->addHours(3),
+            'updated_email' => Carbon::now()->addHours(3)
         ]);
-        
+
         $token = $user->createToken('main')->plainTextToken;
 
-        // return response([
-        //     'user' => $user,
-        //     'token' => $token,
-        // ]);
+        // NOTE registration in the Aion
+        $aion_pass = base64_encode(sha1($data['password'], true));
+        $aionService->aionRegistration($data['name'], $aion_pass);
 
         return response(compact('user', 'token'));
     }
 
-    public function login(LoginRequest $request) {
+    public function login(LoginRequest $request)
+    {
 
         $credentials = $request->validated();
 
@@ -45,14 +50,13 @@ class AuthController extends Controller
         $user = Auth::user();
         $token = $user->createToken('main')->plainTextToken;
         return response(compact('user', 'token'));
-
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
 
         $user = $request->user();
         $user->currentAccessToken()->delete();
         return response('', 204);
-
     }
 }

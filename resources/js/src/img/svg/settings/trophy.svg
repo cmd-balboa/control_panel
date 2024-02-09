@@ -1,0 +1,22 @@
+<svg width="18.000000" height="18.000000" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip14_1">
+			<rect id="Трофей" width="18.000000" height="18.000006" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip14_1)">
+		<path id="path" d="M9 11.25C11.4852 11.25 13.5 9.17603 13.5 6.61768L13.5 1.5L4.5 1.5L4.5 6.61768C4.5 9.17603 6.51477 11.25 9 11.25Z" fill="#808080" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="path" d="M13.5 6.61768L13.5 1.5L4.5 1.5L4.5 6.61768C4.5 9.17603 6.51477 11.25 9 11.25C11.4852 11.25 13.5 9.17603 13.5 6.61768Z" stroke="#808080" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/>
+		<path id="path" d="M4.5 7.875L4.5 4.125L1.5 4.125C1.5 6.625 3 7.875 4.5 7.875Z" fill="#000000" fill-opacity="0" fill-rule="evenodd"/>
+		<path id="path" d="M4.5 4.125L1.5 4.125C1.5 6.625 3 7.875 4.5 7.875L4.5 4.125Z" stroke="#808080" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/>
+		<path id="path" d="M13.5 7.875L13.5 4.125L16.5 4.125C16.5 6.625 15 7.875 13.5 7.875Z" fill="#000000" fill-opacity="0" fill-rule="evenodd"/>
+		<path id="path" d="M13.5 4.125L16.5 4.125C16.5 6.625 15 7.875 13.5 7.875L13.5 4.125Z" stroke="#808080" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/>
+		<path id="path" d="M8.27002 12.0186L8.25 11.9985C8.25 11.5786 8.57996 11.2485 9 11.2485C9.42004 11.2485 9.75 11.5786 9.75 11.9985L9.72998 12.0186L8.27002 12.0186ZM9.72998 13.48L9.75 13.5C9.75 13.9199 9.42004 14.25 9 14.25C8.57996 14.25 8.25 13.9199 8.25 13.5L8.27002 13.48L9.72998 13.48Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
+		<path id="path" d="M9 11.9985L9 13.5" stroke="#808080" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round"/>
+		<path id="path" d="M5.625 15.75L7.00879 13.5L10.891 13.5L12.375 15.75L5.625 15.75Z" fill="#808080" fill-opacity="1.000000" fill-rule="nonzero"/>
+		<path id="path" d="M7.00879 13.5L10.891 13.5L12.375 15.75L5.625 15.75L7.00879 13.5Z" stroke="#808080" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/>
+	</g>
+</svg>

@@ -5,11 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
 
-Route::middleware('auth:sanctum')->group(function() {
-    
+Route::middleware('auth:sanctum')->group(function () {
+
     // info about current user
     Route::get('/user', [UserController::class, 'getUser']);
-    
+
+    Route::post('/updatePassword', [UserController::class, 'updatePassword']);
+    Route::post('/updateEmail', [UserController::class, 'updateEmail']);
+    Route::post('/repairPerson', [UserController::class, 'repairPerson']);
+
+
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::apiResource('/users', UserController::class);
 });

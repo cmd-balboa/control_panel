@@ -1,0 +1,224 @@
+.settingsBoard {
+    display: flex;
+    justify-content: center;
+    // animation: ;
+}
+
+.settingsChange {
+    display: flex;
+    align-items: center;
+    width: 564px;
+    height: 440px;
+    border-radius: 7px 0px 0px 7px;
+    background: #191919;
+
+    .changeTitle {
+        display: flex;
+        justify-content: center;
+        gap: 71px;
+
+        p {
+            color: #fff;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+}
+
+.changeData {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 36px;
+    width: 564px;
+    height: 399px;
+}
+
+.changeBoard {
+    display: flex;
+    justify-content: center;
+    gap: 17px;
+
+    .passwordChangeBoard {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 209px;
+        height: 300px;
+        border-radius: 7px 7px 7px 7px;
+        background: #232323;
+    }
+
+    .emailChangeBoard {
+        width: 209px;
+        height: 276px;
+        border-radius: 7px 7px 7px 7px;
+        background: #232323;
+    }
+}
+
+.titleChange {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 209px;
+    height: 34px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #f58400 0%, #f5ce00 100%);
+
+    h1 {
+        color: #fff;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+}
+
+.inputData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    input {
+        width: 181px;
+        height: 26px;
+        border-radius: 4px;
+        background: #353535;
+        text-align: center;
+    }
+}
+
+.settingsInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 257px;
+    height: 440px;
+    border-radius: 0px 7px 7px 0px;
+    background: #222;
+}
+
+::placeholder {
+    color: #fff;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+}
+
+.btnChangePassword {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+
+    button {
+        width: 182px;
+        height: 24px;
+        flex-shrink: 0;
+        border-radius: 2px;
+        background: linear-gradient(88deg, #fc7317 -9.41%, #ffdb5a 131.68%);
+        h1 {
+            color: #fff;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+}
+
+/// EMAIL CHANGE
+
+.btnChangeEmail {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+
+    button {
+        width: 182px;
+        height: 24px;
+        flex-shrink: 0;
+        border-radius: 2px;
+        background: linear-gradient(88deg, #fc7317 -9.41%, #ffdb5a 131.68%);
+        h1 {
+            color: #fff;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+}
+
+.inputDataEmail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    input {
+        width: 181px;
+        height: 26px;
+        border-radius: 4px;
+        background: #353535;
+        text-align: center;
+    }
+}
+
+.undo {
+    width: 30px;
+    height: 30px;
+    background: url(../img/svg/settings/undo.svg) top no-repeat;
+}
+
+// .alert {
+//     width: 183px;
+//     height: 20px;
+//     flex-shrink: 0;
+//     border-radius: 2px;
+//     background: linear-gradient(90deg, #c44c4c 0%, #d33c3c 100%);
+// }
+
+.error {
+    display: flex;
+    align-items: center;
+    width: 186px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #c44c4c 0%, #d33c3c 100%);
+    margin: 5px 0px 0px 0px;
+
+    p {
+        color: #fff;
+        padding: 0.5em;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+}
+
+.success {
+    display: flex;
+    align-items: center;
+    width: 183px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #60c44c 0%, #3cd364 100%);
+
+    p {
+        color: #fff;
+        padding: 0.5em;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+}
