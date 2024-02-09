@@ -8,58 +8,63 @@ import Dashboard from "./assets/views/Dashboard";
 import Users from "./assets/views/Users";
 import UserForm from "./assets/views/UserForm";
 import Settings from "./assets/views/Settings";
+import Achievement from "./assets/views/Achievement";
 
-const router = createBrowserRouter ([
+const router = createBrowserRouter([
     {
-        path: '/',
+        path: "/",
         element: <DefaultLayout />,
         children: [
             {
                 // Теперь при переходе на / попадем на Users
-                path: '/',
-                element: <Navigate to="/Dashboard" />
+                path: "/",
+                element: <Navigate to="/Dashboard" />,
             },
             {
-                path: '/dashboard',
-                element: <Dashboard />
+                path: "/dashboard",
+                element: <Dashboard />,
             },
             {
-                path: '/settings',
-                element: <Settings />
+                path: "/settings",
+                element: <Settings />,
             },
             {
-                path: '/users',
-                element: <Users />
+                path: "/users",
+                element: <Users />,
             },
             {
-                path: '/users/new',
-                element: <UserForm key="userCreate"/>
+                path: "/achievement",
+                element: <Achievement />,
             },
             {
-                path: '/users/:id',
-                element: <UserForm key="userUpdate"/>
+                path: "/users/new",
+                element: <UserForm key="userCreate" />,
             },
-        ]
+            {
+                path: "/users/:id",
+                element: <UserForm key="userUpdate" />,
+            },
+        ],
     },
 
     {
-        path: '/',
+        path: "/",
         element: <GuestLayout />,
         children: [
             {
-                path: '/login',
-                element: <Login />
+                path: "/login",
+                element: <Login />,
             },
             {
-                path: '/signup',
-                element: <Signup />
-            }
-        ]
+                path: "/signup",
+                element: <Signup />,
+            },
+        ],
     },
     {
-        path: '*',
-        element: <NotFound />
+        path: "*",
+        element: <NotFound />,
     },
-])
+]);
 
 export default router;
