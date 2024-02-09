@@ -7,11 +7,12 @@ export default function DefaultLayout() {
     const {
         user,
         token,
-        account,
         setUser,
         setAccount,
         setToken,
+        setPersons,
         notification,
+        setIsLoading,
     } = useStateContext();
 
     if (!token) {
@@ -28,11 +29,18 @@ export default function DefaultLayout() {
     };
 
     useEffect(() => {
-        axiosClient.get("/user").then(({ data }) => {
-            console.log(data);
-            setUser(data.user);
-            setAccount(data.account);
-        });
+        axiosClient
+            .get("/user")
+            .then(({ data }) => {
+                console.log(data);
+                setUser(data.user);
+                setAccount(data.account);
+                setPersons(data.persons);
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                setIsLoading(false);
+            });
     }, []);
 
     return (
@@ -87,6 +95,33 @@ export default function DefaultLayout() {
                 {notification && (
                     <div className="notification">{notification}</div>
                 )}
+                <footer>
+                    <div className="footer-link">
+                        <a href="#">
+                            <p>Политика конфиденциальности</p>
+                        </a>
+                        <a href="#">
+                            <p>Пользовательское соглашение</p>
+                        </a>
+                        <a href="#">
+                            <p>Безопасность платежей</p>
+                        </a>
+                        <p>1 GP = 1 RUB</p>
+                    </div>
+                    <div className="social-network">
+                        <div className="social-icons">
+                            <img id="vk" src="src\img\social_icons\vk.svg" />
+                            <img
+                                id="telegram"
+                                src="src\img\social_icons\telegram.svg"
+                            />
+                            <img
+                                id="discord"
+                                src="src\img\social_icons\discord.svg"
+                            />
+                        </div>
+                    </div>
+                </footer>
             </div>
         </div>
     );

@@ -5,8 +5,10 @@
 }
 
 .settingsChange {
+    display: flex;
+    align-items: center;
     width: 564px;
-    height: 399px;
+    height: 440px;
     border-radius: 7px 0px 0px 7px;
     background: #191919;
 
@@ -44,7 +46,7 @@
         flex-direction: column;
         gap: 30px;
         width: 209px;
-        height: 276px;
+        height: 300px;
         border-radius: 7px 7px 7px 7px;
         background: #232323;
     }
@@ -95,7 +97,7 @@
     justify-content: center;
     align-items: center;
     width: 257px;
-    height: 399px;
+    height: 440px;
     border-radius: 0px 7px 7px 0px;
     background: #222;
 }
@@ -187,15 +189,16 @@
 .error {
     display: flex;
     align-items: center;
-    width: 183px;
+    width: 186px;
     flex-shrink: 0;
     border-radius: 2px;
     background: linear-gradient(90deg, #c44c4c 0%, #d33c3c 100%);
+    margin: 5px 0px 0px 0px;
 
     p {
         color: #fff;
         padding: 0.5em;
-        font-size: 10px;
+        font-size: 12px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;

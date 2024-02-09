@@ -73,6 +73,12 @@ export default function Login() {
                                 <Link to="/signup">Create an account</Link>
                             </p>
                         </div>
+                        <div className="captcha">
+                            <div
+                                className="g-recaptcha"
+                                data-sitekey="6LfxumopAAAAABYuPuN5dLOGUiyMOhGZFQdE4P18"
+                            ></div>
+                        </div>
                     </form>
                     <div className="aion__logo">
                         <div className="logo"></div>

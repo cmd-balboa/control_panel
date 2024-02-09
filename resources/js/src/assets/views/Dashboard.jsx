@@ -2,9 +2,80 @@ import { useStateContext } from "../../contexts/ContextProvider";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import axiosClient from "../../axios-client";
+import { useEffect, useState } from "react";
 
 export default function Dashboard() {
-    const { user, account, setUser, setToken, setAccount } = useStateContext();
+    const {
+        user,
+        account,
+        setUser,
+        setToken,
+        setAccount,
+        persons,
+        setPersons,
+        isLoading,
+    } = useStateContext();
+
+    const [selectedPerson, setSelectedPerson] = useState("");
+    const [classIcon, setClassIcon] = useState("");
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
+    const [animateClass, setAnimateClass] = useState(false);
+
+    useEffect(() => {
+        // При изменении selectedPerson установите класс анимации
+        setAnimateClass(true);
+
+        // Очистите класс анимации после завершения анимации (1 секунда)
+        const timeoutId = setTimeout(() => {
+            setAnimateClass(false);
+        }, 500);
+
+        // Очистите таймаут при размонтировании компонента или при следующем изменении selectedPerson
+        return () => clearTimeout(timeoutId);
+    }, [selectedPerson]);
+
+    const selectPerson = (ev) => {
+        const selectedPersonId = ev.target.value;
+        setSelectedPerson(selectedPersonId);
+
+        // Получите значение class_icon из атрибута data-classicon
+        const selectedClassIcon =
+            ev.target.options[ev.target.selectedIndex].getAttribute(
+                "data-classicon"
+            );
+
+        // Установите имя файла изображения в стейт
+        setClassIcon(selectedClassIcon);
+
+        console.log(selectedClassIcon);
+        console.log(selectedPersonId);
+        console.log(classIcon);
+    };
+
+    const RepairHero = (ev) => {
+        ev.preventDefault();
+
+        const personId = {
+            id: selectedPerson,
+        };
+        axiosClient
+            .post("/repairPerson", personId)
+            .then(({ data }) => {
+                setSuccess(data.success);
+                setError(data.error);
+                console.log(data.message);
+            })
+            .catch((err) => {
+                const response = err.response;
+                if (response && response.status === 422) {
+                    setError(response.data.message);
+                    setSuccess("");
+                    // console.log(response.data);
+                }
+            });
+        console.log(personId);
+    };
 
     const onLogout = (ev) => {
         ev.preventDefault();
@@ -12,6 +83,7 @@ export default function Dashboard() {
             setUser({});
             setAccount({});
             setToken(null);
+            setPersons({});
         });
     };
 
@@ -19,106 +91,211 @@ export default function Dashboard() {
         <div className="controlPanel">
             <div className="mainBoard animated fadeInDown">
                 <div className="account">
-                    <div className="accountTitle">
-                        <div className="toolBar">
-                            <p>ЛИЧНЫЙ КАБИНЕТ</p>
-                            <div className="settings">
-                                <Link to="/settings">
-                                    <div className="tool"></div>
-                                </Link>
-                                <div className="exitBtn">
-                                    <a href="#" onClick={onLogout}>
-                                        <button>ВЫЙТИ</button>
-                                    </a>
+                    {isLoading && (
+                        <div className="isLoading">
+                            <div className="loading"></div>
+                        </div>
+                    )}
+                    {!isLoading && (
+                        <div className="accountTitle">
+                            <div className="toolBar">
+                                <p>ЛИЧНЫЙ КАБИНЕТ</p>
+                                <div className="settings">
+                                    <Link to="/settings">
+                                        <div className="tool"></div>
+                                    </Link>
+                                    <div className="exitBtn">
+                                        <a href="#" onClick={onLogout}>
+                                            <button>ВЫЙТИ</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="accountBoard animated fadeInDown">
+                                <div className="accountInfo">
+                                    <div className="userBoard">
+                                        <div className="classIcons">
+                                            {classIcon && (
+                                                <img
+                                                    src={`src/img/classes/${classIcon}.webp`}
+                                                    className={`${
+                                                        animateClass
+                                                            ? "animated fadeInDown"
+                                                            : ""
+                                                    }`}
+                                                />
+                                            )}
+                                        </div>
+                                        <div className="selHero">
+                                            <select
+                                                className="select-Hero"
+                                                onChange={selectPerson}
+                                            >
+                                                <option
+                                                    defaultValue={
+                                                        "selectDefault"
+                                                    }
+                                                    className="selectDefault"
+                                                    hidden
+                                                >
+                                                    Выберите персонажа:
+                                                </option>
+
+                                                {Object.keys(persons).map(
+                                                    (key) => (
+                                                        <option
+                                                            key={
+                                                                persons[key].id
+                                                            }
+                                                            value={
+                                                                persons[key].id
+                                                            }
+                                                            data-classicon={
+                                                                persons[key]
+                                                                    .player_class
+                                                            }
+                                                        >
+                                                            {persons[key].name}{" "}
+                                                            {persons[key].level}{" "}
+                                                            LVL
+                                                        </option>
+                                                    )
+                                                )}
+                                            </select>
+                                            {error && (
+                                                <div className="error animated fadeInDown">
+                                                    <p>{error}</p>
+                                                </div>
+                                            )}
+                                            {success && (
+                                                <div className="success animated fadeInDown">
+                                                    <p>{success}</p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="fixCharacter">
+                                    <div
+                                        className="fixBtn"
+                                        onClick={RepairHero}
+                                    >
+                                        <button>
+                                            <p>ПОЧИНИТЬ</p>
+                                        </button>
+                                    </div>
+                                    <h2>
+                                        ПЕРСОНАЖ БУДЕТ ПЕРЕМЕЩЁН НА СТАРТОВУЮ
+                                        ЛОКАЦИЮ
+                                    </h2>
+                                </div>
+                            </div>
+                            <div className="payment animated fadeInDown">
+                                <div className="topUp">
+                                    <div className="paymentBoard">
+                                        <div className="balanceStatus">
+                                            <p>Баланс</p>
+                                            <hr />
+                                            {user.coin} GP
+                                        </div>
+                                        <div className="paymentInAccount">
+                                            <input type="text" />
+                                            <button>
+                                                <p>ПОПОЛНИТЬ</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="vipAccount">
+                                    <div className="statusVipAccount">
+                                        <div className="imageVip"></div>
+                                        <p>VIP ACCOUNT</p>
+                                    </div>
+                                    <button>
+                                        <p>ПРИОБРЕСТИ</p>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <div className="username">
-                            {user.name} &nbsp; &nbsp;
-                        </div>
-                        <div className="payment animated fadeInDown">
-                            <div className="topUp">
-                                <div className="paymentBoard">
-                                    <div className="balanceStatus">
-                                        <p>Баланс</p>
-                                        <hr />
-                                        {user.coin} GP
-                                    </div>
-                                    <div className="paymentInAccount">
-                                        <input type="text" />
+                    )}
+                </div>
+                {/* {isLoading && (
+                    <div className="isLoading">
+                        <div className="loading"></div>
+                    </div>
+                )} */}
+                <div className="accountStatus">
+                    {!isLoading && (
+                        <>
+                            {/* <div className="bonusCoin">
+                                <div className="bonusTitle">
+                                    <p>БОНУСЫ</p>
+                                </div>
+                                <div className="mmotopBonus">
+                                    <div className="mmotopBtn">
                                         <button>
-                                            <p>ПОПОЛНИТЬ</p>
+                                            <p>MMOTOP</p>
+                                        </button>
+                                    </div>
+                                    <div className="getPresentBtn">
+                                        <button>
+                                            <p>ПОЛУЧИТЬ +5 GP</p>
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="vipAccount">
-                                <div className="statusVipAccount">
-                                    <div className="imageVip"></div>
-                                    <p>VIP ACCOUNT</p>
+                            </div> */}
+                            <div className="achievement">
+                                <div className="achievementTitle">
+                                    <p>ДОСТИЖЕНИЯ</p>
                                 </div>
-                                <button>
-                                    <p>ПРИОБРЕСТИ</p>
-                                </button>
+                                <div className="achievement__row">
+                                    <div className="achievementValue">
+                                        <h1>0 / 2000</h1>
+                                    </div>
+                                    <Link to="/achievement">
+                                        <div className="achievementIcon"></div>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="accountStatus">
-                    <div className="bonusCoin">
-                        <div className="bonusTitle">
-                            <p>БОНУСЫ</p>
-                        </div>
-                        <div className="mmotopBonus">
-                            <div className="mmotopBtn">
-                                <button>
-                                    <p>MMOTOP</p>
-                                </button>
+                            <div className="advanced">
+                                <div className="decorative"></div>
+                                <div className="advancedTitle">
+                                    <p>АККАУНТ</p>
+                                </div>
+                                <div className="accountDetails">
+                                    <div className="titleBar">
+                                        <p>Создан:</p>
+                                        <p>Последний вход:</p>
+                                        <p>Статус аккаунта:</p>
+                                        <p>VIP статус:</p>
+                                    </div>
+                                    <div className="dataAccount">
+                                        <h1>
+                                            {moment(user.created_at).format(
+                                                "YYYY.MM.DD"
+                                            )}
+                                        </h1>
+                                        <h1>
+                                            {moment(
+                                                account.expire_access_level
+                                            ).format("YYYY.MM.DD HH:mm")}
+                                        </h1>
+                                        <h1>
+                                            {account.activated == 0
+                                                ? "Заблокирован"
+                                                : "Активен"}
+                                        </h1>
+                                        <h1>
+                                            {account.membership == 0
+                                                ? "Неактивен"
+                                                : "Активен"}
+                                        </h1>
+                                    </div>
+                                </div>
+                                <div className="decorative"></div>
                             </div>
-                            <div className="getPresentBtn">
-                                <button>
-                                    <p>ПОЛУЧИТЬ +5 GP</p>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="advanced">
-                        <div className="decorative"></div>
-                        <div className="advancedTitle">
-                            <p>АККАУНТ</p>
-                        </div>
-                        <div className="accountDetails">
-                            <div className="titleBar">
-                                <p>Создан:</p>
-                                <p>Последний вход:</p>
-                                <p>Статус аккаунта:</p>
-                                <p>VIP статус:</p>
-                            </div>
-                            <div className="dataAccount">
-                                <h1>
-                                    {moment(user.created_at).format(
-                                        "YYYY.MM.DD"
-                                    )}
-                                </h1>
-                                <h1>
-                                    {moment(account.expire_access_level).format(
-                                        "YYYY.MM.DD HH:mm"
-                                    )}
-                                </h1>
-                                <h1>
-                                    {account.activated == 0
-                                        ? "Заблокирован"
-                                        : "Активен"}
-                                </h1>
-                                <h1>
-                                    {account.membership == 0
-                                        ? "Неактивен"
-                                        : "Активен"}
-                                </h1>
-                            </div>
-                        </div>
-                        <div className="decorative"></div>
-                    </div>
+                        </>
+                    )}
                 </div>
             </div>
         </div>
