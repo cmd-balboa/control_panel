@@ -22,8 +22,8 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'updated_password' => Carbon::now()->addHours(3),
-            'updated_email' => Carbon::now()->addHours(3)
+            'updated_password' => Carbon::now(),
+            'updated_email' => Carbon::now()
         ]);
 
         $token = $user->createToken('main')->plainTextToken;
@@ -37,8 +37,9 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-
+        
         $credentials = $request->validated();
+        unset($credentials['recaptchaToken']);
 
         if (!Auth::attempt($credentials)) {
             return response([
