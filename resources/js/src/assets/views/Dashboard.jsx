@@ -250,11 +250,11 @@ export default function Dashboard() {
                                 </div>
                                 <div className="achievement__row">
                                     <div className="achievementValue">
-                                        <h1>0 / 2000</h1>
+                                        <h1>0 / 0</h1>
                                     </div>
-                                    <Link to="/achievement">
+                                    {/* <Link to="/achievement">
                                         <div className="achievementIcon"></div>
-                                    </Link>
+                                    </Link> */}
                                 </div>
                             </div>
                             <div className="advanced">

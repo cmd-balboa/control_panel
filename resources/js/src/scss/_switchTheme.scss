@@ -4,12 +4,12 @@
 }
 
 .light-theme {
-  background-color: #fff;
-  transition: background 0.4s, transform 0.4s;
+    background-color: #fff;
+    transition: background 0.4s, transform 0.4s;
 }
 
 .light-theme .form {
-    background-color: #959595;
+    background-color: #4a4a4a;
     transition: background 0.3s, transform 0.3s;
 }
 
@@ -71,13 +71,22 @@
 .dark-theme button {
     background-color: #2e2e2e;
     color: #ffffff;
+
     /* Добавьте другие стили для темной темы */
+}
+
+.light-theme input::-webkit-input-placeholder {
+    color: #000;
+}
+
+.light-theme input {
+    color: #000;
 }
 
 .light-theme input,
 .light-theme button {
     background-color: #dadada;
-    color: #000000;
+
     /* Добавьте другие стили для светлой темы */
 }
 

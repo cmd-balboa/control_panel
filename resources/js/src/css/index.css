@@ -784,7 +784,7 @@ footer {
 }
 
 .light-theme .form {
-  background-color: #959595;
+  background-color: #4a4a4a;
   -webkit-transition: background 0.3s, -webkit-transform 0.3s;
   transition: background 0.3s, -webkit-transform 0.3s;
   transition: background 0.3s, transform 0.3s;
@@ -868,10 +868,17 @@ footer {
   /* Добавьте другие стили для темной темы */
 }
 
+.light-theme input::-webkit-input-placeholder {
+  color: #000;
+}
+
+.light-theme input {
+  color: #000;
+}
+
 .light-theme input,
 .light-theme button {
   background-color: #dadada;
-  color: #000000;
   /* Добавьте другие стили для светлой темы */
 }
 
