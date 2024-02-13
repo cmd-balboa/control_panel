@@ -34,7 +34,7 @@ class UserService
 
         $user->update([
             'password' => bcrypt($newPassword),
-            'updated_password' => Carbon::now()->addHours(3)
+            'updated_password' => Carbon::now()
         ]);
 
         $aion_pass = base64_encode(sha1($newPassword, true));
@@ -50,7 +50,7 @@ class UserService
 
         $user->update([
             'email' => $data['email'],
-            'updated_email' => Carbon::now()->addHours(3)
+            'updated_email' => Carbon::now()
         ]);
 
         return response()->json(['message' => 'Почта успешно изменена'], 200);
