@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\ReCaptcha;
 
 class LoginRequest extends FormRequest
 {
@@ -24,6 +25,7 @@ class LoginRequest extends FormRequest
         return [
             'email' => 'required|email|string|exists:users,email',
             'password' =>  'required',
+            'recaptchaToken' => ['required', new ReCaptcha],
         ];
     }
 }
