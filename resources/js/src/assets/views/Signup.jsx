@@ -12,9 +12,8 @@ export default function Signup() {
 
     const { setUser, setToken } = useStateContext();
 
-    const onSubmit = (ev) => {
+    async function onSubmit(ev) {
         ev.preventDefault();
-
         const payload = {
             name: nameRef.current.value,
             email: emailRef.current.value,
@@ -34,7 +33,7 @@ export default function Signup() {
                     setErrors(response.data.errors);
                 }
             });
-    };
+    }
 
     return (
         <div className="login-signup-form animated fadeInDown">

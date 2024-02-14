@@ -1,12 +1,14 @@
-import React, { createRef, useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axiosClient from "../../axios-client";
 import { useStateContext } from "../../contexts/ContextProvider";
+import RecaptchaChange from "./recaptcha";
 import "../../css/index.css";
 
 export default function Login() {
     const emailRef = createRef();
     const passwordRef = createRef();
+    const [recaptchaToken, setRecaptchaToken] = useState(null); // Используйте состояние для хранения токена
     const { setUser, setToken } = useStateContext();
     const [message, setMessage] = useState(null);
     const [isDarkMode, setIsDarkMode] = useState(true);
@@ -17,12 +19,17 @@ export default function Login() {
         skinSet((prevMode) => !prevMode);
     };
 
+    const handleRecaptchaChange = (value) => {
+        setRecaptchaToken(value);
+    };
+
     const onSubmit = (ev) => {
         ev.preventDefault();
 
         const payload = {
             email: emailRef.current.value,
             password: passwordRef.current.value,
+            recaptchaToken: recaptchaToken,
         };
 
         axiosClient
@@ -30,8 +37,10 @@ export default function Login() {
             .then(({ data }) => {
                 setUser(data.user);
                 setToken(data.token);
+                console.log(data);
             })
             .catch((err) => {
+                console.log(err);
                 const response = err.response;
                 if (response && response.status === 422) {
                     setMessage(response.data.message);
@@ -67,22 +76,15 @@ export default function Login() {
                                 type="password"
                                 placeholder="Password"
                             />
+                            <RecaptchaChange onChange={handleRecaptchaChange} />
+
                             <button className="btn btn-block">Login</button>
                             <p className="message">
                                 Not registered?{" "}
                                 <Link to="/signup">Create an account</Link>
                             </p>
                         </div>
-                        <div className="captcha">
-                            <div
-                                className="g-recaptcha"
-                                data-sitekey="6LfxumopAAAAABYuPuN5dLOGUiyMOhGZFQdE4P18"
-                            ></div>
-                        </div>
                     </form>
-                    <div className="aion__logo">
-                        <div className="logo"></div>
-                    </div>
                     {message && (
                         <div className="alert">
                             <p>{message}</p>
