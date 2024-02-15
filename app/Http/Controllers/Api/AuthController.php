@@ -17,6 +17,7 @@ class AuthController extends Controller
     {
 
         $data = $request->validated();
+        unset($data['recaptchaToken']);
 
         $user = User::create([
             'name' => $data['name'],
