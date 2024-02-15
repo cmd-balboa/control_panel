@@ -321,12 +321,12 @@ table > tbody > tr > td {
 }
 
 .login-signup-form .form {
-  width: 360px;
+  width: 370px;
   border-radius: 10px;
   position: relative;
   z-index: 1;
   background: rgba(28, 28, 28, 0.7);
-  max-width: 360px;
+  max-width: 370px;
   padding: 34px;
   -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
@@ -1897,4 +1897,193 @@ footer {
 
 .skinHide {
   display: none;
+}
+
+.downloadBoard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.downloadBoard .clientBoard {
+  position: absolute;
+  width: 754px;
+  height: 634px;
+  border-radius: 7px 0px 0px 7px;
+  background: rgb(25, 25, 25);
+}
+.downloadBoard .clientBoard .downloadBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 34px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.downloadBoard .clientBoard .downloadBlock .downloadTorrent {
+  width: 319px;
+  height: 330px;
+  border-radius: 8px;
+  background: rgb(16, 16, 16);
+}
+.downloadBoard .clientBoard .downloadBlock .downloadYandex {
+  width: 319px;
+  height: 330px;
+  border-radius: 8px;
+  background: rgb(16, 16, 16);
+}
+.downloadBoard .clientBoard .titleDownload {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.torrent__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+
+.yandex__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+
+.yandexName h1 {
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0%;
+}
+
+.torrentName h1 {
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0%;
+}
+
+.download__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 33px;
+  gap: 36px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.helpBtn button {
+  width: 190px;
+  height: 40px;
+  background: url(../img/svg/downloadHelp/btnJoin.svg);
+}
+
+.downloadBtn button {
+  width: 172px;
+  height: 40px;
+  background: url(../img/svg/downloadHelp/btnDownload.svg);
+}
+
+.downloadTorrent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.downloadYandex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.torrentLogo {
+  width: 89px;
+  height: 89px;
+  background: url(../img/svg/downloadHelp/torrentLogo.svg);
+}
+
+.yandexLogo {
+  width: 89px;
+  height: 89px;
+  background: url(../img/svg/downloadHelp/yandexDiskLogo.svg);
+}
+
+.downloadHelp {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+.downloadHelp .helpInfo h1 {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.downloadHelp h2 {
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0%;
 }

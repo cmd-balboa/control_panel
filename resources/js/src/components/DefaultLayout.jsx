@@ -52,12 +52,14 @@ export default function DefaultLayout() {
                     </div>
                     <div className="headerInfo">
                         <div>
-                            <a href="#" className="active">
-                                ГЛАВНАЯ
-                            </a>
+                            <Link to="/dashboard">
+                                <h1>ГЛАВНАЯ</h1>
+                            </Link>
                         </div>
                         <div>
-                            <a href="#">СКАЧАТЬ</a>
+                            <Link to="/download">
+                                <h1 className="active">СКАЧАТЬ</h1>
+                            </Link>
                         </div>
                         <div>
                             <a href="#">ПРЕМИУМ</a>
