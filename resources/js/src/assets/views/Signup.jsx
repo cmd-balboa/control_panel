@@ -1,16 +1,22 @@
 import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import axiosClient from "../../axios-client";
+import RecaptchaChange from "./recaptcha";
 import { useStateContext } from "../../contexts/ContextProvider";
 
 export default function Signup() {
     const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
+    const [recaptchaToken, setRecaptchaToken] = useState(null); // Используйте состояние для хранения токена
     const passwordConfirmationRef = useRef();
     const [errors, setErrors] = useState(null);
 
     const { setUser, setToken } = useStateContext();
+
+    const handleRecaptchaChange = (value) => {
+        setRecaptchaToken(value);
+    };
 
     async function onSubmit(ev) {
         ev.preventDefault();
@@ -19,6 +25,7 @@ export default function Signup() {
             email: emailRef.current.value,
             password: passwordRef.current.value,
             password_confirmation: passwordConfirmationRef.current.value,
+            recaptchaToken: recaptchaToken,
         };
         axiosClient
             .post("/signup", payload)
@@ -70,6 +77,7 @@ export default function Signup() {
                             type="password"
                             placeholder="Password Confirmation"
                         />
+                        <RecaptchaChange onChange={handleRecaptchaChange} />
                         <button className="btn btn-block">Signup</button>
                         <p className="message">
                             Already Registered? <Link to="/login">Sign in</Link>

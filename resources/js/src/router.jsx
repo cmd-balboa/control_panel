@@ -8,6 +8,7 @@ import Dashboard from "./assets/views/Dashboard";
 import Users from "./assets/views/Users";
 import UserForm from "./assets/views/UserForm";
 import Settings from "./assets/views/Settings";
+import Download from "./assets/views/Download";
 import Achievement from "./assets/views/Achievement";
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: "/settings",
                 element: <Settings />,
+            },
+            {
+                path: "/Download",
+                element: <Download />,
             },
             {
                 path: "/users",
@@ -63,7 +68,7 @@ const router = createBrowserRouter([
     },
     {
         path: "*",
-        element: <NotFound />,
+        element: <Navigate to="/Dashboard" />,
     },
 ]);
 
