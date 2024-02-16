@@ -10,6 +10,7 @@ import UserForm from "./assets/views/UserForm";
 import Settings from "./assets/views/Settings";
 import Download from "./assets/views/Download";
 import Achievement from "./assets/views/Achievement";
+import Donate from "./assets/views/Donate";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
             {
                 // Теперь при переходе на / попадем на Users
                 path: "/",
-                element: <Navigate to="/Dashboard" />,
+                element: <Navigate to="/dashboard" />,
             },
             {
                 path: "/dashboard",
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: "/settings",
                 element: <Settings />,
+            },
+            {
+                path: "/donate",
+                element: <Donate />,
             },
             {
                 path: "/Download",

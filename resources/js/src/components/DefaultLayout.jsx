@@ -62,10 +62,12 @@ export default function DefaultLayout() {
                             </Link>
                         </div>
                         <div>
-                            <a href="#">ПРЕМИУМ</a>
+                            <Link to="/donate">
+                                <h1>ДОНАТ</h1>
+                            </Link>
                         </div>
                         <div>
-                            <a href="#">САЙТ</a>
+                            <a href="https://worldaion.com/">САЙТ</a>
                         </div>
                     </div>
                     <div className="languageChange">
@@ -108,7 +110,7 @@ export default function DefaultLayout() {
                         <a href="#">
                             <p>Безопасность платежей</p>
                         </a>
-                        <p>1 GP = 1 RUB</p>
+                        {/* <p>1 GP = 1 RUB</p> */}
                     </div>
                     <div className="social-network">
                         <div className="social-icons">

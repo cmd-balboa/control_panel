@@ -2087,3 +2087,437 @@ footer {
   line-height: 16px;
   letter-spacing: 0%;
 }
+
+.donateBoard {
+  position: absolute;
+  width: 453px;
+  height: 660px;
+  border-radius: 12px;
+  background: rgb(25, 25, 25);
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.paymentTitle {
+  /* фрейм 18 */
+  left: 606px;
+  right: 1014px;
+  top: 373px;
+  bottom: 648px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 0px 0px 5px 0px;
+}
+
+.donatePay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.paymentSystems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  gap: 2px;
+}
+.paymentSystems h2 {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.paymentSystems button {
+  width: 133px;
+  height: 42px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  margin: 0px 1px;
+  border-radius: 2px;
+  background: rgb(35, 35, 35);
+}
+
+.enotSystem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 2px;
+  width: 133px;
+  height: 42px;
+  background: rgb(35, 35, 35);
+}
+
+.paymentRules {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.lavaSystem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 2px;
+  width: 133px;
+  height: 42px;
+  background: rgb(35, 35, 35);
+}
+
+.paypalychSystem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 2px;
+  width: 133px;
+  height: 42px;
+  background: rgb(35, 35, 35);
+}
+
+.donate--rules {
+  /* фрейм 17 */
+  width: 384px;
+  left: 616px;
+  right: 920px;
+  top: 433px;
+  bottom: 399px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px;
+  gap: 15px;
+}
+
+.additionalContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btnPay__row {
+  /* фрейм 15 */
+  position: relative;
+  width: 223px;
+  height: 58px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.activePayment {
+  background: rgb(254, 168, 57) !important;
+  -webkit-box-shadow: 0 0 10px rgba(254, 168, 57, 0.5);
+          box-shadow: 0 0 10px rgba(254, 168, 57, 0.5); /* Тень для активной кнопки */
+  -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s; /* Плавная анимация изменения фона, тени и масштаба */
+  -webkit-transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+
+/* Добавим изменение цвета тени при наведении */
+.activePayment:hover {
+  -webkit-box-shadow: 0 0 15px rgb(254, 168, 57);
+          box-shadow: 0 0 15px rgb(254, 168, 57); /* Более выраженная тень при наведении */
+}
+
+.donate--rules li {
+  color: #878787; /* Цвет текста */
+  list-style-type: none; /* Убираем маркеры списка */
+  position: relative;
+  padding: 6px 0px 6px 5px; /* Добавляем отступ слева */
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s; /* Трансишн для изменения масштаба */
+}
+
+/* Эффект при наведении */
+.donate--rules li:hover {
+  -webkit-transform: scale(1.08);
+      -ms-transform: scale(1.08);
+          transform: scale(1.08); /* Увеличиваем масштаб при наведении */
+  color: #b2b2b2;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Добавляем тень при наведении */
+  border-radius: 3px;
+}
+
+/* Стили для активных элементов списка (например, выделенных программно) */
+.donate--rules li.active {
+  background-color: #ff7f50;
+  color: #fff;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 0 0 15px rgba(255, 127, 80, 0.7);
+          box-shadow: 0 0 15px rgba(255, 127, 80, 0.7);
+  border-radius: 5px;
+  -webkit-transition: color 0.3s ease-in-out, border-radius 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-radius 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+}
+
+.payInput input {
+  /* фрейм 14 */
+  width: 223px;
+  height: 26px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+}
+
+.payBtn button {
+  /* фрейм 8 */
+  position: static;
+  width: 223px;
+  height: 26px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  margin: 6px 0px;
+  border-radius: 2px;
+  background: rgb(254, 168, 57);
+}
+.payBtn button h2 {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.donate--title {
+  width: 408px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+}
+.donate--title p {
+  color: rgb(254, 168, 57);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 19px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.informationPayment button {
+  width: 405px;
+  height: 42px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  margin: 0px 1px;
+  border-radius: 2px;
+  background: rgb(35, 35, 35);
+}
+
+.paymentMethods {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}

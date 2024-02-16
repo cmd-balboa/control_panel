@@ -193,7 +193,7 @@ export default function Dashboard() {
                             <div className="payment animated fadeInDown">
                                 <div className="topUp">
                                     <div className="paymentBoard">
-                                        <div className="balanceStatus">
+                                        {/* <div className="balanceStatus">
                                             <p>Баланс</p>
                                             <hr />
                                             {user.coin} GP
@@ -203,7 +203,7 @@ export default function Dashboard() {
                                             <button>
                                                 <p>ПОПОЛНИТЬ</p>
                                             </button>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                                 <div className="vipAccount">
@@ -212,7 +212,7 @@ export default function Dashboard() {
                                         <p>VIP ACCOUNT</p>
                                     </div>
                                     <button>
-                                        <p>ПРИОБРЕСТИ</p>
+                                        <p>ПОДКЛЮЧИТЬ</p>
                                     </button>
                                 </div>
                             </div>

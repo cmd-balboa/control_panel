@@ -17,6 +17,7 @@ export const ContextProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [account, setAccount] = useState({});
     const [token, _setToken] = useState(localStorage.getItem("ACCESS_TOKEN"));
+    // const [token, _setToken] = useState("321");
     const [notification, _setNotification] = useState("");
     const [isLoading, setIsLoading] = useState(true);
 
