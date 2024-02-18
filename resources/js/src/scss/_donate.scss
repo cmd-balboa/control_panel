@@ -1,5 +1,4 @@
 .donateBoard {
-    position: absolute;
     width: 453px;
     height: 660px;
     border-radius: 12px;
@@ -8,9 +7,17 @@
 }
 
 .container {
+    margin: auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
+
+// .downloadBoard {
+//     margin: auto;
+//     display: flex;
+//     align-items: center;
+// }
 
 .paymentTitle {
     /* фрейм 18 */
@@ -271,4 +278,69 @@
 .paymentMethods {
     display: flex;
     flex-direction: row;
+}
+
+.unavailable {
+    width: 133px;
+    height: 42px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    flex-grow: 0;
+    margin: 0px 1px;
+    border-radius: 2px;
+    background: rgb(35, 35, 35);
+    color: #fff; /* Добавляем белый цвет текста, чтобы он был виден на темном фоне */
+}
+
+/* Добавляем стили для заголовка внутри блока */
+.unavailable h2 {
+    margin: 0; /* Убираем внутренние отступы заголовка */
+    font-size: 16px; /* Регулируем размер шрифта заголовка */
+}
+
+.unavailable-container {
+    text-align: center;
+}
+
+.unavailable-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.icon {
+    font-size: 20px;
+    color: #ffa333;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    // 0%,
+    // 100% {
+    //     transform: translateX(0);
+    // }
+    // 10%,
+    // 30%,
+    // 50%,
+    // 70%,
+    // 90% {
+    //     transform: translateY(-1px);
+    // }
+    // 20%,
+    // 40%,
+    // 60%,
+    // 80% {
+    //     transform: translateY(4px);
+    // }
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
 }

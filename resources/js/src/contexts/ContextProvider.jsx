@@ -9,12 +9,14 @@ const StateContext = createContext({
     setToken: () => {},
     setNotification: () => {},
     setPersons: () => {},
+    setProducts: () => {},
     setIsLoading: () => {},
 });
 
 export const ContextProvider = ({ children }) => {
     const [persons, setPersons] = useState({});
     const [user, setUser] = useState({});
+    const [products, setProducts] = useState({});
     const [account, setAccount] = useState({});
     const [token, _setToken] = useState(localStorage.getItem("ACCESS_TOKEN"));
     // const [token, _setToken] = useState("321");
@@ -53,6 +55,8 @@ export const ContextProvider = ({ children }) => {
                 setPersons,
                 isLoading,
                 setIsLoading,
+                products,
+                setProducts,
             }}
         >
             {children}

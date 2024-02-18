@@ -58,24 +58,68 @@
     gap: 5px;
 
     .tool {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 26px;
         height: 26px;
-        background: url(../img/svg/settings/settings.svg);
-        background-size: contain;
-    }
+        background: url(../img/svg/settings/settings.svg) top no-repeat;
+        box-shadow: 0 0 15px rgba(254, 169, 57, 0.874);
+        transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
 
-    .exitBtn {
-        button {
-            width: 78px;
-            height: 26px;
-            background: url(../img/svg/settings/btnExit.svg);
-            color: #fff;
-            font-family: "Source Serif Pro";
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
+        &:hover {
+            box-shadow: 0 0 20px rgba(254, 168, 57, 1.5);
         }
+
+        .toolIcon {
+            width: 20px;
+            height: 20px;
+            background: url(../img/svg/settings/icons8-шестерня-50.png)
+                no-repeat;
+            transition: transform 0.5s ease-in-out, background 0.5s; // Добавлено свойство background
+            background-size: contain;
+
+            &:hover {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+
+.blinkLight {
+    box-shadow: 0 0 10px rgba(254, 169, 57, 0.54);
+    transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
+
+    &:hover {
+        box-shadow: 0 0 20px rgba(254, 168, 57, 1.5);
+        transform: scale(1.02);
+    }
+}
+
+.imageVip {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+// @keyframes rotate {
+//     0% {
+//         transform: rotate(0deg);
+//     }
+//     100% {
+//         transform: rotate(360deg);
+//     }
+// }
+
+.exitBtn {
+    button {
+        width: 78px;
+        height: 26px;
+        background: url(../img/svg/settings/btnExit.svg);
+        color: #fff;
+        font-family: "Source Serif Pro";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
     }
 }
 
@@ -155,7 +199,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 29px;
+    gap: 15px;
 
     p {
         color: #fff;
@@ -180,10 +224,30 @@
     }
 }
 
-.imageVip {
-    width: 21px;
-    height: 21px;
-    background: url(../img/svg/settings/starVip.svg);
+.imageVip img {
+    width: 20px;
+    height: 20px;
+    filter: drop-shadow(0 0 5px #ff8800);
+    transition: filter 0.5s ease-in-out; /* Плавное изменение фильтра (тени) */
+
+    &:hover {
+        animation: pulse 1s infinite; /* Анимация мерцания */
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: scale(1.1);
+        filter: brightness(1.5);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
 }
 
 .statusVipAccount {
