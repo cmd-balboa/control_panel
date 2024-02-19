@@ -13,7 +13,29 @@ export default function DefaultLayout() {
         setPersons,
         notification,
         setIsLoading,
+        setProducts,
     } = useStateContext();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const productResponse = await axiosClient.get(`/shugoproduct`);
+                setProducts(productResponse.data.data);
+                console.log(productResponse.data.data);
+
+                const userResponse = await axiosClient.get("/user");
+                console.log(userResponse.data);
+                setUser(userResponse.data.user);
+                setAccount(userResponse.data.account);
+                setPersons(userResponse.data.persons);
+                setIsLoading(false);
+            } catch (error) {
+                setIsLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     if (!token) {
         return <Navigate to="/login" />;
@@ -27,21 +49,6 @@ export default function DefaultLayout() {
             setToken(null);
         });
     };
-
-    useEffect(() => {
-        axiosClient
-            .get("/user")
-            .then(({ data }) => {
-                console.log(data);
-                setUser(data.user);
-                setAccount(data.account);
-                setPersons(data.persons);
-                setIsLoading(false);
-            })
-            .catch((err) => {
-                setIsLoading(false);
-            });
-    }, []);
 
     return (
         <div id="defaultLayout">
@@ -58,14 +65,23 @@ export default function DefaultLayout() {
                         </div>
                         <div>
                             <Link to="/download">
-                                <h1 className="active">СКАЧАТЬ</h1>
+                                <h1>СКАЧАТЬ</h1>
                             </Link>
                         </div>
                         <div>
-                            <a href="#">ПРЕМИУМ</a>
+                            <Link to="/donate">
+                                <h1>ДОНАТ</h1>
+                            </Link>
                         </div>
                         <div>
-                            <a href="#">САЙТ</a>
+                            <Link to="/shugoexpress">
+                                <h1>SHUGO EXPRESS</h1>
+                            </Link>
+                        </div>
+                        <div>
+                            <a href="https://worldaion.com/">
+                                <h1>САЙТ</h1>
+                            </a>
                         </div>
                     </div>
                     <div className="languageChange">
@@ -90,8 +106,8 @@ export default function DefaultLayout() {
                         </a> */}
                     </div>
                 </header>
-                <div className="backgroundViews"></div>
                 <main>
+                    {/* <div className="backgroundViews"></div> */}
                     <Outlet />
                 </main>
                 {notification && (
@@ -108,7 +124,7 @@ export default function DefaultLayout() {
                         <a href="#">
                             <p>Безопасность платежей</p>
                         </a>
-                        <p>1 GP = 1 RUB</p>
+                        {/* <p>1 GP = 1 RUB</p> */}
                     </div>
                     <div className="social-network">
                         <div className="social-icons">

@@ -401,19 +401,35 @@ table > tbody > tr > td {
           align-items: center;
 }
 
-#defaultLayout main {
-  min-height: 86vh;
-  padding: 10rem;
+.downloadBoard {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.backgroundViews {
-  position: absolute;
-  min-height: 91vh;
-  width: 100%;
-  background: url(https://fonoteka.top/uploads/posts/2022-01/1642451358_26-phonoteka-org-p-aion-fon-krasivo-28.jpg);
+#defaultLayout main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  height: calc(100vh - 130px);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.45) url(https://fonoteka.top/uploads/posts/2022-01/1642451358_26-phonoteka-org-p-aion-fon-krasivo-28.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 45%;
+  background-blend-mode: multiply;
+}
+
+#defaultLayout .content {
+  min-height: 100dvh;
 }
 
 @-webkit-keyframes bgAnimation {
@@ -970,12 +986,67 @@ footer {
   gap: 5px;
 }
 .settings .tool {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 26px;
   height: 26px;
-  background: url(../img/svg/settings/settings.svg);
+  background: url(../img/svg/settings/settings.svg) top no-repeat;
+  -webkit-box-shadow: 0 0 15px rgba(254, 169, 57, 0.874);
+          box-shadow: 0 0 15px rgba(254, 169, 57, 0.874);
+  -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+}
+.settings .tool:hover {
+  -webkit-box-shadow: 0 0 20px rgb(254, 168, 57);
+          box-shadow: 0 0 20px rgb(254, 168, 57);
+}
+.settings .tool .toolIcon {
+  width: 20px;
+  height: 20px;
+  background: url(../img/svg/settings/icons8-шестерня-50.png) no-repeat;
+  -webkit-transition: background 0.5s, -webkit-transform 0.5s ease-in-out;
+  transition: background 0.5s, -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, background 0.5s;
+  transition: transform 0.5s ease-in-out, background 0.5s, -webkit-transform 0.5s ease-in-out;
   background-size: contain;
 }
-.settings .exitBtn button {
+.settings .tool .toolIcon:hover {
+  -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.blinkLight {
+  -webkit-box-shadow: 0 0 10px rgba(254, 169, 57, 0.54);
+          box-shadow: 0 0 10px rgba(254, 169, 57, 0.54);
+  -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+}
+.blinkLight:hover {
+  -webkit-box-shadow: 0 0 20px rgb(254, 168, 57);
+          box-shadow: 0 0 20px rgb(254, 168, 57);
+  -webkit-transform: scale(1.02);
+      -ms-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.imageVip {
+  -webkit-animation: pulse 2s ease-in-out infinite;
+          animation: pulse 2s ease-in-out infinite;
+}
+
+.exitBtn button {
   width: 78px;
   height: 26px;
   background: url(../img/svg/settings/btnExit.svg);
@@ -1093,7 +1164,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 29px;
+  gap: 15px;
 }
 .vipAccount p {
   color: #fff;
@@ -1115,12 +1186,62 @@ footer {
   line-height: normal;
 }
 
-.imageVip {
-  width: 21px;
-  height: 21px;
-  background: url(../img/svg/settings/starVip.svg);
+.imageVip img {
+  width: 20px;
+  height: 20px;
+  -webkit-filter: drop-shadow(0 0 5px #ff8800);
+          filter: drop-shadow(0 0 5px #ff8800);
+  -webkit-transition: -webkit-filter 0.5s ease-in-out;
+  transition: -webkit-filter 0.5s ease-in-out;
+  transition: filter 0.5s ease-in-out;
+  transition: filter 0.5s ease-in-out, -webkit-filter 0.5s ease-in-out; /* Плавное изменение фильтра (тени) */
+}
+.imageVip img:hover {
+  -webkit-animation: pulse 1s infinite;
+          animation: pulse 1s infinite; /* Анимация мерцания */
 }
 
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-filter: brightness(1.5);
+            filter: brightness(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-filter: brightness(1.5);
+            filter: brightness(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+}
 .statusVipAccount {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1813,6 +1934,13 @@ footer {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.headerInfo h1 {
+  font-family: "El Messiri", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0%;
+  text-align: left;
+}
 
 .flag {
   width: 30px;
@@ -1846,9 +1974,9 @@ footer {
 #defaultLayout .active {
   color: #fff;
   font-family: "Source Serif Pro";
-  font-size: 15px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
 }
 
@@ -2086,4 +2214,782 @@ footer {
   font-weight: 700;
   line-height: 16px;
   letter-spacing: 0%;
+}
+
+.donateBoard {
+  width: 453px;
+  height: 660px;
+  border-radius: 12px;
+  background: rgb(25, 25, 25);
+}
+
+.container {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.paymentTitle {
+  /* фрейм 18 */
+  left: 606px;
+  right: 1014px;
+  top: 373px;
+  bottom: 648px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 0px 0px 5px 0px;
+}
+
+.donatePay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.paymentSystems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  gap: 2px;
+}
+.paymentSystems h2 {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0%;
+  text-align: left;
+}
+.paymentSystems button {
+  width: 133px;
+  height: 42px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  margin: 0px 1px;
+  border-radius: 2px;
+  background: rgb(35, 35, 35);
+}
+
+.enotSystem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 2px;
+  width: 133px;
+  height: 42px;
+  background: rgb(35, 35, 35);
+}
+
+.paymentRules {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.lavaSystem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 2px;
+  width: 133px;
+  height: 42px;
+  background: rgb(35, 35, 35);
+}
+
+.paypalychSystem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 2px;
+  width: 133px;
+  height: 42px;
+  background: rgb(35, 35, 35);
+}
+
+.donate--rules {
+  /* фрейм 17 */
+  width: 384px;
+  left: 616px;
+  right: 920px;
+  top: 433px;
+  bottom: 399px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px;
+  gap: 15px;
+}
+
+.additionalContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btnPay__row {
+  /* фрейм 15 */
+  position: relative;
+  width: 223px;
+  height: 58px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.activePayment {
+  background: rgb(254, 168, 57) !important;
+  -webkit-box-shadow: 0 0 10px rgba(254, 168, 57, 0.5);
+          box-shadow: 0 0 10px rgba(254, 168, 57, 0.5); /* Тень для активной кнопки */
+  -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s; /* Плавная анимация изменения фона, тени и масштаба */
+  -webkit-transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+
+/* Добавим изменение цвета тени при наведении */
+.activePayment:hover {
+  -webkit-box-shadow: 0 0 15px rgb(254, 168, 57);
+          box-shadow: 0 0 15px rgb(254, 168, 57); /* Более выраженная тень при наведении */
+}
+
+.donate--rules li {
+  color: #878787; /* Цвет текста */
+  list-style-type: none; /* Убираем маркеры списка */
+  position: relative;
+  padding: 6px 0px 6px 5px; /* Добавляем отступ слева */
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s; /* Трансишн для изменения масштаба */
+}
+
+/* Эффект при наведении */
+.donate--rules li:hover {
+  -webkit-transform: scale(1.08);
+      -ms-transform: scale(1.08);
+          transform: scale(1.08); /* Увеличиваем масштаб при наведении */
+  color: #b2b2b2;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Добавляем тень при наведении */
+  border-radius: 3px;
+}
+
+/* Стили для активных элементов списка (например, выделенных программно) */
+.donate--rules li.active {
+  background-color: #ff7f50;
+  color: #fff;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 0 0 15px rgba(255, 127, 80, 0.7);
+          box-shadow: 0 0 15px rgba(255, 127, 80, 0.7);
+  border-radius: 5px;
+  -webkit-transition: color 0.3s ease-in-out, border-radius 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-radius 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+}
+
+.payInput input {
+  /* фрейм 14 */
+  width: 223px;
+  height: 26px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+}
+
+.payBtn button {
+  /* фрейм 8 */
+  position: static;
+  width: 223px;
+  height: 26px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  margin: 6px 0px;
+  border-radius: 2px;
+  background: rgb(254, 168, 57);
+}
+.payBtn button h2 {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.donate--title {
+  width: 408px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+}
+.donate--title p {
+  color: rgb(254, 168, 57);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 19px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.informationPayment button {
+  width: 405px;
+  height: 42px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  margin: 0px 1px;
+  border-radius: 2px;
+  background: rgb(35, 35, 35);
+}
+
+.paymentMethods {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.unavailable {
+  width: 133px;
+  height: 42px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  margin: 0px 1px;
+  border-radius: 2px;
+  background: rgb(35, 35, 35);
+  color: #fff; /* Добавляем белый цвет текста, чтобы он был виден на темном фоне */
+}
+
+/* Добавляем стили для заголовка внутри блока */
+.unavailable h2 {
+  margin: 0; /* Убираем внутренние отступы заголовка */
+  font-size: 16px; /* Регулируем размер шрифта заголовка */
+}
+
+.unavailable-container {
+  text-align: center;
+}
+
+.unavailable-message {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.icon {
+  font-size: 20px;
+  color: #ffa333;
+  -webkit-animation: pulse 2s ease-in-out infinite;
+          animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+}
+.expressBoard {
+  width: 959px;
+  height: 722px;
+  left: 566px;
+  right: 395px;
+  top: 271px;
+  bottom: 87px;
+  border-radius: 19px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background: rgb(25, 25, 25);
+}
+
+.product {
+  width: 219px;
+  height: 324px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 10px;
+  border-radius: 13px;
+  gap: 18px;
+  background: rgb(16, 16, 16);
+}
+.product .image--product {
+  width: 199px;
+  height: 200px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-radius: 12px;
+  background: rgb(24, 24, 24);
+}
+.product .image--product img {
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+}
+.product .product--information {
+  width: 197px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.express--products {
+  width: 937px;
+  height: 650px;
+  border-radius: 40px;
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; /* Разрешаем автоматический перенос элементов на новую строку */
+  overflow: scroll;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 0px 0px 0px 21px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  margin: -20px 0px;
+  gap: 11px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; /* Сохраняем 3D-пространство */
+}
+
+.express--products::-webkit-scrollbar {
+  width: 0px; /* Ширина полосы прокрутки */
+}
+
+.expressBtn button {
+  width: 138px;
+  height: 29px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 4px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: linear-gradient(18.57deg, rgb(252, 115, 23) -16.21%, rgb(255, 219, 90) 144.917%);
+}
+.expressBtn button p {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0%;
+}
+
+.product--title h2 {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0%;
+}
+
+.product--price h3 {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0%;
+}
+
+.express--header {
+  width: 959px;
+  height: 62px;
+  left: 566px;
+  right: 395px;
+  top: 237px;
+  bottom: 781px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 54px;
+}
+.express--header .express--category {
+  /* Автолейаут */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 750px;
+}
+
+.premium button {
+  width: 30px;
+  height: 30px;
+  background: url(../img/shugoexpress/premium--category/premium.svg) top no-repeat;
+  -webkit-filter: drop-shadow(0 0 10px #ff8800);
+          filter: drop-shadow(0 0 10px #ff8800);
+  -webkit-transition: -webkit-filter 0.5s ease-in-out;
+  transition: -webkit-filter 0.5s ease-in-out;
+  transition: filter 0.5s ease-in-out;
+  transition: filter 0.5s ease-in-out, -webkit-filter 0.5s ease-in-out; /* Плавное изменение фильтра (тени) */
+  -webkit-animation: pulse 2s ease-in-out infinite;
+          animation: pulse 2s ease-in-out infinite;
+}
+.premium button:hover {
+  -webkit-animation: pulse 1s infinite;
+          animation: pulse 1s infinite; /* Анимация мерцания */
+}
+
+.express--header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 50px;
+}
+
+.ribbon {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px;
+  height: 75px;
+  text-align: right;
+}
+
+.ribbon span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: #79a70a;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f70505), to(#8f0808));
+  background: linear-gradient(#f70505 0%, #8f0808 100%);
+  -webkit-box-shadow: 0 3px 10px -5px rgb(0, 0, 0);
+          box-shadow: 0 3px 10px -5px rgb(0, 0, 0);
+  position: absolute;
+  top: 19px;
+  right: -21px;
+}
+
+.ribbon span::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid #8f0808;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #8f0808;
+}
+
+.ribbon span::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #8f0808;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #8f0808;
+}
+
+.expressContent {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 25px;
 }

@@ -1,0 +1,215 @@
+.expressBoard {
+    width: 959px;
+    height: 722px;
+    left: 566px;
+    right: 395px;
+    top: 271px;
+    bottom: 87px;
+
+    border-radius: 19px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background: rgb(25, 25, 25);
+}
+
+.product {
+    width: 219px;
+    height: 324px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 13px;
+    gap: 18px;
+
+    background: rgb(16, 16, 16);
+
+    .image--product {
+        width: 199px;
+        height: 200px;
+        /* Автолейаут */
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border-radius: 12px;
+
+        background: rgb(24, 24, 24);
+
+        img {
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .product--information {
+        width: 197px;
+        /* Автолейаут */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+.express--products {
+    width: 937px;
+    height: 650px;
+    border-radius: 40px;
+    /* Автолейаут */
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем автоматический перенос элементов на новую строку */
+    overflow: scroll;
+    flex-direction: row;
+    align-items: flex-start;
+    // padding: 15px 63px 15px 21px;
+    padding: 0px 0px 0px 21px;
+    flex: none;
+    margin: -20px 0px;
+    gap: 11px;
+    transform-style: preserve-3d; /* Сохраняем 3D-пространство */
+}
+
+.express--products::-webkit-scrollbar {
+    width: 0px; /* Ширина полосы прокрутки */
+}
+
+.expressBtn button {
+    width: 138px;
+    height: 29px;
+    display: flex;
+
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        18.57deg,
+        rgb(252, 115, 23) -16.21%,
+        rgb(255, 219, 90) 144.917%
+    );
+    p {
+        color: rgb(255, 255, 255);
+        font-family: "El Messiri", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0%;
+    }
+}
+
+.product--title h2 {
+    color: rgb(255, 255, 255);
+    font-family: "El Messiri", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0%;
+}
+
+.product--price h3 {
+    color: rgb(255, 255, 255);
+    font-family: "El Messiri", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0%;
+}
+
+.express--header {
+    width: 959px;
+    height: 62px;
+    left: 566px;
+    right: 395px;
+    top: 237px;
+    bottom: 781px;
+    justify-content: center;
+    gap: 54px;
+
+    .express--category {
+        /* Автолейаут */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 750px;
+    }
+}
+
+.premium button {
+    width: 30px;
+    height: 30px;
+    background: url(../img/shugoexpress/premium--category/premium.svg) top
+        no-repeat;
+    filter: drop-shadow(0 0 10px #ff8800);
+    transition: filter 0.5s ease-in-out; /* Плавное изменение фильтра (тени) */
+
+    &:hover {
+        animation: pulse 1s infinite; /* Анимация мерцания */
+    }
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.express--header {
+    display: flex;
+    gap: 50px;
+}
+.ribbon {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 75px;
+    height: 75px;
+    text-align: right;
+}
+.ribbon span {
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 100px;
+    display: block;
+    background: #79a70a;
+    background: linear-gradient(#f70505 0%, #8f0808 100%);
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px;
+    right: -21px;
+}
+.ribbon span::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid #8f0808;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #8f0808;
+}
+.ribbon span::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid transparent;
+    border-right: 3px solid #8f0808;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #8f0808;
+}
+
+.expressContent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}

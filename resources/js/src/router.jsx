@@ -5,11 +5,13 @@ import Login from "./assets/views/Login";
 import Signup from "./assets/views/Signup";
 import NotFound from "./assets/views/NotFound";
 import Dashboard from "./assets/views/Dashboard";
+import ShugoExpress from "./assets/views/ShugoExpress";
 import Users from "./assets/views/Users";
 import UserForm from "./assets/views/UserForm";
 import Settings from "./assets/views/Settings";
 import Download from "./assets/views/Download";
 import Achievement from "./assets/views/Achievement";
+import Donate from "./assets/views/Donate";
 
 const router = createBrowserRouter([
     {
@@ -19,15 +21,23 @@ const router = createBrowserRouter([
             {
                 // Теперь при переходе на / попадем на Users
                 path: "/",
-                element: <Navigate to="/Dashboard" />,
+                element: <Navigate to="/dashboard" />,
             },
             {
                 path: "/dashboard",
                 element: <Dashboard />,
             },
             {
+                path: "/shugoexpress",
+                element: <ShugoExpress />,
+            },
+            {
                 path: "/settings",
                 element: <Settings />,
+            },
+            {
+                path: "/donate",
+                element: <Donate />,
             },
             {
                 path: "/Download",

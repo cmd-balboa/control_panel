@@ -8,6 +8,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    h1 {
+        font-family: "El Messiri", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0%;
+        text-align: left;
+    }
 }
 
 .flag {
@@ -39,9 +47,9 @@
 #defaultLayout .active {
     color: #fff;
     font-family: "Source Serif Pro";
-    font-size: 15px;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     line-height: normal;
 }
 
