@@ -5,11 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\ShugoExpressController;
+
 
 Route::middleware('auth:sanctum')->group(function () {
 
     // info about current user
     Route::get('/user', [UserController::class, 'getUser']);
+
+    Route::get('/shugoproduct', [ShugoExpressController::class, 'getProduct']);
+    Route::post('/productPurchase', [ShugoExpressController::class, 'productPurchase']);
 
     Route::post('/updatePassword', [UserController::class, 'updatePassword']);
     Route::post('/updateEmail', [UserController::class, 'updateEmail']);
@@ -18,7 +23,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
 
+
     Route::post('/testpay', [PaymentController::class, 'umoney']);
+
 
     Route::apiResource('/users', UserController::class);
 });
