@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\ShugoExpressController;
 
+
 Route::middleware('auth:sanctum')->group(function () {
 
     // info about current user
@@ -21,6 +22,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
     Route::post('/logout', [AuthController::class, 'logout']);
+
+
+    Route::post('/testpay', [PaymentController::class, 'umoney']);
+
 
     Route::apiResource('/users', UserController::class);
 });
