@@ -1,6 +1,6 @@
 .expressBoard {
-    width: 959px;
-    height: 722px;
+    width: 100%;
+    height: 728px;
     left: 566px;
     right: 395px;
     top: 271px;
@@ -8,7 +8,6 @@
 
     border-radius: 19px;
     display: flex;
-    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 
@@ -60,24 +59,37 @@
 
 .express--products {
     width: 937px;
-    height: 650px;
+    min-height: 100%;
     border-radius: 40px;
     /* Автолейаут */
     display: flex;
     flex-wrap: wrap; /* Разрешаем автоматический перенос элементов на новую строку */
-    overflow: scroll;
+    // overflow: scroll;
     flex-direction: row;
     align-items: flex-start;
     // padding: 15px 63px 15px 21px;
     padding: 0px 0px 0px 21px;
     flex: none;
-    margin: -20px 0px;
     gap: 11px;
     transform-style: preserve-3d; /* Сохраняем 3D-пространство */
 }
 
-.express--products::-webkit-scrollbar {
-    width: 0px; /* Ширина полосы прокрутки */
+// .express--products::-webkit-scrollbar {
+//     width: 0px; /* Ширина полосы прокрутки */
+// }
+
+.expressBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.lotProducts input {
+    height: 30px;
+    width: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 .expressBtn button {
@@ -134,7 +146,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 750px;
+        gap: 840px;
     }
 }
 
@@ -151,6 +163,59 @@
     }
     animation: pulse 2s ease-in-out infinite;
 }
+
+// СКРОЛЛ
+
+// .express--scroll {
+//     border-radius: 40px;
+//     overflow: scroll;
+// }
+
+.express--scroll::-webkit-scrollbar {
+    width: 0px; /* Ширина полосы прокрутки */
+}
+
+// СКРОЛЛ
+
+.express--scroll {
+    overflow-y: auto;
+    max-height: 640px; /* Укажите желаемую максимальную высоту контейнера */
+    margin: 9px 0px 0px 0px;
+    border-radius: 50px;
+    z-index: 1; /* Установите значение z-index на ваше усмотрение */
+    // &::before,
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     left: 0;
+    //     right: 0;
+    //     height: 20px;
+    //     border-radius: 20px;
+    //     z-index: -1;
+    // }
+
+    // &::before {
+    //     content: "";
+    //     position: absolute;
+    //     left: 21px;
+    //     width: 911px;
+    //     height: 640px;
+    //     z-index: 2;
+    //     top: 70px;
+    //     border-radius: 20px;
+    //     box-shadow: 0 0 30px rgba(0, 0, 0, 0),
+    //         inset 0 0 10px rgba(255, 255, 255, 0.45); /* Усиленный эффект тени сверху */
+    // }
+}
+
+// &::after {
+//     left: 20px;
+//     width: 910px;
+//     z-index: 1;
+//     bottom: 15px;
+//     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3),
+//         inset 0 0 5px rgba(255, 255, 255, 0.5); /* Тень снизу */
+// }
 
 .express--header {
     display: flex;
@@ -208,8 +273,215 @@
 }
 
 .expressContent {
-    height: 100%;
+    overflow: hidden;
+    // height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 25px;
 }
+
+// burger
+
+.burgerClose {
+    display: none;
+    cursor: pointer;
+    color: #fff; /* Цвет крестика */
+    opacity: 0; /* Установим начальную непрозрачность */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#menuToggle {
+    display: block;
+    position: relative;
+
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 35px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+
+    cursor: pointer;
+
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+
+    -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: #cdcdcd;
+    border-radius: 3px;
+
+    z-index: 1;
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-10px, -20px);
+    background: #cdcdcd;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, 10px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.balanceWP {
+    display: flex;
+    justify-content: center;
+    h3 {
+        color: rgb(255, 255, 255);
+        font-family: "El Messiri", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+    }
+}
+
+///burger
+
+.expressmenu {
+    display: block;
+    position: fixed;
+    overflow: scroll;
+    right: -260px; /* Изначально за пределами экрана */
+    width: 250px;
+    height: 73%;
+    top: 195px;
+    background-color: rgb(25, 25, 25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    border-radius: 15px;
+    animation: fadeIn 0.4s ease-in-out forwards; /* Анимация появления */
+
+    h2 {
+        color: rgb(255, 255, 255);
+        font-family: "El Messiri", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+    }
+}
+
+.expressmenu ul {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.expressmenu li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    color: #fff; /* Цвет текста */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.expressmenu h2:hover {
+    color: #ffcc00; /* Цвет текста при наведении */
+}
+
+.expressBurgerMenu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: fixed;
+    right: -260px; /* Изначально за пределами экрана */
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    border-radius: 15px;
+    animation: fadeIn 0.4s ease-in-out forwards; /* Анимация появления */
+}
+
+.expressSelect {
+    display: flex;
+    justify-content: center;
+
+    right: -260px; /* Изначально за пределами экрана */
+    width: 250px;
+    height: 25%;
+    background-color: rgb(25, 25, 25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    border-radius: 15px;
+    animation: fadeIn 0.4s ease-in-out forwards; /* Анимация появления */
+}
+
+.expressmenu::-webkit-scrollbar {
+    width: 0px; /* Ширина полосы прокрутки */
+}
+///burger

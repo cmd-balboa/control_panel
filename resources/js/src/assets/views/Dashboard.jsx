@@ -114,6 +114,7 @@ export default function Dashboard() {
                                         </div>
                                     </div>
                                 </div>
+
                                 <div className="accountBoard animated fadeInDown">
                                     <div className="accountInfo">
                                         <div className="userBoard">
@@ -204,8 +205,8 @@ export default function Dashboard() {
                                 <div className="payment animated fadeInDown">
                                     <div className="topUp">
                                         <div className="paymentBoard">
-                                            {/* <div className="balanceStatus">
-                                            <p>Баланс</p>
+                                            <div className="balanceStatus">
+                                                {/* <p>Баланс</p>
                                             <hr />
                                             {user.coin} GP
                                         </div>
@@ -213,8 +214,15 @@ export default function Dashboard() {
                                             <input type="text" />
                                             <button>
                                                 <p>ПОПОЛНИТЬ</p>
-                                            </button>
-                                        </div> */}
+                                            </button> */}
+                                                {/* <iframe
+                                                    src="https://docs.google.com/forms/d/e/1FAIpQLSdloVWUBJm80XpePVyuHlrwTMI4Pq-lq1PYcpWMIZMtu59wYw/viewform?embedded=true"
+                                                    width="640"
+                                                    height="939"
+                                                >
+                                                    Загрузка…
+                                                </iframe> */}
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="vipAccount">
@@ -308,7 +316,13 @@ export default function Dashboard() {
                                                 {account.membership == 0
                                                     ? "Неактивен"
                                                     : "Активен"}
+                                                &nbsp;
+                                                {moment(
+                                                    account.expire,
+                                                    "YYYYMMDD"
+                                                ).fromNow()}
                                             </h1>
+                                            {/* <h1></h1> */}
                                         </div>
                                     </div>
                                     <div className="decorative"></div>

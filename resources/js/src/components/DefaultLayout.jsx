@@ -21,7 +21,6 @@ export default function DefaultLayout() {
             try {
                 const productResponse = await axiosClient.get(`/shugoproduct`);
                 setProducts(productResponse.data.data);
-                console.log(productResponse.data.data);
 
                 const userResponse = await axiosClient.get("/user");
                 console.log(userResponse.data);
