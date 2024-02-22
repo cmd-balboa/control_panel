@@ -21,6 +21,7 @@ class ProductSeeder extends Seeder
                 'desc' => $faker->paragraph,
                 'price' => rand(10, 100),
                 'vip' => 0,
+                'islot' => 1,
                 'day' => 0,
             ]);
         }
@@ -33,7 +34,9 @@ class ProductSeeder extends Seeder
             'desc' => "VIP exp x2, drop x2",
             'price' => 100,
             'vip' => 1,
+            'islot' => 0,
             'day' => 1,
+            'priority' => 1
         ]);
         Product::create([
             'title' => "VIP ACCOUNT 7 DAY",
@@ -42,7 +45,9 @@ class ProductSeeder extends Seeder
             'desc' => "VIP exp x2, drop x2",
             'price' => 200,
             'vip' => 1,
+            'islot' => 0,
             'day' => 7,
+            'priority' => 1
         ]);
         Product::create([
             'title' => "VIP ACCOUNT 14 DAY",
@@ -51,7 +56,9 @@ class ProductSeeder extends Seeder
             'desc' => "VIP exp x2, drop x2",
             'price' => 400,
             'vip' => 1,
+            'islot' => 0,
             'day' => 14,
+            'priority' => 1
         ]);
         Product::create([
             'title' => "VIP ACCOUNT 30 DAY",
@@ -60,7 +67,21 @@ class ProductSeeder extends Seeder
             'desc' => "VIP exp x2, drop x2",
             'price' => 700,
             'vip' => 1,
+            'islot' => 0,
             'day' => 30,
+            'priority' => 1
+        ]);
+
+        Product::create([
+            'title' => "Water",
+            'category' => "augment",
+            'icon' => "https://sun9-45.userapi.com/impf/c626317/v626317779/450ff/lKLj0f9oG_g.jpg?size=550x550&quality=96&sign=bb4be84349aedc00553e13719b74bd14&c_uniq_tag=E9F4YlqHVMJ_srBpdxkC9ZNPS6F7lEjQ1Pu3lxPrdxI&type=album",
+            'desc' => "",
+            'price' => 500,
+            'vip' => 0,
+            'islot' => 1,
+            'day' => 0,
+            'priority' => 2
         ]);
     }
 }

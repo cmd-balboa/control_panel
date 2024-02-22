@@ -7,23 +7,29 @@ use App\Models\Product;
 use App\Http\Resources\ProductResource;
 use App\Http\Requests\PurchaseProductRequest;
 use App\Services\VipService;
-
+use App\Services\ShugoShopService;
+use Illuminate\Support\Facades\Log;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 
 class ShugoExpressController extends Controller
 {
 
     protected $vipService;
+    protected $shugoShopService;
+    protected $userService;
 
-    public function __construct(VipService $vipService)
+    public function __construct()
     {
-        $this->vipService = $vipService;
+        $this->vipService = new VipService;
+        $this->shugoShopService = new ShugoShopService;
+        $this->userService = new UserService;
     }
     
     public function getProduct(Request $request) {
 
         $products = Product::all()
-            ->sortByDesc('vip')
+            ->sortByDesc('priority')
             ->sortBy([
                 'category' => 'asc',
                 'created_at' => 'asc',
@@ -37,21 +43,34 @@ class ShugoExpressController extends Controller
 
     public function productPurchase(PurchaseProductRequest $request) {
 
-        $data = $request->validated();
+        
+        Log::info($request);
+        $valid = $request->validated();
+        $ip = $request->getClientIp();
         $user = $request->user();
 
-        $product = Product::find($data['id']);
+        $data = [
+            'user' => $user,
+            'product' => Product::find($valid['id']),
+            'personId' => $valid['personId'],
+            'personName' => $valid['personName'],
+            'ip' => $ip,
+            'lot' => $valid['lot'],
+        ];
 
-        if($product->vip){
+        if($data['product']->vip){
 
-            $status = $this->vipService->vipConnection($user, $product);
-
-        }else {
-
-            $status = "just product, need service for buy";
+            $status = $this->vipService->vipConnection($data);
             
+        }else {
+            
+            $status = $this->shugoShopService->giveProduct($data);
         }
+
+        $accessLog = $this->userService->getConnectionVipLog($user->name);
+        $connectionVipLog = $this->userService->getPurchasedLog($user->name);
         
-        return response(compact('product', 'user', 'status'));
+
+        return response(compact('user', 'status', 'accessLog', 'connectionVipLog'));
     }
 }
