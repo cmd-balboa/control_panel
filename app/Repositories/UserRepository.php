@@ -43,7 +43,7 @@ class UserRepository
 
         $account = $this->AionDB->table('account_data')
             ->where('name', '=', $name)
-            ->select('activated', 'membership', 'last_ip', 'expire_access_level')
+            ->select('activated', 'membership', 'last_ip', 'expire_access_level', 'expire')
             ->first();
 
         return $account;
@@ -65,13 +65,42 @@ class UserRepository
     }
 
     // for repair
-    public function onePerson($id)
-    {
+    public function onePerson($id){
+        
         $person = $this->AionDB->table('players')
             ->where('id', '=', $id)
             ->select('id', 'race', 'online')
             ->first();
 
         return $person;
+    }
+
+    public function purchasedLog($name){
+
+        $log = DB::table('product_logs')
+            ->where('account_name', '=', $name)
+            ->select('id', 'account_name', 'personName', 'title', 'price', 'lot')
+            ->get();
+
+        return $log;
+    }
+    public function connectionVipLog($name){
+
+        $log = DB::table('connect_vip_logs')
+            ->where('account_name', '=', $name)
+            ->select('id', 'account_name', 'title', 'price', 'day')
+            ->get();
+
+        return $log;
+    }
+
+    public function accessLog($name){
+
+        $log = DB::table('access_user_logs')
+            ->where('account_name', '=', $name)
+            ->select('id', 'account_name', 'email', 'ip')
+            ->get();
+
+        return $log;
     }
 }

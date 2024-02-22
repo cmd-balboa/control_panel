@@ -12,9 +12,9 @@ class UserService
     protected $userRepository;
     protected $AionDB;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct()
     {
-        $this->userRepository = $userRepository;
+        $this->userRepository = new UserRepository;
         $this->AionDB = DB::connection('aiondb');
     }
 
@@ -26,6 +26,18 @@ class UserService
     public function getPersons($name)
     {
         return $this->userRepository->persons($name);
+    }
+    public function getPurchasedLog($name)
+    {
+        return $this->userRepository->purchasedLog($name);
+    }
+    public function getConnectionVipLog($name)
+    {
+        return $this->userRepository->connectionVipLog($name);
+    }
+    public function getAccessLog($name)
+    {
+        return $this->userRepository->accessLog($name);
     }
 
     public function changeUserPassword($request, $user)

@@ -11,22 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_logs', function (Blueprint $table) {
+        Schema::create('connect_vip_logs', function (Blueprint $table) {
             $table->id();
             $table->string('account_name');
             $table->integer('product_id');
-            $table->string('personId')->nullable();
-            $table->string('personName')->nullable();
             $table->string('title')->nullable();
-            $table->string('item_code')->nullable();
             $table->integer('price')->default(0);
             $table->integer('discount')->default(0);
-            $table->integer('lot')->default(1);
+            $table->integer('vip')->default(0);
+            $table->integer('day')->default(0);
+            $table->string('lable')->nullable();
             $table->string('ip')->nullable();
             $table->string('category')->nullable();
-            $table->string('icon')->nullable();
-            $table->string('lable')->nullable();
-            $table->text('desc')->nullable();
             $table->timestamps();
         });
     }
@@ -36,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_logs');
+        Schema::dropIfExists('connect_vip_logs');
     }
 };

@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Services\UserService;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -31,7 +32,11 @@ class UserController extends Controller
         $account = $this->userService->getAccountInfo($user->name);
         $persons = $this->userService->getPersons($user->name);
 
-        return response(compact('user', 'account', 'persons'));
+        $purchasedLog = $this->userService->getPurchasedLog($user->name);
+        $connectionVipLog = $this->userService->getConnectionVipLog($user->name);
+        $accessLog = $this->userService->getAccessLog($user->name);
+
+        return response(compact('user', 'account', 'persons', 'purchasedLog', 'accessLog', 'connectionVipLog'));
     }
 
     public function updatePassword(UpdatePasswordRequest $request)
@@ -55,70 +60,5 @@ class UserController extends Controller
         $data = $request->validated();
 
         return $this->userService->movePerson($data, $request->user());
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function index()
-    {
-        return UserResource::collection(
-            User::query()->orderBy('id', 'desc')->paginate(10)
-        );
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreUserRequest $request)
-    {
-        $data = $request->validated();
-        $data['password'] = bcrypt($data['password']);
-        $user = User::create($data);
-
-        return response(new UserResource($user), 201);
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
-    {
-        return new UserResource($user);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateUserRequest $request, User $user)
-    {
-        $data = $request->validated();
-
-        if (isset($data['password'])) {
-            $data['password'] = bcrypt($data['password']);
-        }
-
-        $user->update($data);
-
-        return new UserResource($user);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        $user->delete();
-
-        return response("", 204);
     }
 }
