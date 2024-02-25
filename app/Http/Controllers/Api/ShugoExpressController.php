@@ -25,8 +25,9 @@ class ShugoExpressController extends Controller
         $this->shugoShopService = new ShugoShopService;
         $this->userService = new UserService;
     }
-    
-    public function getProduct(Request $request) {
+
+    public function getProduct(Request $request)
+    {
 
         $products = Product::all()
             ->sortByDesc('priority')
@@ -38,12 +39,12 @@ class ShugoExpressController extends Controller
 
 
         return ProductResource::collection($products);
-
     }
 
-    public function productPurchase(PurchaseProductRequest $request) {
+    public function productPurchase(PurchaseProductRequest $request)
+    {
 
-        
+
         Log::info($request);
         $valid = $request->validated();
         $ip = $request->getClientIp();
@@ -58,19 +59,18 @@ class ShugoExpressController extends Controller
             'lot' => $valid['lot'],
         ];
 
-        if($data['product']->vip){
+        if ($data['product']->vip) {
 
             $status = $this->vipService->vipConnection($data);
-            
-        }else {
-            
+        } else {
+
             $status = $this->shugoShopService->giveProduct($data);
         }
 
-        $accessLog = $this->userService->getConnectionVipLog($user->name);
-        $connectionVipLog = $this->userService->getPurchasedLog($user->name);
-        
+        $connectionVipLog = $this->userService->getConnectionVipLog($user->name);
+        $purchasedLog = $this->userService->getPurchasedLog($user->name);
 
-        return response(compact('user', 'status', 'accessLog', 'connectionVipLog'));
+
+        return response(compact('user', 'status', 'purchasedLog', 'connectionVipLog'));
     }
 }
