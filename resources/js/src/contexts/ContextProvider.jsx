@@ -10,6 +10,8 @@ const StateContext = createContext({
     setNotification: () => {},
     setPersons: () => {},
     setProducts: () => {},
+    setPurchasedLog: () => {},
+    setConnectionVipLog: () => {},
     setIsLoading: () => {},
 });
 
@@ -17,6 +19,8 @@ export const ContextProvider = ({ children }) => {
     const [persons, setPersons] = useState({});
     const [user, setUser] = useState({});
     const [products, setProducts] = useState({});
+    const [purchasedLog, setPurchasedLog] = useState({});
+    const [connectionVipLog, setConnectionVipLog] = useState({});
     const [account, setAccount] = useState({});
     const [token, _setToken] = useState(localStorage.getItem("ACCESS_TOKEN"));
     // const [token, _setToken] = useState("321");
@@ -57,6 +61,10 @@ export const ContextProvider = ({ children }) => {
                 setIsLoading,
                 products,
                 setProducts,
+                purchasedLog,
+                setPurchasedLog,
+                connectionVipLog,
+                setConnectionVipLog,
             }}
         >
             {children}

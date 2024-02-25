@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import axiosClient from "../../axios-client";
 import RecaptchaChange from "./recaptcha";
 import { useStateContext } from "../../contexts/ContextProvider";
+import Modal from "./TermsOfUseModal";
 
 export default function Signup() {
     const nameRef = useRef();
@@ -11,6 +12,8 @@ export default function Signup() {
     const [recaptchaToken, setRecaptchaToken] = useState(null); // Используйте состояние для хранения токена
     const passwordConfirmationRef = useRef();
     const [errors, setErrors] = useState(null);
+    const [checked, setChecked] = useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
 
     const { setUser, setToken } = useStateContext();
 
@@ -26,6 +29,7 @@ export default function Signup() {
             password: passwordRef.current.value,
             password_confirmation: passwordConfirmationRef.current.value,
             recaptchaToken: recaptchaToken,
+            agreement: checked,
         };
         axiosClient
             .post("/signup", payload)
@@ -41,6 +45,20 @@ export default function Signup() {
                 }
             });
     }
+
+    const handleTermsOfUse = () => {
+        setModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setChecked(false);
+        setModalOpen(false);
+    };
+
+    const handleAgreement = () => {
+        setChecked(true);
+        setModalOpen(false);
+    };
 
     return (
         <div className="login-signup-form animated fadeInDown">
@@ -77,6 +95,23 @@ export default function Signup() {
                             type="password"
                             placeholder="Password Confirmation"
                         />
+                        <div className="termsOfUse">
+                            <div className="checkBox">
+                                <input
+                                    type="checkbox"
+                                    checked={checked}
+                                    onChange={handleTermsOfUse}
+                                />
+                            </div>
+                            <div className="titleTermsOfUse">
+                                <h1>Пользовательское соглашение</h1>
+                            </div>
+                            <Modal
+                                isOpen={isModalOpen}
+                                onClose={handleModalClose}
+                                agreement={handleAgreement}
+                            />
+                        </div>
                         <RecaptchaChange onChange={handleRecaptchaChange} />
                         <button className="btn btn-block">Signup</button>
                         <p className="message">

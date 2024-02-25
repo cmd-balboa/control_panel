@@ -14,6 +14,8 @@ export default function DefaultLayout() {
         notification,
         setIsLoading,
         setProducts,
+        setPurchasedLog,
+        setConnectionVipLog,
     } = useStateContext();
 
     useEffect(() => {
@@ -27,6 +29,9 @@ export default function DefaultLayout() {
                 setUser(userResponse.data.user);
                 setAccount(userResponse.data.account);
                 setPersons(userResponse.data.persons);
+                setPersons(userResponse.data.persons);
+                setPurchasedLog(userResponse.data.purchasedLog);
+                setConnectionVipLog(userResponse.data.connectionVipLog);
                 setIsLoading(false);
             } catch (error) {
                 setIsLoading(false);
@@ -91,12 +96,10 @@ export default function DefaultLayout() {
                     <div>
                         <div className="playerInfo">
                             <div className="username">
-                                {user.name} &nbsp; &nbsp;
+                                <p>{user.name}</p>
                             </div>
-                            <hr />
                             <div className="balance">
-                                <p>Баланс:</p>
-                                {user.coin} &nbsp; &nbsp;
+                                <p>{user.coin} WP</p>
                             </div>
                         </div>
 

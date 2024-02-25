@@ -121,7 +121,7 @@ export default function Dashboard() {
                                             <div className="classIcons">
                                                 {classIcon && (
                                                     <img
-                                                        src={`src/img/classes/${classIcon}.webp`}
+                                                        src={`assets/classes/${classIcon}.webp`}
                                                         className={`${
                                                             animateClass
                                                                 ? "animated fadeInDown"
@@ -205,34 +205,28 @@ export default function Dashboard() {
                                 <div className="payment animated fadeInDown">
                                     <div className="topUp">
                                         <div className="paymentBoard">
-                                            <div className="balanceStatus">
-                                                {/* <p>Баланс</p>
-                                            <hr />
-                                            {user.coin} GP
-                                        </div>
-                                        <div className="paymentInAccount">
-                                            <input type="text" />
-                                            <button>
-                                                <p>ПОПОЛНИТЬ</p>
-                                            </button> */}
-                                                {/* <iframe
-                                                    src="https://docs.google.com/forms/d/e/1FAIpQLSdloVWUBJm80XpePVyuHlrwTMI4Pq-lq1PYcpWMIZMtu59wYw/viewform?embedded=true"
-                                                    width="640"
-                                                    height="939"
+                                            <div className="bonus--table">
+                                                <p>MMOTOP БОНУСЫ</p>
+                                            </div>
+                                            <div className="bonus--account">
+                                                <button
+                                                    className="blinkLight"
+                                                    id="mmotop-link"
                                                 >
-                                                    Загрузка…
-                                                </iframe> */}
+                                                    <p>MMTOP</p>
+                                                </button>
+                                                <button
+                                                    className="blinkGreenLight"
+                                                    id="mmotop-bonus"
+                                                >
+                                                    <p>ПОЛУЧИТЬ +5 WP</p>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="vipAccount">
                                         <div className="statusVipAccount">
-                                            <div className="imageVip">
-                                                <img
-                                                    src="src\img\svg\settings\icons8-star-100.png"
-                                                    alt=""
-                                                />
-                                            </div>
+                                            <div className="imageVip"></div>
                                             <p>VIP ACCOUNT</p>
                                         </div>
 

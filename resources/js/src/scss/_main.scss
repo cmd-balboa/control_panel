@@ -611,3 +611,14 @@ footer {
         color: #ffffff;
     }
 }
+
+.termsOfUse {
+    display: flex;
+    gap: 16px;
+
+    .titleTermsOfUse {
+        h1 {
+            font-size: 16px;
+        }
+    }
+}

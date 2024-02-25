@@ -8,6 +8,7 @@ const Modal = ({
     onClose,
     purchaseStatus,
     isBtnStoreVisible,
+    lot,
 }) => {
     if (!isOpen) return null;
 
@@ -18,7 +19,9 @@ const Modal = ({
                 {isBtnStoreVisible && (
                     <div className="modal--content">
                         <div className="modalTitle">
-                            <p>{`Хотите подтвердить доставку? ${title} за ${price} WP?`}</p>
+                            <p>{`Хотите подтвердить доставку? ${title} за ${
+                                lot == 0 ? price : price * lot
+                            } WP?`}</p>
                         </div>
                         <div className="btnStore">
                             {" "}

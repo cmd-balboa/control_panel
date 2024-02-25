@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ProductCard = ({ product, handleSelectedProduct }) => {
-    const [lot, setLot] = useState("");
+    const [lot, setLot] = useState(1);
 
     const handleLotChange = (event) => {
         const inputValue = event.target.value;

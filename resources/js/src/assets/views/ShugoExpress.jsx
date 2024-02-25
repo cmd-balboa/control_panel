@@ -3,38 +3,44 @@ import { useStateContext } from "../../contexts/ContextProvider";
 import axiosClient from "../../axios-client";
 import Modal from "./Modal";
 import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 
 export default function ShugoExpress() {
-    const { products, setUser, persons, user } = useStateContext();
+    const {
+        products,
+        setUser,
+        persons,
+        user,
+        setPurchasedLog,
+        setConnectionVipLog,
+    } = useStateContext();
     const [selectedPerson, setSelectedPerson] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("all");
     const [isModalOpen, setModalOpen] = useState(false);
     const [purchaseStatus, setPurchaseStatus] = useState("");
     const [isBtnStoreVisible, setBtnStoreVisible] = useState(true);
+    const [activeCategory, setActiveCategory] = useState("all");
     const [lot] = useState("");
     const [selectedProduct, setSelectedProduct] = useState({
         id: "",
         price: "",
         title: "",
-        personId: "",
         lot: lot,
+        personId: selectedPerson.id,
+        personName: selectedPerson.name,
     });
 
     const selectPerson = (ev) => {
-        const selectedPersonId = ev.target.value;
-        setSelectedPerson(selectedPersonId);
-        // Получите значение class_icon из атрибута data-classicon
+        const selectedValue = ev.target.value;
+        const [selectedPersonId, selectedPersonName] = selectedValue.split(":");
 
-        console.log(selectedPersonId);
+        setSelectedPerson({ id: selectedPersonId, name: selectedPersonName });
     };
 
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
+        setActiveCategory(event.target.value);
     };
-
-    // const handleLotChange = (event) => {
-    //     setLot(event.target.value); // обновляем состояние при изменении значения поля ввода
-    // };
 
     const handleSelectedProduct = (
         ev,
@@ -43,16 +49,17 @@ export default function ShugoExpress() {
         productTitle,
         lot
     ) => {
-        const selectedProductData = {
+        setSelectedProduct((prevState) => ({
+            ...prevState,
             id: productId,
             price: productPrice * lot,
             title: productTitle,
-            lot: lot,
-            personId: selectedPerson,
-        };
+            lot: lot == 0 ? 1 : lot,
+            personId: selectedPerson ? selectedPerson.id : null,
+            personName: selectedPerson ? selectedPerson.name : null,
+        }));
 
-        setSelectedProduct(selectedProductData);
-        // console.log(selectedProductData);
+        console.log(selectedProduct);
         setModalOpen(true);
     };
 
@@ -65,6 +72,8 @@ export default function ShugoExpress() {
                 // console.log(data.user.coin);
                 setPurchaseStatus(data.status);
                 setUser(data.user);
+                setPurchasedLog(data.purchasedLog);
+                setConnectionVipLog(data.connectionVipLog);
                 console.log(products);
             })
             .catch((err) => {
@@ -83,11 +92,16 @@ export default function ShugoExpress() {
 
     const handleModalClose = () => {
         setBtnStoreVisible(true);
-
-        setSelectedProduct("");
+        setSelectedProduct({
+            id: "",
+            price: "",
+            title: "",
+            lot: lot,
+            personId: "",
+            personName: "",
+        });
         setPurchaseStatus("");
-        // setPrice("");
-        setModalOpen();
+        setModalOpen(false);
     };
 
     const filteredProducts =
@@ -124,8 +138,21 @@ export default function ShugoExpress() {
                                     ))}
                                 </select>
                             </div> */}
-                            <div className="premium">
-                                <button></button>
+                            <div className="header--category">
+                                <div className="premium">
+                                    <button></button>
+                                </div>
+
+                                <Link to="/purchaseHistory">
+                                    <div className="history--buys">
+                                        <span
+                                            data-tooltip="История покупок"
+                                            data-flow="top"
+                                        >
+                                            <button></button>
+                                        </span>
+                                    </div>
+                                </Link>
                             </div>
                             <div className="balanceWP">
                                 <h3>{user.coin} WP</h3>
@@ -147,6 +174,7 @@ export default function ShugoExpress() {
                             <Modal
                                 isOpen={isModalOpen}
                                 title={selectedProduct.title}
+                                lot={lot}
                                 price={selectedProduct.price}
                                 onConfirm={handleConfirmPurchase}
                                 onClose={handleModalClose}
@@ -174,7 +202,7 @@ export default function ShugoExpress() {
                                 {Object.keys(persons).map((key) => (
                                     <option
                                         key={persons[key].id}
-                                        value={persons[key].id}
+                                        value={`${persons[key].id}:${persons[key].name}`}
                                         data-classicon={
                                             persons[key].player_class
                                         }
@@ -199,6 +227,11 @@ export default function ShugoExpress() {
                     <div className={`expressmenu`}>
                         <ul>
                             <li
+                                className={
+                                    activeCategory === "all"
+                                        ? "activeCategory"
+                                        : ""
+                                }
                                 onClick={() => {
                                     handleCategoryChange({
                                         target: { value: "all" },
@@ -216,6 +249,11 @@ export default function ShugoExpress() {
                             ).map((category) => (
                                 <li
                                     key={category}
+                                    className={
+                                        activeCategory === category
+                                            ? "activeCategory"
+                                            : ""
+                                    }
                                     onClick={() => {
                                         handleCategoryChange({
                                             target: { value: category },

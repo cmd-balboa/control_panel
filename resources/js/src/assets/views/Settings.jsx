@@ -117,30 +117,27 @@ export default function Settings() {
                                         <h1>ИЗМЕНЕНИЕ ПАРОЛЯ</h1>
                                     </div>
                                     <div className="inputData">
-                                        <div>
-                                            <input
-                                                ref={current_passwordRef}
-                                                type="text"
-                                                placeholder="Пароль"
-                                            />
-                                        </div>
-                                        <div>
-                                            <input
-                                                ref={passwordRef}
-                                                type="text"
-                                                placeholder="Новый пароль"
-                                            />
-                                        </div>
-                                        <div>
-                                            <input
-                                                ref={password_confirmationRef}
-                                                type="text"
-                                                placeholder="Подтвердите пароль"
-                                            />
-                                        </div>
+                                        <input
+                                            ref={current_passwordRef}
+                                            type="text"
+                                            placeholder="Пароль"
+                                        />
+                                        <input
+                                            ref={passwordRef}
+                                            type="text"
+                                            placeholder="Новый пароль"
+                                        />
+                                        <input
+                                            ref={password_confirmationRef}
+                                            type="text"
+                                            placeholder="Подтвердите пароль"
+                                        />
                                     </div>
                                     <div className="btnChangePassword">
-                                        <button onClick={changePasswordData}>
+                                        <button
+                                            onClick={changePasswordData}
+                                            className="blinkLight"
+                                        >
                                             <h1>ИЗМЕНИТЬ</h1>
                                         </button>
                                         {errorPassword && (
@@ -157,36 +154,31 @@ export default function Settings() {
                                 </div>
                                 <div className="emailChangeBoard">
                                     <div className="passwordChangeBoard">
-                                        <div className="titleChange">
+                                        <div className="titleChange ">
                                             <h1>ИЗМЕНЕНИЕ ПОЧТЫ</h1>
                                         </div>
                                         <div className="inputDataEmail">
-                                            <div>
-                                                <input
-                                                    ref={current_emailRef}
-                                                    type="Почта"
-                                                    placeholder="Почта"
-                                                />
-                                            </div>
-                                            <div>
-                                                <input
-                                                    ref={emailRef}
-                                                    type="Новая почта"
-                                                    placeholder="Новая почта"
-                                                />
-                                            </div>
-                                            <div>
-                                                <input
-                                                    ref={
-                                                        password_confirm_emailRef
-                                                    }
-                                                    type="password"
-                                                    placeholder="Пароль"
-                                                />
-                                            </div>
+                                            <input
+                                                ref={current_emailRef}
+                                                type="Почта"
+                                                placeholder="Почта"
+                                            />
+                                            <input
+                                                ref={emailRef}
+                                                type="Новая почта"
+                                                placeholder="Новая почта"
+                                            />
+                                            <input
+                                                ref={password_confirm_emailRef}
+                                                type="password"
+                                                placeholder="Пароль"
+                                            />
                                         </div>
                                         <div className="btnChangeEmail">
-                                            <button onClick={changeEmailData}>
+                                            <button
+                                                onClick={changeEmailData}
+                                                className="blinkLight"
+                                            >
                                                 <h1>ИЗМЕНИТЬ</h1>
                                             </button>
                                             {errorEmail && (

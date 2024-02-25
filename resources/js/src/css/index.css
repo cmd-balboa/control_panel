@@ -786,6 +786,16 @@ footer {
   color: #ffffff;
 }
 
+.termsOfUse {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 16px;
+}
+.termsOfUse .titleTermsOfUse h1 {
+  font-size: 16px;
+}
+
 .dark-theme .btn {
   background-color: #96d3ff;
   color: #ffffff;
@@ -1026,8 +1036,8 @@ footer {
 }
 
 .blinkLight {
-  -webkit-box-shadow: 0 0 10px rgba(254, 169, 57, 0.54);
-          box-shadow: 0 0 10px rgba(254, 169, 57, 0.54);
+  -webkit-box-shadow: 0 0 10px rgba(255, 145, 0, 0.54);
+          box-shadow: 0 0 10px rgba(255, 145, 0, 0.54);
   -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
   transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
   transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
@@ -1036,6 +1046,38 @@ footer {
 .blinkLight:hover {
   -webkit-box-shadow: 0 0 20px rgb(254, 168, 57);
           box-shadow: 0 0 20px rgb(254, 168, 57);
+  -webkit-transform: scale(1.02);
+      -ms-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.blinkGreenLight {
+  -webkit-box-shadow: 0 0 10px rgba(68, 255, 0, 0.54);
+          box-shadow: 0 0 10px rgba(68, 255, 0, 0.54);
+  -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+}
+.blinkGreenLight:hover {
+  -webkit-box-shadow: 0 0 20px rgba(68, 255, 0, 0.35);
+          box-shadow: 0 0 20px rgba(68, 255, 0, 0.35);
+  -webkit-transform: scale(1.02);
+      -ms-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.blinkPurpleLight {
+  -webkit-box-shadow: 0 0 10px rgba(132, 0, 255, 0.54);
+          box-shadow: 0 0 10px rgba(132, 0, 255, 0.54);
+  -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
+  transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+}
+.blinkPurpleLight:hover {
+  -webkit-box-shadow: 0 0 20px rgba(106, 0, 255, 0.9);
+          box-shadow: 0 0 20px rgba(106, 0, 255, 0.9);
   -webkit-transform: scale(1.02);
       -ms-transform: scale(1.02);
           transform: scale(1.02);
@@ -1083,26 +1125,6 @@ footer {
           align-items: center;
   background: rgba(255, 255, 255, 0.04);
 }
-.payment .topUp .balanceStatus {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-}
-.payment .topUp .balanceStatus hr {
-  background-color: #fff; /* Цвет линии */
-  min-width: 100px;
-  height: 1px;
-  margin: 8px 0px 8px 0px;
-}
-.payment .topUp .balanceStatus p {
-  font-size: 15px;
-}
 .payment .vipAccount {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1116,30 +1138,61 @@ footer {
   background: rgba(255, 255, 255, 0.04);
 }
 
-.paymentInAccount {
+.bonus--table p {
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.bonus--account {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 5px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
-.paymentInAccount input {
-  width: 123px;
-  height: 24px;
-}
-.paymentInAccount button {
-  width: 75px;
-  height: 24px;
-  background: url(../img/svg/settings/btnTopUp.svg);
-}
-.paymentInAccount button p {
+.bonus--account p {
   color: #fff;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 13px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.bonus--account #mmotop-link {
+  width: 86px;
+  height: 24px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  border-radius: 3px;
+  background: linear-gradient(18.57deg, rgb(252, 115, 23) -22.517%, rgb(255, 219, 90) 157.192%);
+}
+.bonus--account #mmotop-bonus {
+  width: 121px;
+  height: 24px;
+  /* Inside Auto Layout */
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  border-radius: 2px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(-100%, rgb(255, 224, 0)), to(rgb(121, 159, 12)));
+  background: linear-gradient(90deg, rgb(255, 224, 0) -100%, rgb(121, 159, 12) 100%);
 }
 
 .paymentBoard {
@@ -1150,7 +1203,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 29px;
+  gap: 13px;
 }
 
 .vipAccount {
@@ -1168,10 +1221,13 @@ footer {
 }
 .vipAccount p {
   color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 .vipAccount button {
   width: 207px;
@@ -1180,23 +1236,29 @@ footer {
 }
 .vipAccount button p {
   color: #fff;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 15px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.imageVip img {
-  width: 20px;
-  height: 20px;
-  -webkit-filter: drop-shadow(0 0 5px #ff8800);
-          filter: drop-shadow(0 0 5px #ff8800);
+.imageVip {
+  width: 24px;
+  height: 24px;
+  background: url(/src/img/shugoexpress/premium--category/premium.svg) top no-repeat;
+  -webkit-filter: drop-shadow(0 0 10px #ff8800);
+  filter: drop-shadow(0 0 10px #ff8800);
   -webkit-transition: -webkit-filter 0.5s ease-in-out;
   transition: -webkit-filter 0.5s ease-in-out;
   transition: filter 0.5s ease-in-out;
-  transition: filter 0.5s ease-in-out, -webkit-filter 0.5s ease-in-out; /* Плавное изменение фильтра (тени) */
+  transition: filter 0.5s ease-in-out, -webkit-filter 0.5s ease-in-out;
+  -webkit-animation: pulse 2s ease-in-out infinite;
+  animation: pulse 2s ease-in-out infinite;
 }
-.imageVip img:hover {
+.imageVip:hover {
   -webkit-animation: pulse 1s infinite;
           animation: pulse 1s infinite; /* Анимация мерцания */
 }
@@ -1385,7 +1447,6 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 15px;
 }
 .accountDetails p {
   color: #fff;
@@ -1498,10 +1559,13 @@ footer {
 }
 .fixBtn button p {
   color: #fff;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 15px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .selHero {
@@ -1696,10 +1760,13 @@ footer {
 }
 .titleChange h1 {
   color: #fff;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 15px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .inputData {
@@ -1721,6 +1788,71 @@ footer {
   border-radius: 4px;
   background: #353535;
   text-align: center;
+}
+.inputData input::-webkit-input-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.inputData input::-moz-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.inputData input:-ms-input-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.inputData input::-ms-input-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.inputData input::placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.inputData input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.inputData input:focus::-moz-placeholder {
+  color: transparent;
+}
+.inputData input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.inputData input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+.inputData input:focus::placeholder {
+  color: transparent;
 }
 
 .settingsInfo {
@@ -1807,10 +1939,13 @@ footer {
 }
 .btnChangePassword button h1 {
   color: #fff;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 15px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .btnChangeEmail {
@@ -1836,10 +1971,13 @@ footer {
 }
 .btnChangeEmail button h1 {
   color: #fff;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 15px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .inputDataEmail {
@@ -1861,6 +1999,71 @@ footer {
   border-radius: 4px;
   background: #353535;
   text-align: center;
+}
+.inputDataEmail input::-webkit-input-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.inputDataEmail input::-moz-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.inputDataEmail input:-ms-input-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.inputDataEmail input::-ms-input-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.inputDataEmail input::placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.inputDataEmail input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.inputDataEmail input:focus::-moz-placeholder {
+  color: transparent;
+}
+.inputDataEmail input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.inputDataEmail input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+.inputDataEmail input:focus::placeholder {
+  color: transparent;
 }
 
 .undo {
@@ -1990,14 +2193,25 @@ footer {
 }
 
 .playerInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
   min-width: 151px;
   min-height: 35px;
 }
-.playerInfo hr {
-  background-color: #fff; /* Цвет линии */
-  min-width: 190px;
-  height: 1px;
-  margin: 8px 0px 8px 0px;
+.playerInfo p {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .skinWhite {
@@ -2036,7 +2250,6 @@ footer {
           justify-content: center;
 }
 .downloadBoard .clientBoard {
-  position: absolute;
   width: 754px;
   height: 634px;
   border-radius: 7px 0px 0px 7px;
@@ -2356,6 +2569,144 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+#payYoomoney {
+  width: 400px;
+  height: 33px;
+  -webkit-box-flex: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-ordinal-group: 1;
+  -ms-flex-order: 0;
+  order: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  border-radius: 3px;
+  background: linear-gradient(18.57deg, rgb(137, 23, 252) -22.517%, rgb(148, 90, 255) 157.192%);
+}
+#payYoomoney p {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.sum--btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+}
+.sum--btn input {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-align: center;
+  padding: 5px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.sum--btn input::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.sum--btn input::-moz-placeholder {
+  font-size: 16px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.sum--btn input:-ms-input-placeholder {
+  font-size: 16px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.sum--btn input::-ms-input-placeholder {
+  font-size: 16px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.sum--btn input::placeholder {
+  font-size: 16px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.sum--btn input:focus {
+  outline: none;
+  background-color: rgba(138, 43, 226, 0.2);
+  border-color: #8a2be2; /* Изменение цвета рамки при фокусировке */
+}
+.sum--btn input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.sum--btn input:focus::-moz-placeholder {
+  color: transparent;
+}
+.sum--btn input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.sum--btn input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+.sum--btn input:focus::placeholder {
+  color: transparent;
+}
+
+.sum--enter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.sum--enter span {
+  position: absolute;
+  top: 28%;
+  right: 10px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 16px;
+  color: #888;
 }
 
 .lavaSystem {
@@ -2837,11 +3188,21 @@ footer {
 }
 
 .lotProducts input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; /* Добавьте это для центрирования по горизонтали */
   height: 30px;
   width: 40px;
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
+  text-align: center; /* Центрирование текста по горизонтали внутри инпута */
 }
 
 .expressBtn button {
@@ -2906,12 +3267,22 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 840px;
+  gap: 800px;
+}
+
+.premium {
+  width: 24px;
+  height: 24px;
+}
+
+.history--buys {
+  width: 24px;
+  height: 24px;
 }
 
 .premium button {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   background: url(../img/shugoexpress/premium--category/premium.svg) top no-repeat;
   -webkit-filter: drop-shadow(0 0 10px #ff8800);
           filter: drop-shadow(0 0 10px #ff8800);
@@ -2925,6 +3296,31 @@ footer {
 .premium button:hover {
   -webkit-animation: pulse 1s infinite;
           animation: pulse 1s infinite; /* Анимация мерцания */
+}
+
+.history--buys button {
+  width: 24px;
+  height: 24px;
+  background: url(../img/shugoexpress/premium--category/history--buys.svg) top no-repeat;
+  -webkit-filter: drop-shadow(0 0 10px #fff);
+          filter: drop-shadow(0 0 10px #fff);
+  -webkit-transition: -webkit-filter 0.5s ease-in-out;
+  transition: -webkit-filter 0.5s ease-in-out;
+  transition: filter 0.5s ease-in-out;
+  transition: filter 0.5s ease-in-out, -webkit-filter 0.5s ease-in-out; /* Плавное изменение фильтра (тени) */
+  -webkit-animation: pulse 2s ease-in-out infinite;
+          animation: pulse 2s ease-in-out infinite;
+}
+.history--buys button:hover {
+  -webkit-animation: pulse 1s infinite;
+          animation: pulse 1s infinite; /* Анимация мерцания */
+}
+
+.header--category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
 }
 
 .express--scroll::-webkit-scrollbar {
@@ -3161,7 +3557,7 @@ footer {
 .balanceWP h3 {
   color: rgb(255, 255, 255);
   font-family: "El Messiri", sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: 0%;
   text-transform: uppercase;
@@ -3255,6 +3651,175 @@ footer {
 
 .expressmenu::-webkit-scrollbar {
   width: 0px; /* Ширина полосы прокрутки */
+}
+
+[data-tooltip] {
+  position: absolute;
+  pointer: cursor;
+}
+
+[data-tooltip]::before,
+[data-tooltip]::after {
+  text-transform: none;
+  font-size: 1em;
+  line-height: 1;
+  position: absolute;
+  display: none;
+  opacity: 0;
+}
+
+[data-tooltip]::before {
+  content: "";
+  border: 6px solid transparent;
+  z-index: 101;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  text-align: center;
+  min-width: 3em;
+  max-width: 21em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 8px 8px;
+  border-radius: 3px;
+  background: #333333;
+  color: #ffffff;
+  z-index: 100;
+}
+
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
+  display: block;
+}
+
+[data-tooltip=""]::before,
+[data-tooltip=""]::after {
+  display: none !important;
+}
+
+[data-tooltip]:not([data-flow])::before,
+[data-tooltip][data-flow^=top]::before {
+  bottom: 100%;
+  border-bottom-width: 0;
+  border-top-color: #333333;
+}
+
+[data-tooltip]:not([data-flow])::after,
+[data-tooltip][data-flow^=top]::after {
+  bottom: calc(100% + 5px);
+}
+
+[data-tooltip]:not([data-flow])::before,
+[data-tooltip]:not([data-flow])::after,
+[data-tooltip][data-flow^=top]::before,
+[data-tooltip][data-flow^=top]::after {
+  left: 50%;
+  -webkit-transform: translate(-50%, -0.4em);
+      -ms-transform: translate(-50%, -0.4em);
+          transform: translate(-50%, -0.4em);
+}
+
+[data-tooltip][data-flow^=bottom]::before {
+  top: 100%;
+  border-top-width: 0;
+  border-bottom-color: #333333;
+}
+
+[data-tooltip][data-flow^=bottom]::after {
+  top: calc(100% + 5px);
+}
+
+[data-tooltip][data-flow^=bottom]::before,
+[data-tooltip][data-flow^=bottom]::after {
+  left: 50%;
+  -webkit-transform: translate(-50%, 0.4em);
+      -ms-transform: translate(-50%, 0.4em);
+          transform: translate(-50%, 0.4em);
+}
+
+[data-tooltip][data-flow^=left]::before {
+  top: 50%;
+  border-right-width: 0;
+  border-left-color: #333333;
+  left: calc(0em - 5px);
+  -webkit-transform: translate(-0.5em, -50%);
+      -ms-transform: translate(-0.5em, -50%);
+          transform: translate(-0.5em, -50%);
+}
+
+[data-tooltip][data-flow^=left]::after {
+  top: 50%;
+  right: calc(100% + 5px);
+  -webkit-transform: translate(-0.4em, -50%);
+      -ms-transform: translate(-0.4em, -50%);
+          transform: translate(-0.4em, -50%);
+}
+
+[data-tooltip][data-flow^=right]::before {
+  top: 50%;
+  border-left-width: 0;
+  border-right-color: #333333;
+  right: calc(0em - 7px);
+  -webkit-transform: translate(0.4em, -50%);
+      -ms-transform: translate(0.4em, -50%);
+          transform: translate(0.4em, -50%);
+}
+
+[data-tooltip][data-flow^=right]::after {
+  top: 50%;
+  left: calc(100% + 5px);
+  -webkit-transform: translate(0.5em, -50%);
+      -ms-transform: translate(0.5em, -50%);
+          transform: translate(0.5em, -50%);
+}
+
+@-webkit-keyframes tooltip-vert {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+}
+
+@keyframes tooltip-vert {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+}
+@-webkit-keyframes tooltip-horz {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+  }
+}
+@keyframes tooltip-horz {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+  }
+}
+[data-tooltip]:not([data-flow]):hover::before,
+[data-tooltip]:not([data-flow]):hover::after,
+[data-tooltip][data-flow^=top]:hover::before,
+[data-tooltip][data-flow^=top]:hover::after,
+[data-tooltip][data-flow^=bottom]:hover::before,
+[data-tooltip][data-flow^=bottom]:hover::after {
+  -webkit-animation: tooltip-vert 0.5s ease-out forwards;
+          animation: tooltip-vert 0.5s ease-out forwards;
+}
+
+[data-tooltip][data-flow^=left]:hover::before,
+[data-tooltip][data-flow^=left]:hover::after,
+[data-tooltip][data-flow^=right]:hover::before,
+[data-tooltip][data-flow^=right]:hover::after {
+  -webkit-animation: tooltip-horz 0.5s ease-out forwards;
+          animation: tooltip-horz 0.5s ease-out forwards;
 }
 
 /* Модальное окно */
@@ -3390,4 +3955,276 @@ footer {
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0%;
+}
+
+.modalTerms {
+  width: 1000px;
+  height: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #1d1d1d;
+  padding: 50px;
+  border: 1px solid #1d1d1d;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-animation: opacity 0.5s;
+          animation: opacity 0.5s; /* Длительность анимации 0.5 секунды (указать нужное значение) */
+}
+.modalTerms p {
+  font-size: 20px;
+}
+.modalTerms h2 {
+  font-size: 17px;
+}
+.modalTerms h3 {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0%;
+}
+
+.agreement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+}
+
+.agreement-table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 400px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 32px 5px 32px 5px;
+  overflow: scroll;
+}
+
+.desc--agreement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+}
+
+.agreement-table::-webkit-scrollbar {
+  width: 0px;
+}
+
+.btn--agreement button {
+  width: 100%;
+  height: 29px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 4px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: linear-gradient(18.57deg, rgb(252, 115, 23) -16.21%, rgb(255, 219, 90) 144.917%);
+}
+.btn--agreement button h2 {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0%;
+}
+
+.desc--agreement {
+  width: 700px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.title--agreement {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+.checkBox input {
+  width: 14px;
+  height: 14px;
+}
+
+.purchase--history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.purchase--history .table-history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 529px;
+  height: 652px;
+  border-radius: 5px;
+  background: rgb(25, 25, 25);
+}
+
+.activeHistory button h1 {
+  color: red;
+}
+
+.table--header h1 {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 19px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: grey;
+}
+.table--header .activeHistory h1 {
+  color: #ff8800 !important;
+  -webkit-filter: drop-shadow(0 0 10px #ff8800);
+          filter: drop-shadow(0 0 10px #ff8800);
+}
+.table--header button {
+  width: 50%;
+  height: 75px;
+  background-color: transparent;
+}
+.table--header button :hover {
+  color: #c7c7c7;
+}
+
+.productTable button h1 {
+  color: red;
+}
+
+.purchase--information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.information-table {
+  overflow: scroll;
+  width: 485px;
+  height: 549px;
+  left: 751px;
+  right: 684px;
+  top: 341px;
+  bottom: 190px;
+  border-radius: 10px;
+  background: rgb(16, 16, 16);
+}
+
+.information-table::-webkit-scrollbar {
+  width: 0px;
+}
+
+.category-history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
+}
+.category-history h3 {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 19px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: rgb(56, 56, 56);
+}
+.category-history h2 {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 19px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* PurchaseHistory.scss */
+.purchase--information .information-table .purchase-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+table > thead > tr > th {
+  background-color: transparent;
+}
+
+.vipRow {
+  background-color: #f8d7da; /* Любой цвет для выделения VIP-продуктов */
 }

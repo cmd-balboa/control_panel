@@ -6,6 +6,7 @@ import Signup from "./assets/views/Signup";
 import NotFound from "./assets/views/NotFound";
 import Dashboard from "./assets/views/Dashboard";
 import ShugoExpress from "./assets/views/ShugoExpress";
+import PurchaseHistory from "./assets/views/PurchaseHistory";
 import Users from "./assets/views/Users";
 import UserForm from "./assets/views/UserForm";
 import Settings from "./assets/views/Settings";
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: "/shugoexpress",
                 element: <ShugoExpress />,
+            },
+            {
+                path: "/PurchaseHistory",
+                element: <PurchaseHistory />,
             },
             {
                 path: "/settings",

@@ -1,0 +1,116 @@
+.purchase--history {
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    .table-history {
+        display: flex;
+        flex-direction: column;
+        width: 529px;
+        height: 652px;
+
+        border-radius: 5px;
+
+        background: rgb(25, 25, 25);
+    }
+}
+
+.activeHistory {
+    button {
+        h1 {
+            color: red;
+        }
+    }
+}
+.table--header {
+    h1 {
+        @include paragraphText(19px, 800);
+        color: grey;
+    }
+
+    .activeHistory {
+        h1 {
+            color: #ff8800 !important;
+            filter: drop-shadow(0 0 10px #ff8800);
+        }
+    }
+
+    button {
+        width: 50%;
+        height: 75px;
+        background-color: transparent;
+
+        :hover {
+            color: rgba($color: #c7c7c7, $alpha: 1);
+        }
+    }
+}
+
+.productTable button {
+    h1 {
+        color: red;
+    }
+}
+
+.purchase--information {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.information-table {
+    overflow: scroll;
+    width: 485px;
+    height: 549px;
+    left: 751px;
+    right: 684px;
+    top: 341px;
+    bottom: 190px;
+    border-radius: 10px;
+
+    background: rgb(16, 16, 16);
+}
+
+.information-table::-webkit-scrollbar {
+    width: 0px;
+}
+
+.category-history {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    h3 {
+        @include paragraphText(19px, 800);
+        color: rgb(56, 56, 56);
+    }
+    h2 {
+        @include paragraphText(19px, 800);
+    }
+}
+
+/* PurchaseHistory.scss */
+
+.purchase--information {
+    .information-table {
+        .purchase-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+table > thead > tr > th {
+    background-color: transparent;
+}
+
+.vipRow {
+    background-color: #f8d7da; /* Любой цвет для выделения VIP-продуктов */
+}

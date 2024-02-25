@@ -94,3 +94,34 @@
 #close {
     @include modalButton;
 }
+
+.modalTerms {
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1d1d1d;
+    padding: 50px;
+    border: 1px solid #1d1d1d;
+    text-align: center;
+    border-radius: 5px;
+    animation: opacity 0.5s; /* Длительность анимации 0.5 секунды (указать нужное значение) */
+
+    p {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 17px;
+    }
+    h3 {
+        color: rgb(255, 255, 255);
+        font-family: "El Messiri", sans-serif;
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: 0%;
+    }
+}
