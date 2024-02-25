@@ -35,6 +35,7 @@ class SignupRequest extends FormRequest
                     // ->symbols()
                     ->numbers()
             ],
+            'agreement' => ['required', 'accepted'],
             'recaptchaToken' => ['required', new ReCaptcha],
         ];
     }

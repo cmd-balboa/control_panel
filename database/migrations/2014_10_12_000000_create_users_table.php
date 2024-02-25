@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('coin')->default(0);
             $table->integer('bonus')->default(0);
             $table->integer('kinah')->default(0);
+            $table->boolean('agreement');
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('updated_password')->nullable();
             $table->timestamp('updated_email')->nullable();

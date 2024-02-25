@@ -37,6 +37,7 @@ class AuthController extends Controller
             'email' => $data['email'],
             'role' => 'user',
             'coin' => 0,
+            'agreement' => $data['agreement'],
             'password' => bcrypt($data['password']),
             'updated_password' => Carbon::now(),
             'updated_email' => Carbon::now()
@@ -44,7 +45,7 @@ class AuthController extends Controller
 
         $token = $user->createToken('main')->plainTextToken;
 
-        // NOTE registration in the Aion
+        // registration in the Aion
         $aion_pass = base64_encode(sha1($data['password'], true));
         $aionService->aionRegistration($data['name'], $aion_pass);
 
