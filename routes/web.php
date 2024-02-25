@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Payment\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +14,4 @@ use App\Http\Controllers\Api\PaymentController;
 |
 */
 
-Route::get('/test', function () {
-    return view('welcome');
-});
-
-
-Route::post('/testpay', [PaymentController::class, 'umoney']);
+Route::post('/gt1368b34c1514gr', [PaymentController::class, 'umoney']);

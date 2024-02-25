@@ -6,10 +6,12 @@ use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+use App\Models\PayLog;
 
 class LogService
 {
-    public function productLogs($data){
+    public function productLogs($data)
+    {
 
         $product = $data['product'];
 
@@ -30,9 +32,9 @@ class LogService
             'ip' => $data['ip'],
             'created_at' => Carbon::now(),
         ]);
-
     }
-    public function connectVipLogs($data){
+    public function connectVipLogs($data)
+    {
 
         $product = $data['product'];
 
@@ -49,10 +51,10 @@ class LogService
             'created_at' => Carbon::now(),
             'category' => $product->category,
         ]);
-
     }
 
-    public function accessLog($user, $ip){
+    public function accessLog($user, $ip)
+    {
 
         DB::table('access_user_logs')->insert([
             'account_name' => $user->name,
@@ -62,6 +64,19 @@ class LogService
             'ip' => $ip,
             'created_at' => Carbon::now(),
         ]);
+    }
+    public function payLog($transactionData)
+    {
 
+        PayLog::create([
+            'notification_type' => $transactionData['notification_type'],
+            'account_id' => $transactionData['account_id'],
+            'account_name' => $transactionData['account_name'],
+            'withdraw_amount' => $transactionData['withdraw_amount'],
+            'operation_label' => $transactionData['operation_label'],
+            'operation_id' => $transactionData['operation_id'],
+            'pay_system' => $transactionData['pay_system'],
+            'created_at' => Carbon::now()
+        ]);
     }
 }

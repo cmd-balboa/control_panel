@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\PayLog;
 use Illuminate\Support\Facades\DB;
 
 class UserRepository
@@ -65,8 +66,9 @@ class UserRepository
     }
 
     // for repair
-    public function onePerson($id){
-        
+    public function onePerson($id)
+    {
+
         $person = $this->AionDB->table('players')
             ->where('id', '=', $id)
             ->select('id', 'race', 'online')
@@ -75,30 +77,42 @@ class UserRepository
         return $person;
     }
 
-    public function purchasedLog($name){
+    public function purchasedLog($name)
+    {
 
         $log = DB::table('product_logs')
             ->where('account_name', '=', $name)
-            ->select('id', 'account_name', 'personName', 'title', 'price', 'lot')
+            ->select('id', 'account_name', 'personName', 'title', 'price', 'lot', 'created_at')
             ->get();
 
         return $log;
     }
-    public function connectionVipLog($name){
+    public function connectionVipLog($name)
+    {
 
         $log = DB::table('connect_vip_logs')
             ->where('account_name', '=', $name)
-            ->select('id', 'account_name', 'title', 'price', 'day')
+            ->select('id', 'account_name', 'title', 'price', 'created_at')
             ->get();
 
         return $log;
     }
 
-    public function accessLog($name){
+    public function accessLog($name)
+    {
 
         $log = DB::table('access_user_logs')
             ->where('account_name', '=', $name)
             ->select('id', 'account_name', 'email', 'ip')
+            ->get();
+
+        return $log;
+    }
+
+    public function yooumoneyPayLog($name)
+    {
+        $log = PayLog::select('id', 'account_name', 'withdraw_amount', 'created_at')
+            ->where('account_name', $name)
             ->get();
 
         return $log;

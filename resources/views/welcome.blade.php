@@ -9,56 +9,47 @@
 <div class="tols d-flex justify-content-center">
     
 
-
-
-<form method="POST" action="https://yoomoney.ru/quickpay/confirm">
-    <input type="hidden" name="receiver" value="4100117907658443" />
-    <input type="hidden" name="label" value="$order_id" />
-    <input type="hidden" name="quickpay-form" value="button" />
-    <input type="hidden" name="sum" value="2" data-type="number" />
-    <label><input type="radio" name="paymentType" value="PC" />ЮMoney</label>
-    <label
-        ><input type="radio" name="paymentType" value="AC" />Банковской
-        картой</label
-    >
-    <input type="submit" value="go" />
-</form>
-
-
-
-
-
-
-
-
-
-
-<hr><br>
-    <div class="content_donate ">
-        <div class="col-md-12">
-            <p style="color: gray">Название платежа</p>
-            <p >Поддержка проекта</p>
-            <form onsubmit="return submitForm()" method="POST" action="https://yoomoney.ru/quickpay/confirm"> 
-                <input type="hidden" name="receiver" value="4100117907658443"> 
-                <input type="hidden" name="quickpay-form" value="shop"> 
-                <input type="hidden" name="targets" value="Пожертвование"> 
-                <!-- <label name="yandex"><input class="chect" name="money_type" type="radio" checked value="PC">  Яндекс.Деньги</label> -->
-                <!-- <label name="kart"><input class="chect" name="money_type" type="radio" value="AC">  Картой</label> -->
-
-                <input class="chect" type="hidden" name="money_type" type="radio" value="AC"> 
-                <input id="moneyType" type="hidden" name="paymentType" value="AC">
-                <input type="hidden" name="successURL" value="api.worldaion.com/test">
-                <input type="hidden" name="label" value="bob12"> 
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value='50' name="sum" placeholder="Сумма" required>
-                <input class="btn btn-success"  type="submit" value="Оплатить"> 
-                <!-- <input class="btn btn-success" onclick="send_monay_type()" type="submit" value="Оплатить">  -->
-            </form>
-            <hr>
-        </div>
-
-            
-    </div>   
+<form method="POST" action="https://yoomoney.ru/quickpay/confirm.xml">
+ 
+    <!--Номер кошелька в системе Яндекс Денег/YooMoney -->
+    <input type="hidden" name="receiver" value="4100117907658443">
     
-</div>
+    <!--Название платежа, я не нашел, где этот параметр используется, поэтому просто указал адрес своего сайта (длина 50 символов)-->
+    <input type="hidden" name="formcomment" value="formcomment">
+    
+    <!--Этот параметр передаёт ID плагина, для того, чтобы скрипту было понятно, что потом отсылать пользователю (длина 64 символа)-->
+    <input type="hidden" name="label" value="16078">
+    
+    <!--Тип формы, может принимать значения shop (универсальное), donate (благотворительная), small (кнопка)-->
+    <input type="hidden" name="quickpay-form" value="shop">
+    
+    <!--Назначение платежа, это покупатель видит на сайте Яндекс Денег при вводе платежного пароля (длина 150 символов)-->
+    <input type="hidden" name="targets" value="water">
+    
+    <!--Сумма платежа, валюта - рубли по умолчанию-->
+    <input type="hidden" name="sum" value="2" data-type="number">
+    
+    <!--Должен ли Яндекс запрашивать ФИО покупателя-->
+    <input type="hidden" name="need-fio" value="false">
+    
+    <!--Должен ли Яндекс запрашивать email покупателя-->
+    <input type="hidden" name="need-email" value="true">
+    
+    <!--Должен ли Яндекс запрашивать телефон покупателя-->
+    <input type="hidden" name="need-phone" value="false">
+    
+    <!--Должен ли Яндекс запрашивать адрес покупателя-->
+    <input type="hidden" name="need-address" value="false">
+    
+    <!--Метод оплаты, PC - Яндекс Деньги, AC - банковская карта-->
+    <input type="hidden" name="paymentType" value="AC" />
+    
+    <!--Куда перенаправлять пользователя после успешной оплаты платежа-->
+    <input type="hidden" name="successURL" value="https://cp.worldaion.com">
+    <button>Оплатить</button> 
+ </form>
+
+
+
 </body>
 </html>
