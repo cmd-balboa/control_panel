@@ -150,13 +150,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 800px;
+        gap: 552px;
     }
 }
 
 .premium {
-    width: 24px;
-    height: 24px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 .history--buys {
     width: 24px;
@@ -193,7 +194,7 @@
 
 .header--category {
     display: flex;
-    gap: 10px;
+    gap: 40px;
 }
 
 // СКРОЛЛ
@@ -459,15 +460,15 @@
     animation: fadeIn 0.4s ease-in-out forwards; /* Анимация появления */
 
     h2 {
-        color: rgb(255, 255, 255);
-        font-family: "El Messiri", sans-serif;
-        font-size: 15px;
-        font-weight: 600;
-        letter-spacing: 0%;
-        text-transform: uppercase;
+        @include paragraphText(16px, 800);
+    }
+    .activeCategory {
+        h2 {
+            @include paragraphText(16px, 900);
+            color: rgb(82, 82, 82);
+        }
     }
 }
-
 
 .expressmenu ul {
     list-style: none;
@@ -477,14 +478,14 @@
 
 .expressmenu li {
     padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #2d2d2d;
     color: #fff; /* Цвет текста */
     cursor: pointer;
     transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
 }
 
 .expressmenu h2:hover {
-    color: #ffcc00; /* Цвет текста при наведении */
+    color: #6c6c6c; /* Цвет текста при наведении */
 }
 
 .expressBurgerMenu {
@@ -638,4 +639,36 @@
 [data-tooltip][data-flow^="right"]:hover::before,
 [data-tooltip][data-flow^="right"]:hover::after {
     animation: tooltip-horz 0.5s ease-out forwards;
+}
+
+.find {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+        color: rgb(255, 255, 255);
+        font-family: "El Messiri", sans-serif;
+        font-size: 17px;
+        font-weight: 600;
+        border-radius: 4px;
+        text-align: center;
+        padding: 5px;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+
+        &::placeholder {
+            font-size: 15px;
+            color: #888;
+            font-family: "El Messiri", sans-serif;
+            font-weight: 800;
+            letter-spacing: 0%;
+            text-align: center;
+            transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
 }

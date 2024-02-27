@@ -21,6 +21,8 @@ export default function ShugoExpress() {
     const [isBtnStoreVisible, setBtnStoreVisible] = useState(true);
     const [activeCategory, setActiveCategory] = useState("all");
     const [lot] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
+
     const [selectedProduct, setSelectedProduct] = useState({
         id: "",
         price: "",
@@ -104,6 +106,10 @@ export default function ShugoExpress() {
         setModalOpen(false);
     };
 
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
     const filteredProducts =
         selectedCategory === "all"
             ? Object.values(products)
@@ -111,48 +117,42 @@ export default function ShugoExpress() {
                   (product) => product.category === selectedCategory
               );
 
+    const filteredAndSearchedProducts = filteredProducts.filter((product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <div className="container">
             <div className="expressBoard animated fadeInDown">
                 <div className="expressContent">
                     <div className="express--header">
                         <div className="express--category">
-                            {/* <div className="express--category-filter">
-                                <select
-                                    onChange={handleCategoryChange}
-                                    value={selectedCategory}
-                                >
-                                    <option key="default" value="all">
-                                        ВСЕ ПРОДУКТЫ
-                                    </option>
-                                    {Array.from(
-                                        new Set(
-                                            Object.values(products).map(
-                                                (product) => product.category
-                                            )
-                                        )
-                                    ).map((category) => (
-                                        <option key={category} value={category}>
-                                            {category}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div> */}
                             <div className="header--category">
                                 <div className="premium">
                                     <button></button>
+                                    <Link to="/purchaseHistory">
+                                        <div className="history--buys">
+                                            <span
+                                                data-tooltip="История покупок"
+                                                data-flow="top"
+                                            >
+                                                <button></button>
+                                            </span>
+                                        </div>
+                                    </Link>
                                 </div>
 
-                                <Link to="/purchaseHistory">
-                                    <div className="history--buys">
-                                        <span
-                                            data-tooltip="История покупок"
-                                            data-flow="top"
-                                        >
-                                            <button></button>
-                                        </span>
-                                    </div>
-                                </Link>
+                                <div className="search--express">
+                                    {" "}
+                                    <form className="find">
+                                        <input
+                                            type="text"
+                                            placeholder="Начните поиск..."
+                                            value={searchTerm}
+                                            onChange={handleSearchChange}
+                                        />
+                                    </form>
+                                </div>
                             </div>
                             <div className="balanceWP">
                                 <h3>{user.coin} WP</h3>
@@ -161,7 +161,7 @@ export default function ShugoExpress() {
                     </div>
                     <div className="express--scroll">
                         <div className="express--products">
-                            {filteredProducts.map((product) => (
+                            {filteredAndSearchedProducts.map((product) => (
                                 <ProductCard
                                     key={product.id}
                                     product={product}

@@ -3,6 +3,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import axiosClient from "../../axios-client";
 import { useEffect, useState } from "react";
+import { format } from "@formkit/tempo";
 
 export default function Dashboard() {
     const {
@@ -292,14 +293,26 @@ export default function Dashboard() {
                                         </div>
                                         <div className="dataAccount">
                                             <h1>
-                                                {moment(user.created_at).format(
+                                                {format({
+                                                    format: "D MMMM, YYYY HH:mm",
+                                                    date: user.created_at,
+                                                    locale: "ru",
+                                                    genitive: true,
+                                                })}
+                                                {/* {moment(user.created_at).format(
                                                     "YYYY.MM.DD"
-                                                )}
+                                                )} */}
                                             </h1>
                                             <h1>
-                                                {moment(
+                                                {format({
+                                                    format: "D MMMM, YYYY HH:mm",
+                                                    date: account.expire_access_level,
+                                                    locale: "ru",
+                                                    genitive: true,
+                                                })}
+                                                {/* {moment(
                                                     account.expire_access_level
-                                                ).format("YYYY.MM.DD HH:mm")}
+                                                ).format("YYYY.MM.DD HH:mm")} */}
                                             </h1>
                                             <h1>
                                                 {account.activated == 0
@@ -307,14 +320,13 @@ export default function Dashboard() {
                                                     : "Активен"}
                                             </h1>
                                             <h1>
-                                                {account.membership == 0
-                                                    ? "Неактивен"
-                                                    : "Активен"}
-                                                &nbsp;
-                                                {moment(
-                                                    account.expire,
-                                                    "YYYYMMDD"
-                                                ).fromNow()}
+                                                {/* {format({
+                                                    format: "D",
+                                                    date: account.daysRemaining,
+                                                    locale: "ru",
+                                                    genitive: true,
+                                                })} */}
+                                                {account.daysRemaining}
                                             </h1>
                                             {/* <h1></h1> */}
                                         </div>

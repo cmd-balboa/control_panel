@@ -220,7 +220,7 @@ export default function Settings() {
                                         )}
                                     </h1>
                                     <h1>
-                                        {moment(account.updated_email).format(
+                                        {moment(user.updated_email).format(
                                             "YYYY.MM.DD HH:mm"
                                         )}
                                     </h1>

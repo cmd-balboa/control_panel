@@ -265,12 +265,6 @@ table {
   border-collapse: collapse;
 }
 
-table > thead > tr > th {
-  text-align: left;
-  padding: 0.5rem 0.5rem;
-  background-color: #efefef;
-}
-
 table > tbody > tr > td {
   padding: 0.5rem 0.5rem;
   border-bottom: 1px solid #efefef;
@@ -1372,6 +1366,10 @@ footer {
   margin-bottom: 15px;
 }
 
+.advanced {
+  width: 100%;
+}
+
 .advancedTitle > p {
   color: #fff;
   font-size: 20px;
@@ -1447,6 +1445,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  gap: 20px;
 }
 .accountDetails p {
   color: #fff;
@@ -1865,7 +1864,7 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 257px;
+  width: 277px;
   height: 440px;
   border-radius: 0px 7px 7px 0px;
   background: #222;
@@ -3267,12 +3266,17 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 800px;
+  gap: 552px;
 }
 
 .premium {
-  width: 24px;
-  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .history--buys {
@@ -3320,7 +3324,7 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
+  gap: 40px;
 }
 
 .express--scroll::-webkit-scrollbar {
@@ -3581,12 +3585,25 @@ footer {
           animation: fadeIn 0.4s ease-in-out forwards; /* Анимация появления */
 }
 .expressmenu h2 {
-  color: rgb(255, 255, 255);
+  color: #fff;
   font-family: "El Messiri", sans-serif;
-  font-size: 15px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0%;
-  text-transform: uppercase;
+  text-align: center;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.expressmenu .activeCategory h2 {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: rgb(82, 82, 82);
 }
 
 .expressmenu ul {
@@ -3597,7 +3614,7 @@ footer {
 
 .expressmenu li {
   padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #2d2d2d;
   color: #fff; /* Цвет текста */
   cursor: pointer;
   -webkit-transition: color 0.3s ease;
@@ -3605,7 +3622,7 @@ footer {
 }
 
 .expressmenu h2:hover {
-  color: #ffcc00; /* Цвет текста при наведении */
+  color: #6c6c6c; /* Цвет текста при наведении */
 }
 
 .expressBurgerMenu {
@@ -3820,6 +3837,95 @@ footer {
 [data-tooltip][data-flow^=right]:hover::after {
   -webkit-animation: tooltip-horz 0.5s ease-out forwards;
           animation: tooltip-horz 0.5s ease-out forwards;
+}
+
+.find {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.find input {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-align: center;
+  padding: 5px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.find input::-webkit-input-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.find input::-moz-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.find input:-ms-input-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.find input::-ms-input-placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.find input::placeholder {
+  font-size: 15px;
+  color: #888;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+}
+.find input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.find input:focus::-moz-placeholder {
+  color: transparent;
+}
+.find input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.find input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+.find input:focus::placeholder {
+  color: transparent;
 }
 
 /* Модальное окно */
@@ -4101,8 +4207,8 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 529px;
-  height: 652px;
+  width: 652px;
+  height: 670px;
   border-radius: 5px;
   background: rgb(25, 25, 25);
 }
@@ -4155,12 +4261,9 @@ footer {
 
 .information-table {
   overflow: scroll;
-  width: 485px;
-  height: 549px;
-  left: 751px;
-  right: 684px;
-  top: 341px;
-  bottom: 190px;
+  width: 100%;
+  margin: 0px 15px 0px 15px;
+  height: 573px;
   border-radius: 10px;
   background: rgb(16, 16, 16);
 }
@@ -4208,7 +4311,6 @@ footer {
 .purchase--information .information-table .purchase-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -4221,10 +4323,132 @@ footer {
           justify-content: center;
 }
 
-table > thead > tr > th {
-  background-color: transparent;
+.purchase-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.purchase-table thead {
+  background: rgb(15, 15, 15);
+  color: white;
+  border-radius: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  -webkit-filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+          filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.purchase-table th,
+.purchase-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 2px solid rgba(33, 33, 33, 0.9);
+}
+
+.purchase-table th {
+  background-color: rgb(15, 15, 15);
+}
+
+.purchase-table tbody tr:nth-child(even) {
+  background-color: rgba(16, 16, 16, 0.7);
+}
+
+.purchase-table tbody tr:hover {
+  background-color: rgba(29, 29, 29, 0.7);
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .vipRow {
   background-color: #f8d7da; /* Любой цвет для выделения VIP-продуктов */
+}
+
+.custom-loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(rgba(0, 0, 0, 0) 10%, #766df4);
+  -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(100% - 8px), #000 0);
+  -webkit-animation: s3 1s infinite linear;
+          animation: s3 1s infinite linear;
+}
+
+@-webkit-keyframes s3 {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@keyframes s3 {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+.no--items {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.buy--items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+}
+.buy--items p {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 17px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.buy--items button {
+  width: 250px;
+  height: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 4px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: linear-gradient(18.57deg, rgb(252, 115, 23) -16.21%, rgb(255, 219, 90) 144.917%);
+}
+.buy--items button p {
+  color: rgb(255, 255, 255);
+  font-family: "El Messiri", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0%;
 }

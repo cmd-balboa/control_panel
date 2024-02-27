@@ -378,6 +378,10 @@
     margin-bottom: 15px;
 }
 
+.advanced {
+    width: 100%;
+}
+
 .advancedTitle > p {
     color: #fff;
     font-size: 20px;
@@ -421,6 +425,7 @@
     align-items: center;
     text-align: right;
     justify-content: center;
+    gap: 20px;
 
     p {
         color: #fff;

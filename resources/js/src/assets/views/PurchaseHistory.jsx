@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useStateContext } from "../../contexts/ContextProvider";
+import { Link } from "react-router-dom";
 
 const PurchaseHistory = () => {
-    const { purchasedLog } = useStateContext();
+    const { purchasedLog, isLoading } = useStateContext();
     const { connectionVipLog } = useStateContext();
     const [activeButton, setActiveButton] = useState("productTable");
+    // const [isLoading, setIsLoading] = useState(true); // Добавлено состояние для отслеживания загрузки данных
 
     const handleButtonClick = (buttonName) => {
         setActiveButton((prevButton) =>
@@ -16,8 +18,6 @@ const PurchaseHistory = () => {
         { label: "VIP", className: "vipTable" },
     ];
 
-    console.log(connectionVipLog);
-
     const renderContent = () => {
         switch (activeButton) {
             case "productTable":
@@ -26,11 +26,11 @@ const PurchaseHistory = () => {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>TITLE</th>
-                                <th>NICKNAME</th>
-                                <th>PRICE</th>
-                                <th>LOT</th>
-                                <th>DATE</th>
+                                <th>ОПИСАНИЕ</th>
+                                <th>АККАУНТ</th>
+                                <th>ЦЕНА</th>
+                                <th>КОЛИЧЕСТВО</th>
+                                <th>ДАТА</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,9 +54,10 @@ const PurchaseHistory = () => {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>TITLE</th>
-                                <th>NICKNAME</th>
-                                <th>PRICE</th>
+                                <th>ОПИСАНИЕ</th>
+                                <th>АККАУНТ</th>
+                                <th>ЦЕНА</th>
+                                <th>ДАТА</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,6 +67,7 @@ const PurchaseHistory = () => {
                                     <td>{logItem.title}</td>
                                     <td>{logItem.account_name}</td>
                                     <td>{logItem.price}</td>
+                                    <td>{logItem.created_at}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -78,6 +80,12 @@ const PurchaseHistory = () => {
                 return null;
         }
     };
+
+    const hasPurchases =
+        (activeButton === "productTable" &&
+            Object.values(purchasedLog).length > 0) ||
+        (activeButton === "vipTable" &&
+            Object.values(connectionVipLog).length > 0);
 
     return (
         <div className="container">
@@ -103,7 +111,28 @@ const PurchaseHistory = () => {
                     </div>
                     <div className="purchase--information animated fadeInDown">
                         <div className="information-table">
-                            {renderContent()}
+                            {isLoading ? (
+                                <div className="isLoading">
+                                    <div className="loading"></div>
+                                </div>
+                            ) : // <div className="isLoading">
+                            //     <div className="loading"></div>
+                            // </div>
+                            Object.keys(purchasedLog).length > 0 ? (
+                                renderContent()
+                            ) : (
+                                <div className="no--items">
+                                    <div className="buy--items">
+                                        <p>У ВАС НЕТ ПОКУПОК</p>
+                                        <Link to="/shugoexpress">
+                                            <button className="blinkLight">
+                                                <p>МАГАЗИН</p>
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
+                                // <p>У ВАС ЕЩЕ НЕТ ПОКУПОК</p>
+                            )}
                         </div>
                     </div>
                 </div>

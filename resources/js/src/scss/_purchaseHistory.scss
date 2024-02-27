@@ -7,8 +7,8 @@
     .table-history {
         display: flex;
         flex-direction: column;
-        width: 529px;
-        height: 652px;
+        width: 652px;
+        height: 670px;
 
         border-radius: 5px;
 
@@ -62,12 +62,10 @@
 
 .information-table {
     overflow: scroll;
-    width: 485px;
-    height: 549px;
-    left: 751px;
-    right: 684px;
-    top: 341px;
-    bottom: 190px;
+    width: 100%;
+    margin: 0px 15px 0px 15px;
+    height: 573px;
+
     border-radius: 10px;
 
     background: rgb(16, 16, 16);
@@ -99,7 +97,6 @@
         .purchase-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -107,10 +104,101 @@
     }
 }
 
-table > thead > tr > th {
-    background-color: transparent;
+.purchase-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.purchase-table thead {
+    background: rgba(15, 15, 15, 1);
+    color: white;
+    border-radius: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.purchase-table th,
+.purchase-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid rgba(33, 33, 33, 0.9); // Добавлено свойство border-bottom
+}
+
+.purchase-table th {
+    background-color: rgba(15, 15, 15, 1);
+}
+
+.purchase-table tbody tr:nth-child(even) {
+    background-color: rgba(16, 16, 16, 0.7);
+}
+
+.purchase-table tbody tr:hover {
+    background-color: rgba(29, 29, 29, 0.7);
+    transition: background-color 0.3s ease;
 }
 
 .vipRow {
     background-color: #f8d7da; /* Любой цвет для выделения VIP-продуктов */
+}
+
+.custom-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: conic-gradient(#0000 10%, #766df4);
+    -webkit-mask: radial-gradient(
+        farthest-side,
+        #0000 calc(100% - 8px),
+        #000 0
+    );
+    animation: s3 1s infinite linear;
+}
+@keyframes s3 {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.no--items {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buy--items {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    p {
+        @include paragraphText(17px, 700);
+    }
+    button {
+        width: 250px;
+        height: 25px;
+        display: flex;
+
+        border-radius: 4px;
+        justify-content: center;
+        align-items: center;
+
+        background: linear-gradient(
+            18.57deg,
+            rgb(252, 115, 23) -16.21%,
+            rgb(255, 219, 90) 144.917%
+        );
+        p {
+            color: rgb(255, 255, 255);
+            font-family: "El Messiri", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0%;
+        }
+    }
 }
