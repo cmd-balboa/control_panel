@@ -1,6 +1,6 @@
 .expressBoard {
-    width: 959px;
-    height: 722px;
+    width: 100%;
+    height: 728px;
     left: 566px;
     right: 395px;
     top: 271px;
@@ -8,7 +8,6 @@
 
     border-radius: 19px;
     display: flex;
-    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 
@@ -60,24 +59,41 @@
 
 .express--products {
     width: 937px;
-    height: 650px;
+    min-height: 100%;
     border-radius: 40px;
     /* Автолейаут */
     display: flex;
     flex-wrap: wrap; /* Разрешаем автоматический перенос элементов на новую строку */
-    overflow: scroll;
+    // overflow: scroll;
     flex-direction: row;
     align-items: flex-start;
     // padding: 15px 63px 15px 21px;
     padding: 0px 0px 0px 21px;
     flex: none;
-    margin: -20px 0px;
     gap: 11px;
     transform-style: preserve-3d; /* Сохраняем 3D-пространство */
 }
 
-.express--products::-webkit-scrollbar {
-    width: 0px; /* Ширина полосы прокрутки */
+// .express--products::-webkit-scrollbar {
+//     width: 0px; /* Ширина полосы прокрутки */
+// }
+
+.expressBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.lotProducts input {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Добавьте это для центрирования по горизонтали */
+    height: 30px;
+    width: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center; /* Центрирование текста по горизонтали внутри инпута */
 }
 
 .expressBtn button {
@@ -134,13 +150,23 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 750px;
+        gap: 552px;
     }
 }
 
+.premium {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.history--buys {
+    width: 24px;
+    height: 24px;
+}
+
 .premium button {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     background: url(../img/shugoexpress/premium--category/premium.svg) top
         no-repeat;
     filter: drop-shadow(0 0 10px #ff8800);
@@ -151,6 +177,78 @@
     }
     animation: pulse 2s ease-in-out infinite;
 }
+
+.history--buys button {
+    width: 24px;
+    height: 24px;
+    background: url(../img/shugoexpress/premium--category/history--buys.svg) top
+        no-repeat;
+    filter: drop-shadow(0 0 10px #fff);
+    transition: filter 0.5s ease-in-out; /* Плавное изменение фильтра (тени) */
+
+    &:hover {
+        animation: pulse 1s infinite; /* Анимация мерцания */
+    }
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.header--category {
+    display: flex;
+    gap: 40px;
+}
+
+// СКРОЛЛ
+
+// .express--scroll {
+//     border-radius: 40px;
+//     overflow: scroll;
+// }
+
+.express--scroll::-webkit-scrollbar {
+    width: 0px; /* Ширина полосы прокрутки */
+}
+
+// СКРОЛЛ
+
+.express--scroll {
+    overflow-y: auto;
+    max-height: 640px; /* Укажите желаемую максимальную высоту контейнера */
+    margin: 9px 0px 0px 0px;
+    border-radius: 50px;
+    z-index: 1; /* Установите значение z-index на ваше усмотрение */
+    // &::before,
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     left: 0;
+    //     right: 0;
+    //     height: 20px;
+    //     border-radius: 20px;
+    //     z-index: -1;
+    // }
+
+    // &::before {
+    //     content: "";
+    //     position: absolute;
+    //     left: 21px;
+    //     width: 911px;
+    //     height: 640px;
+    //     z-index: 2;
+    //     top: 70px;
+    //     border-radius: 20px;
+    //     box-shadow: 0 0 30px rgba(0, 0, 0, 0),
+    //         inset 0 0 10px rgba(255, 255, 255, 0.45); /* Усиленный эффект тени сверху */
+    // }
+}
+
+// &::after {
+//     left: 20px;
+//     width: 910px;
+//     z-index: 1;
+//     bottom: 15px;
+//     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3),
+//         inset 0 0 5px rgba(255, 255, 255, 0.5); /* Тень снизу */
+// }
 
 .express--header {
     display: flex;
@@ -208,8 +306,369 @@
 }
 
 .expressContent {
-    height: 100%;
+    overflow: hidden;
+    // height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+}
+
+// burger
+
+.burgerClose {
+    display: none;
+    cursor: pointer;
+    color: #fff; /* Цвет крестика */
+    opacity: 0; /* Установим начальную непрозрачность */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#menuToggle {
+    display: block;
+    position: relative;
+
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 35px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+
+    cursor: pointer;
+
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+
+    -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+
+    background: #cdcdcd;
+    border-radius: 3px;
+
+    z-index: 1;
+
+    transform-origin: 4px 0px;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-10px, -20px);
+    background: #cdcdcd;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, 10px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.balanceWP {
+    display: flex;
+    justify-content: center;
+    h3 {
+        color: rgb(255, 255, 255);
+        font-family: "El Messiri", sans-serif;
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: 0%;
+        text-transform: uppercase;
+    }
+}
+
+///burger
+
+.expressmenu {
+    display: block;
+    position: fixed;
+    overflow: scroll;
+    right: -260px; /* Изначально за пределами экрана */
+    width: 250px;
+    height: 73%;
+    top: 195px;
+    background-color: rgb(25, 25, 25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    border-radius: 15px;
+    animation: fadeIn 0.4s ease-in-out forwards; /* Анимация появления */
+
+    h2 {
+        @include paragraphText(16px, 800);
+    }
+    .activeCategory {
+        h2 {
+            @include paragraphText(16px, 900);
+            color: rgb(82, 82, 82);
+        }
+    }
+}
+
+.expressmenu ul {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.expressmenu li {
+    padding: 10px 0;
+    border-bottom: 2px solid #2d2d2d;
+    color: #fff; /* Цвет текста */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.expressmenu h2:hover {
+    color: #6c6c6c; /* Цвет текста при наведении */
+}
+
+.expressBurgerMenu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: fixed;
+    right: -260px; /* Изначально за пределами экрана */
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    border-radius: 15px;
+    animation: fadeIn 0.4s ease-in-out forwards; /* Анимация появления */
+}
+
+.expressSelect {
+    display: flex;
+    justify-content: center;
+
+    right: -260px; /* Изначально за пределами экрана */
+    width: 250px;
+    height: 25%;
+    background-color: rgb(25, 25, 25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    border-radius: 15px;
+    animation: fadeIn 0.4s ease-in-out forwards; /* Анимация появления */
+}
+
+.expressmenu::-webkit-scrollbar {
+    width: 0px; /* Ширина полосы прокрутки */
+}
+///burger
+
+[data-tooltip] {
+    position: absolute;
+    pointer: cursor;
+}
+[data-tooltip]::before,
+[data-tooltip]::after {
+    text-transform: none;
+    font-size: 1em;
+    line-height: 1;
+    position: absolute;
+    display: none;
+    opacity: 0;
+}
+[data-tooltip]::before {
+    content: "";
+    border: 6px solid transparent;
+    z-index: 101;
+}
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    text-align: center;
+    min-width: 3em;
+    max-width: 21em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 8px 8px;
+    border-radius: 3px;
+    background: #333333;
+    color: #ffffff;
+    z-index: 100;
+}
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
+    display: block;
+}
+[data-tooltip=""]::before,
+[data-tooltip=""]::after {
+    display: none !important;
+}
+[data-tooltip]:not([data-flow])::before,
+[data-tooltip][data-flow^="top"]::before {
+    bottom: 100%;
+    border-bottom-width: 0;
+    border-top-color: #333333;
+}
+[data-tooltip]:not([data-flow])::after,
+[data-tooltip][data-flow^="top"]::after {
+    bottom: calc(100% + 5px);
+}
+[data-tooltip]:not([data-flow])::before,
+[data-tooltip]:not([data-flow])::after,
+[data-tooltip][data-flow^="top"]::before,
+[data-tooltip][data-flow^="top"]::after {
+    left: 50%;
+    transform: translate(-50%, -0.4em);
+}
+[data-tooltip][data-flow^="bottom"]::before {
+    top: 100%;
+    border-top-width: 0;
+    border-bottom-color: #333333;
+}
+[data-tooltip][data-flow^="bottom"]::after {
+    top: calc(100% + 5px);
+}
+[data-tooltip][data-flow^="bottom"]::before,
+[data-tooltip][data-flow^="bottom"]::after {
+    left: 50%;
+    transform: translate(-50%, 0.4em);
+}
+[data-tooltip][data-flow^="left"]::before {
+    top: 50%;
+    border-right-width: 0;
+    border-left-color: #333333;
+    left: calc(0em - 5px);
+    transform: translate(-0.5em, -50%);
+}
+[data-tooltip][data-flow^="left"]::after {
+    top: 50%;
+    right: calc(100% + 5px);
+    transform: translate(-0.4em, -50%);
+}
+[data-tooltip][data-flow^="right"]::before {
+    top: 50%;
+    border-left-width: 0;
+    border-right-color: #333333;
+    right: calc(0em - 7px);
+    transform: translate(0.4em, -50%);
+}
+[data-tooltip][data-flow^="right"]::after {
+    top: 50%;
+    left: calc(100% + 5px);
+    transform: translate(0.5em, -50%);
+}
+@keyframes tooltip-vert {
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+@keyframes tooltip-horz {
+    to {
+        opacity: 1;
+        transform: translate(0, -50%);
+    }
+}
+[data-tooltip]:not([data-flow]):hover::before,
+[data-tooltip]:not([data-flow]):hover::after,
+[data-tooltip][data-flow^="top"]:hover::before,
+[data-tooltip][data-flow^="top"]:hover::after,
+[data-tooltip][data-flow^="bottom"]:hover::before,
+[data-tooltip][data-flow^="bottom"]:hover::after {
+    animation: tooltip-vert 0.5s ease-out forwards;
+}
+[data-tooltip][data-flow^="left"]:hover::before,
+[data-tooltip][data-flow^="left"]:hover::after,
+[data-tooltip][data-flow^="right"]:hover::before,
+[data-tooltip][data-flow^="right"]:hover::after {
+    animation: tooltip-horz 0.5s ease-out forwards;
+}
+
+.find {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+        color: rgb(255, 255, 255);
+        font-family: "El Messiri", sans-serif;
+        font-size: 17px;
+        font-weight: 600;
+        border-radius: 4px;
+        text-align: center;
+        padding: 5px;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+
+        &::placeholder {
+            font-size: 15px;
+            color: #888;
+            font-family: "El Messiri", sans-serif;
+            font-weight: 800;
+            letter-spacing: 0%;
+            text-align: center;
+            transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
 }

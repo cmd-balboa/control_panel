@@ -1,49 +1,23 @@
 import React, { createRef, useState } from "react";
 import axiosClient from "../../axios-client";
+import Payment from "../../components/payment";
 
 const Donate = () => {
-    const receiverRef = createRef();
-    const labelRef = createRef();
-    const quickpayFormRef = createRef();
-    const sumRef = createRef();
-    const paymentTypeRef = createRef();
-
     // Состояние для отслеживания активного состояния каждой кнопки
     const [activeButton, setActiveButton] = useState("informationButton");
 
     // Обработчик событий для изменения состояний при нажатии на кнопки
     const handleButtonClick = (buttonName) => {
-        setActiveButton(buttonName === activeButton ? null : buttonName);
+        setActiveButton((prevButton) =>
+            prevButton === buttonName ? prevButton : buttonName
+        );
     };
-
     const buttons = [
         // { label: "ИНФОРМАЦИЯ", className: "informationBu" },
         { label: "YOOMONEY", className: "yoomoneyButton" },
         // { label: "LAVA", className: "lavaButton" },
         // { label: "PAYPALYCH", className: "paypalychButton" },
     ];
-
-    const payment = () => {
-        const payload = {
-            receiver: receiverRef.current.value,
-            label: labelRef.current.value,
-            quickpayForm: quickpayFormRef.current.value,
-            sum: sumRef.current.value,
-            paymentType: paymentTypeRef.current.value,
-        };
-
-        axiosClient
-            .post("/testpay", payload)
-            .then(({ data }) => {
-                console.log(data);
-                setError(data.error);
-            })
-            .catch((err) => {
-                const response = err.response;
-                if (response && response.status === 422) {
-                }
-            });
-    };
 
     const renderContent = () => {
         switch (activeButton) {
@@ -117,45 +91,7 @@ const Donate = () => {
             case "yoomoneyButton":
                 return (
                     <div>
-                        <input
-                            type="hidden"
-                            name="receiver"
-                            ref={receiverRef}
-                            value="4100117907658443"
-                        />
-                        <input
-                            type="hidden"
-                            name="label"
-                            value="wings"
-                            ref={labelRef}
-                        />
-                        <input
-                            type="hidden"
-                            name="quickpay-form"
-                            ref={quickpayFormRef}
-                            value="button"
-                        />
-                        <input
-                            type="hidden"
-                            name="sum"
-                            ref={sumRef}
-                            value="4568.25"
-                            data-type="number"
-                        />
-                        <label>
-                            <input
-                                type="radio"
-                                name="paymentType"
-                                ref={paymentTypeRef}
-                                value="PC"
-                            />
-                            ЮMoney
-                        </label>
-                        {/* <label>
-                            <input type="radio" name="paymentType" value="AC" />
-                            Банковской картой
-                        </label> */}
-                        <button onClick={payment}>ПЕРЕВЕСТИ</button>;
+                        <Payment />
                     </div>
                 );
 

@@ -59,12 +59,12 @@
 }
 
 .playerInfo {
+    display: flex;
+    align-items: center;
+    gap: 50px;
     min-width: 151px;
     min-height: 35px;
-    hr {
-        background-color: #fff; /* Цвет линии */
-        min-width: 190px;
-        height: 1px;
-        margin: 8px 0px 8px 0px;
+    p {
+        @include paragraphText(16px, 800);
     }
 }

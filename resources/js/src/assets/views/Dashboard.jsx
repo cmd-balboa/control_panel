@@ -3,6 +3,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import axiosClient from "../../axios-client";
 import { useEffect, useState } from "react";
+import { format } from "@formkit/tempo";
 
 export default function Dashboard() {
     const {
@@ -114,13 +115,14 @@ export default function Dashboard() {
                                         </div>
                                     </div>
                                 </div>
+
                                 <div className="accountBoard animated fadeInDown">
                                     <div className="accountInfo">
                                         <div className="userBoard">
                                             <div className="classIcons">
                                                 {classIcon && (
                                                     <img
-                                                        src={`src/img/classes/${classIcon}.webp`}
+                                                        src={`assets/classes/${classIcon}.webp`}
                                                         className={`${
                                                             animateClass
                                                                 ? "animated fadeInDown"
@@ -204,27 +206,28 @@ export default function Dashboard() {
                                 <div className="payment animated fadeInDown">
                                     <div className="topUp">
                                         <div className="paymentBoard">
-                                            {/* <div className="balanceStatus">
-                                            <p>Баланс</p>
-                                            <hr />
-                                            {user.coin} GP
-                                        </div>
-                                        <div className="paymentInAccount">
-                                            <input type="text" />
-                                            <button>
-                                                <p>ПОПОЛНИТЬ</p>
-                                            </button>
-                                        </div> */}
+                                            <div className="bonus--table">
+                                                <p>MMOTOP БОНУСЫ</p>
+                                            </div>
+                                            <div className="bonus--account">
+                                                <button
+                                                    className="blinkLight"
+                                                    id="mmotop-link"
+                                                >
+                                                    <p>MMTOP</p>
+                                                </button>
+                                                <button
+                                                    className="blinkGreenLight"
+                                                    id="mmotop-bonus"
+                                                >
+                                                    <p>ПОЛУЧИТЬ +5 WP</p>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="vipAccount">
                                         <div className="statusVipAccount">
-                                            <div className="imageVip">
-                                                <img
-                                                    src="src\img\svg\settings\icons8-star-100.png"
-                                                    alt=""
-                                                />
-                                            </div>
+                                            <div className="imageVip"></div>
                                             <p>VIP ACCOUNT</p>
                                         </div>
 
@@ -290,14 +293,26 @@ export default function Dashboard() {
                                         </div>
                                         <div className="dataAccount">
                                             <h1>
-                                                {moment(user.created_at).format(
+                                                {format({
+                                                    format: "D MMMM, YYYY HH:mm",
+                                                    date: user.created_at,
+                                                    locale: "ru",
+                                                    genitive: true,
+                                                })}
+                                                {/* {moment(user.created_at).format(
                                                     "YYYY.MM.DD"
-                                                )}
+                                                )} */}
                                             </h1>
                                             <h1>
-                                                {moment(
+                                                {format({
+                                                    format: "D MMMM, YYYY HH:mm",
+                                                    date: account.expire_access_level,
+                                                    locale: "ru",
+                                                    genitive: true,
+                                                })}
+                                                {/* {moment(
                                                     account.expire_access_level
-                                                ).format("YYYY.MM.DD HH:mm")}
+                                                ).format("YYYY.MM.DD HH:mm")} */}
                                             </h1>
                                             <h1>
                                                 {account.activated == 0
@@ -305,10 +320,15 @@ export default function Dashboard() {
                                                     : "Активен"}
                                             </h1>
                                             <h1>
-                                                {account.membership == 0
-                                                    ? "Неактивен"
-                                                    : "Активен"}
+                                                {/* {format({
+                                                    format: "D",
+                                                    date: account.daysRemaining,
+                                                    locale: "ru",
+                                                    genitive: true,
+                                                })} */}
+                                                {account.daysRemaining}
                                             </h1>
+                                            {/* <h1></h1> */}
                                         </div>
                                     </div>
                                     <div className="decorative"></div>
