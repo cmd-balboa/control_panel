@@ -21,11 +21,12 @@ class YoomoneyService
 
     public function payment($request)
     {
-        
+        Log::info($request);
+
         $yooMoneySecret = env('YOOMONEY_SECRET');
         $sha1 = $this->yoomoneyHash($request, $yooMoneySecret);
-        
-        
+
+
         // test-notification
         // https://yoomoney.ru/transfer/myservices/http-notification
         if ($request->operation_id == "test-notification") {
@@ -42,6 +43,7 @@ class YoomoneyService
         }
 
         $transactionData = [
+            'sender' => $request->sender,
             'notification_type' => $request->notification_type,
             'account_id' => $user->id,
             'account_name' => $user->name,
@@ -77,8 +79,9 @@ class YoomoneyService
         return $exists;
     }
 
-    public function yoomoneyHash($request, $secret_word) {
-        
+    public function yoomoneyHash($request, $secret_word)
+    {
+
         $hash = $request->notification_type .
             '&' . $request->operation_id .
             '&' . $request->amount .
@@ -90,7 +93,6 @@ class YoomoneyService
             '&' . $request->label;
 
         return hash("sha1", $hash);
-
     }
 
     public function handleTestPayment($request, $sha1)

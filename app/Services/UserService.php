@@ -5,6 +5,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Log;
 
 class UserService
 {
@@ -39,6 +40,10 @@ class UserService
     {
         return $this->userRepository->accessLog($name);
     }
+    public function getPayLog($name)
+    {
+        return $this->userRepository->yooumoneyPayLog($name);
+    }
 
     public function changeUserPassword($request, $user)
     {
@@ -59,7 +64,6 @@ class UserService
 
     public function changeUserEmail($data, $user)
     {
-
         $user->update([
             'email' => $data['email'],
             'updated_email' => Carbon::now()

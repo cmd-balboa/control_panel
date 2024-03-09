@@ -69,6 +69,7 @@ class LogService
     {
 
         PayLog::create([
+            'sender' => $transactionData['sender'],
             'notification_type' => $transactionData['notification_type'],
             'account_id' => $transactionData['account_id'],
             'account_name' => $transactionData['account_name'],

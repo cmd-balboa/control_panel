@@ -3,17 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Requests\UpdateEmailRequest;
 use App\Http\Requests\RepairPersonRequest;
-use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use App\Services\UserService;
-use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -35,8 +29,9 @@ class UserController extends Controller
         $purchasedLog = $this->userService->getPurchasedLog($user->name);
         $connectionVipLog = $this->userService->getConnectionVipLog($user->name);
         $accessLog = $this->userService->getAccessLog($user->name);
+        $payLog = $this->userService->getPayLog($user->name);
 
-        return response(compact('user', 'account', 'persons', 'purchasedLog', 'accessLog', 'connectionVipLog'));
+        return response(compact('user', 'account', 'persons', 'purchasedLog', 'accessLog', 'connectionVipLog', 'payLog'));
     }
 
     public function updatePassword(UpdatePasswordRequest $request)

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pay_logs', function (Blueprint $table) {
             $table->id();
+            $table->string('sender')->nullable();
             $table->string('notification_type')->nullable();
             $table->string('account_id')->nullable();
             $table->string('account_name')->nullable();

@@ -10,6 +10,7 @@ class PayLog extends Model
     use HasFactory;
 
     protected $fillable = [
+        'sender',
         'notification_type',
         'account_id',
         'account_name',
