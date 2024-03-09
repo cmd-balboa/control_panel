@@ -97,7 +97,7 @@
 
 .modalTerms {
     width: 1000px;
-    height: 600px;
+    height: 800px;
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -107,21 +107,29 @@
     background-color: #1d1d1d;
     padding: 50px;
     border: 1px solid #1d1d1d;
-    text-align: center;
     border-radius: 5px;
     animation: opacity 0.5s; /* Длительность анимации 0.5 секунды (указать нужное значение) */
 
     p {
-        font-size: 20px;
+        @include paragraphText(20px, 800);
+        color: #c2c2c2;
+        text-align: left;
+        margin: 0px 0px 20px 0px;
+        text-transform: uppercase;
     }
     h2 {
-        font-size: 17px;
+        @include paragraphText(16px, 600);
+        color: rgb(149, 149, 149);
+        text-align: left;
+        margin: 0px 0px 5px 0px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
     h3 {
-        color: rgb(255, 255, 255);
-        font-family: "El Messiri", sans-serif;
-        font-size: 25px;
-        font-weight: 600;
-        letter-spacing: 0%;
+        @include paragraphText(24px, 800);
+        color: #b0b0b2;
+        text-align: center;
+        margin: 0px 0px 5px 0px;
+        text-transform: uppercase;
     }
 }

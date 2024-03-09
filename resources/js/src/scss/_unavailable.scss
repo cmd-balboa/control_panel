@@ -1,0 +1,150 @@
+.unavailable--cp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 10px;
+    background-color: #f8f8f8;
+    opacity: 0; /* Начальная прозрачность для эффекта появления */
+    animation: fadeIn 1s ease forwards; /* Анимация появления */
+
+    p {
+        @include paragraphText(20px, 800);
+        margin-bottom: 20px;
+        color: #777;
+        transition: color 0.3s ease; /* Плавное изменение цвета текста */
+    }
+
+    .unavailable--date {
+        margin-top: 230px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            transition: color 0.3s ease; /* Плавное изменение цвета текста */
+        }
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.btn--back {
+    button {
+        width: 453px;
+        height: 28px;
+        border-radius: 5px;
+        background: rgba($color: #252525, $alpha: 1);
+        box-shadow: rgba($color: #212121, $alpha: 1);
+        transition: transform 0.3s ease;
+
+        h2 {
+            @include paragraphText(16px, 600);
+            color: #ffffff;
+        }
+        &:hover {
+            transform: scale(1.03);
+        }
+    }
+}
+
+.aionworld-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+        @include paragraphText(18px, 700);
+        color: #212121;
+        order: 2;
+    }
+    .icon--world {
+        background: url("/src/img/svg/world-icon.svg") top no-repeat;
+        background-size: contain;
+        width: 30px;
+        height: 30px;
+        order: 1;
+        margin-bottom: 15px;
+    }
+}
+
+.icons__raw {
+    display: inline-flex;
+    align-items: center;
+    max-width: 409px;
+    max-height: 31px;
+    gap: 100px;
+    top: 125px;
+    order: 3;
+    margin-top: 50px;
+}
+
+.discord {
+    background: url("../img/svg/social_icons/discord.svg") top no-repeat;
+    width: 31px;
+    height: 24px;
+}
+
+#click__Discord {
+    display: block;
+    width: 31px;
+    height: 24px;
+}
+
+#click__Telegram {
+    display: block;
+    width: 31px;
+    height: 24px;
+}
+
+#click__Vk {
+    display: block;
+    width: 31px;
+    height: 24px;
+}
+
+#click__Bug {
+    display: block;
+    width: 31px;
+    height: 24px;
+}
+
+.telegram {
+    background: url("../img/svg/social_icons/telegram.svg") top no-repeat;
+    width: 28px;
+    height: 24px;
+}
+
+.vk {
+    background: url("../img/svg/social_icons/vk.svg") top no-repeat;
+    width: 24px;
+    height: 26px;
+}
+
+.bug {
+    background: url("../img/svg/social_icons/bug_report.svg") top no-repeat;
+    width: 26px;
+    height: 31px;
+}
+
+.icons {
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.aionworld-support {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}

@@ -138,6 +138,7 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -157,6 +158,21 @@ input {
   box-sizing: border-box;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+}
+.login input::-webkit-input-placeholder {
+  color: #999;
+}
+.login input::-moz-placeholder {
+  color: #999;
+}
+.login input:-ms-input-placeholder {
+  color: #999;
+}
+.login input::-ms-input-placeholder {
+  color: #999;
+}
+.login input::placeholder {
+  color: #999;
 }
 
 .loginSignup {
@@ -174,6 +190,7 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -193,6 +210,21 @@ input {
   box-sizing: border-box;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+}
+.loginSignup input::-webkit-input-placeholder {
+  color: #999;
+}
+.loginSignup input::-moz-placeholder {
+  color: #999;
+}
+.loginSignup input:-ms-input-placeholder {
+  color: #999;
+}
+.loginSignup input::-ms-input-placeholder {
+  color: #999;
+}
+.loginSignup input::placeholder {
+  color: #999;
 }
 
 input:focus {
@@ -236,17 +268,11 @@ input:focus {
   background-color: #b72424;
 }
 
-.btn-logout {
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  color: #fff;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border-radius: 6px;
-}
-
-.btn-logout:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+.information--player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
 }
 
 .btn:hover,
@@ -2119,9 +2145,24 @@ footer {
 }
 
 .logoAion {
-  min-width: 184px;
-  min-height: 102px;
-  background: url(../img/svg/aion__logo.svg) top no-repeat;
+  min-width: 45px;
+  min-height: 45px;
+  background: url(../img/svg/aionworld_logo.png) top no-repeat;
+  background-size: contain;
+  -webkit-filter: drop-shadow(1px 1px 30px rgba(255, 255, 255, 0.7));
+          filter: drop-shadow(1px 1px 30px rgba(255, 255, 255, 0.7));
+  -webkit-transition: -webkit-transform 0.6s ease, -webkit-filter 0.6s ease;
+  transition: -webkit-transform 0.6s ease, -webkit-filter 0.6s ease;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  transition: transform 0.6s ease, filter 0.6s ease, -webkit-transform 0.6s ease, -webkit-filter 0.6s ease; /* добавлено свойство transition для filter */
+}
+
+.logoAion:hover {
+  -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+  -webkit-filter: drop-shadow(1px 1px 30px rgb(255, 255, 255));
+          filter: drop-shadow(1px 1px 30px rgb(255, 255, 255));
 }
 
 .headerInfo {
@@ -2142,6 +2183,18 @@ footer {
   font-weight: 600;
   letter-spacing: 0%;
   text-align: left;
+}
+
+.content_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 100px;
+  margin-left: 50px;
 }
 
 .flag {
@@ -2198,7 +2251,7 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 50px;
+  gap: 22px;
   min-width: 151px;
   min-height: 35px;
 }
@@ -2211,6 +2264,33 @@ footer {
   font-size: 16px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+.exit {
+  width: 24px;
+  height: 24px;
+}
+
+.btn-logout {
+  width: 24px;
+  height: 24px;
+  background: url(../img/svg/logout.svg) top no-repeat;
+  background-size: contain;
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  -webkit-transition: color 0.3s ease, font-size 0.3s ease;
+  transition: color 0.3s ease, font-size 0.3s ease;
+  display: inline-block;
+  margin-right: 20px;
+}
+.nav-link:hover {
+  color: #ff00ff;
+  font-size: 20px;
 }
 
 .skinWhite {
@@ -2249,7 +2329,7 @@ footer {
           justify-content: center;
 }
 .downloadBoard .clientBoard {
-  width: 754px;
+  width: 575px;
   height: 634px;
   border-radius: 7px 0px 0px 7px;
   background: rgb(25, 25, 25);
@@ -2262,7 +2342,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  gap: 34px;
+  gap: 20px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -2274,7 +2354,30 @@ footer {
   background: rgb(16, 16, 16);
 }
 .downloadBoard .clientBoard .downloadBlock .downloadYandex {
-  width: 319px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 253px;
+  height: 330px;
+  border-radius: 8px;
+  background: rgb(16, 16, 16);
+}
+.downloadBoard .clientBoard .downloadBlock .downloadGoogle {
+  width: 253px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 330px;
   border-radius: 8px;
   background: rgb(16, 16, 16);
@@ -2303,6 +2406,9 @@ footer {
 }
 
 .yandex__row {
+  width: 150px;
+  height: 150px;
+  padding: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2345,15 +2451,67 @@ footer {
 }
 
 .helpBtn button {
-  width: 190px;
-  height: 40px;
-  background: url(../img/svg/downloadHelp/btnJoin.svg);
+  width: 275px;
+  height: 30px;
+  -webkit-box-flex: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-ordinal-group: 1;
+  -ms-flex-order: 0;
+  order: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  border-radius: 3px;
+  background: linear-gradient(18.57deg, rgb(252, 130, 23) -22.517%, rgb(255, 195, 90) 157.192%);
+}
+.helpBtn button p {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .downloadBtn button {
-  width: 172px;
-  height: 40px;
-  background: url(../img/svg/downloadHelp/btnDownload.svg);
+  width: 225px;
+  height: 30px;
+  -webkit-box-flex: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-ordinal-group: 1;
+  -ms-flex-order: 0;
+  order: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  border-radius: 3px;
+  background: linear-gradient(18.57deg, rgb(252, 130, 23) -22.517%, rgb(255, 195, 90) 157.192%);
+}
+.downloadBtn button p {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .downloadTorrent {
@@ -2379,8 +2537,9 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2398,6 +2557,13 @@ footer {
   background: url(../img/svg/downloadHelp/yandexDiskLogo.svg);
 }
 
+.googleLogo {
+  width: 89px;
+  height: 89px;
+  background: url(../img/svg/downloadHelp/Google_Drive.png) top no-repeat;
+  background-size: contain;
+}
+
 .downloadHelp {
   margin-top: 10px;
   display: -webkit-box;
@@ -2410,22 +2576,41 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0px 20px 0px 20px;
   gap: 20px;
 }
+.downloadHelp .helpInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+}
 .downloadHelp .helpInfo h1 {
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 27px;
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
   letter-spacing: 0%;
   text-align: center;
+  font-size: 17px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
-.downloadHelp h2 {
-  color: rgb(255, 255, 255);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px;
+.downloadHelp .helpInfo h2 {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
   letter-spacing: 0%;
+  text-align: center;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #777777;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .donateBoard {
@@ -3266,7 +3451,7 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 552px;
+  gap: 500px;
 }
 
 .premium {
@@ -3316,6 +3501,28 @@ footer {
           animation: pulse 2s ease-in-out infinite;
 }
 .history--buys button:hover {
+  -webkit-animation: pulse 1s infinite;
+          animation: pulse 1s infinite; /* Анимация мерцания */
+}
+
+.payment--history {
+  width: 24px;
+  height: 24px;
+}
+.payment--history button {
+  width: 24px;
+  height: 24px;
+  background: url(../img/shugoexpress/premium--category/cardholder.svg) top no-repeat;
+  -webkit-filter: drop-shadow(0 0 10px #fff);
+          filter: drop-shadow(0 0 10px #fff);
+  -webkit-transition: -webkit-filter 0.5s ease-in-out;
+  transition: -webkit-filter 0.5s ease-in-out;
+  transition: filter 0.5s ease-in-out;
+  transition: filter 0.5s ease-in-out, -webkit-filter 0.5s ease-in-out; /* Плавное изменение фильтра (тени) */
+  -webkit-animation: pulse 2s ease-in-out infinite;
+          animation: pulse 2s ease-in-out infinite;
+}
+.payment--history button:hover {
   -webkit-animation: pulse 1s infinite;
           animation: pulse 1s infinite; /* Анимация мерцания */
 }
@@ -4065,7 +4272,7 @@ footer {
 
 .modalTerms {
   width: 1000px;
-  height: 600px;
+  height: 800px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4082,23 +4289,52 @@ footer {
   background-color: #1d1d1d;
   padding: 50px;
   border: 1px solid #1d1d1d;
-  text-align: center;
   border-radius: 5px;
   -webkit-animation: opacity 0.5s;
           animation: opacity 0.5s; /* Длительность анимации 0.5 секунды (указать нужное значение) */
 }
 .modalTerms p {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
   font-size: 20px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #c2c2c2;
+  text-align: left;
+  margin: 0px 0px 20px 0px;
+  text-transform: uppercase;
 }
 .modalTerms h2 {
-  font-size: 17px;
-}
-.modalTerms h3 {
-  color: rgb(255, 255, 255);
+  color: #fff;
   font-family: "El Messiri", sans-serif;
-  font-size: 25px;
   font-weight: 600;
   letter-spacing: 0%;
+  text-align: center;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: rgb(149, 149, 149);
+  text-align: left;
+  margin: 0px 0px 5px 0px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.modalTerms h3 {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 24px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #b0b0b2;
+  text-align: center;
+  margin: 0px 0px 5px 0px;
+  text-transform: uppercase;
 }
 
 .agreement {
@@ -4116,11 +4352,14 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 400px;
+  height: 580px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 20px;
   background-color: #1a1a1a;
   border-radius: 10px;
@@ -4155,7 +4394,6 @@ footer {
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
   background: linear-gradient(18.57deg, rgb(252, 115, 23) -16.21%, rgb(255, 219, 90) 144.917%);
 }
 .btn--agreement button h2 {
@@ -4167,7 +4405,7 @@ footer {
 }
 
 .desc--agreement {
-  width: 700px;
+  width: 770px;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -4180,9 +4418,6 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   gap: 5px;
 }
 
@@ -4451,4 +4686,307 @@ footer {
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0%;
+}
+
+.payment-history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 550px;
+  height: 650px;
+  border-radius: 5px;
+  background: rgb(25, 25, 25);
+}
+
+.payment-header {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.payment-header p {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 18px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.payment--information {
+  overflow: scroll;
+  margin: 0px 15px 0px 15px;
+  height: 573px;
+  border-radius: 10px;
+  background: rgb(16, 16, 16);
+}
+
+.payment--information::-webkit-scrollbar {
+  width: 0px;
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payment-table thead {
+  background: rgb(15, 15, 15);
+  color: white;
+  border-radius: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  -webkit-filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+          filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.payment-table th,
+.payment-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 2px solid rgba(33, 33, 33, 0.9);
+}
+
+.payment-table th {
+  background-color: rgb(15, 15, 15);
+}
+
+.payment-table tbody tr:nth-child(even) {
+  background-color: rgba(16, 16, 16, 0.7);
+}
+
+.payment-table tbody tr:hover {
+  background-color: rgba(29, 29, 29, 0.7);
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.unavailable--cp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  gap: 10px;
+  background-color: #f8f8f8;
+  opacity: 0; /* Начальная прозрачность для эффекта появления */
+  -webkit-animation: fadeIn 1s ease forwards;
+          animation: fadeIn 1s ease forwards; /* Анимация появления */
+}
+.unavailable--cp p {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 20px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  color: #777;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease; /* Плавное изменение цвета текста */
+}
+.unavailable--cp .unavailable--date {
+  margin-top: 230px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.unavailable--cp .unavailable--date h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease; /* Плавное изменение цвета текста */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.btn--back button {
+  width: 453px;
+  height: 28px;
+  border-radius: 5px;
+  background: #252525;
+  -webkit-box-shadow: #212121;
+          box-shadow: #212121;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.btn--back button h2 {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 16px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #ffffff;
+}
+.btn--back button:hover {
+  -webkit-transform: scale(1.03);
+      -ms-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.aionworld-team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.aionworld-team h2 {
+  color: #fff;
+  font-family: "El Messiri", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0%;
+  text-align: center;
+  font-size: 18px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #212121;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+.aionworld-team .icon--world {
+  background: url("/src/img/svg/world-icon.svg") top no-repeat;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  margin-bottom: 15px;
+}
+
+.icons__raw {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 409px;
+  max-height: 31px;
+  gap: 100px;
+  top: 125px;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  margin-top: 50px;
+}
+
+.discord {
+  background: url("../img/svg/social_icons/discord.svg") top no-repeat;
+  width: 31px;
+  height: 24px;
+}
+
+#click__Discord {
+  display: block;
+  width: 31px;
+  height: 24px;
+}
+
+#click__Telegram {
+  display: block;
+  width: 31px;
+  height: 24px;
+}
+
+#click__Vk {
+  display: block;
+  width: 31px;
+  height: 24px;
+}
+
+#click__Bug {
+  display: block;
+  width: 31px;
+  height: 24px;
+}
+
+.telegram {
+  background: url("../img/svg/social_icons/telegram.svg") top no-repeat;
+  width: 28px;
+  height: 24px;
+}
+
+.vk {
+  background: url("../img/svg/social_icons/vk.svg") top no-repeat;
+  width: 24px;
+  height: 26px;
+}
+
+.bug {
+  background: url("../img/svg/social_icons/bug_report.svg") top no-repeat;
+  width: 26px;
+  height: 31px;
+}
+
+.icons {
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.icons:hover {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.aionworld-support {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 50px;
 }

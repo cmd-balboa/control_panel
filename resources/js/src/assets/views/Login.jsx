@@ -37,10 +37,8 @@ export default function Login() {
             .then(({ data }) => {
                 setUser(data.user);
                 setToken(data.token);
-                console.log(data);
             })
             .catch((err) => {
-                console.log(err);
                 const response = err.response;
                 if (response && response.status === 422) {
                     setMessage(response.data.message);
@@ -63,33 +61,36 @@ export default function Login() {
                 <div className="form">
                     <form onSubmit={onSubmit}>
                         <div className="loginTitle">
-                            <h1 className="title">Login</h1>
+                            <h1 className="title">Авторизоваться</h1>
                         </div>
                         <div className="login">
                             <input
                                 ref={emailRef}
                                 type="email"
-                                placeholder="Email"
+                                placeholder="Почта"
                             />
                             <input
                                 ref={passwordRef}
                                 type="password"
-                                placeholder="Password"
+                                placeholder="Пароль"
                             />
                             <RecaptchaChange onChange={handleRecaptchaChange} />
+                            {message && (
+                                <div className="alert">
+                                    <p>{message}</p>
+                                </div>
+                            )}
+                            <button className="btn btn-block">Войти</button>
 
-                            <button className="btn btn-block">Login</button>
                             <p className="message">
-                                Not registered?{" "}
-                                <Link to="/signup">Create an account</Link>
+                                Не зарегистрирован?{" "}
+                                <Link to="/signup">Создать аккаунт</Link>
+                                {/* <Link to="/unavailable">
+                                    Зарегистрироваться
+                                </Link> */}
                             </p>
                         </div>
                     </form>
-                    {message && (
-                        <div className="alert">
-                            <p>{message}</p>
-                        </div>
-                    )}
                 </div>
             </div>
             <div

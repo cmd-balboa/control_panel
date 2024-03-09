@@ -6,8 +6,9 @@
 
 .agreement-table {
     display: flex;
-    height: 400px;
+    height: 580px;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
     background-color: rgba($color: #1a1a1a, $alpha: 1);
     border-radius: 10px;
@@ -37,7 +38,6 @@
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center;
     background: linear-gradient(
         18.57deg,
         rgb(252, 115, 23) -16.21%,
@@ -54,7 +54,7 @@
 }
 
 .desc--agreement {
-    width: 700px;
+    width: 770px;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
@@ -62,7 +62,7 @@
 .title--agreement {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     gap: 5px;
 }
 
