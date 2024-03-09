@@ -3,6 +3,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    text-align: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -22,6 +23,9 @@
     box-sizing: border-box;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
+    &::placeholder {
+        color: #999; // Цвет текста placeholder
+    }
 }
 
 $theme-black: (
@@ -140,15 +144,20 @@ input:focus {
     background-color: #b72424;
 }
 
-.btn-logout {
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    color: #fff;
-    transition: all 0.3s;
-    border-radius: 6px;
-}
-.btn-logout:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+// .btn-logout {
+//     text-decoration: none;
+//     padding: 0.75rem 1.5rem;
+//     color: #fff;
+//     transition: all 0.3s;
+//     border-radius: 6px;
+// }
+// .btn-logout:hover {
+//     background-color: rgba(0, 0, 0, 0.1);
+// }
+
+.information--player {
+    display: flex;
+    gap: 10px;
 }
 
 .btn:hover,

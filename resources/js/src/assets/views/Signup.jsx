@@ -40,7 +40,6 @@ export default function Signup() {
             .catch((err) => {
                 const response = err.response;
                 if (response && response.status === 422) {
-                    console.log(response.data.errors);
                     setErrors(response.data.errors);
                 }
             });
@@ -65,7 +64,7 @@ export default function Signup() {
             <div className="form">
                 <form onSubmit={onSubmit}>
                     <div className="titleRegistration">
-                        <h1 className="title">Registration</h1>
+                        <h1 className="title">Регистрация</h1>
                         {errors && (
                             <div className="alert">
                                 {Object.keys(errors).map((key) => (
@@ -75,25 +74,21 @@ export default function Signup() {
                         )}
                     </div>
                     <div className="loginSignup">
-                        <input
-                            ref={nameRef}
-                            type="text"
-                            placeholder="Full Name"
-                        />
+                        <input ref={nameRef} type="text" placeholder="Логин" />
                         <input
                             ref={emailRef}
                             type="email"
-                            placeholder="Email Address"
+                            placeholder="Электронная почта"
                         />
                         <input
                             ref={passwordRef}
                             type="password"
-                            placeholder="Password"
+                            placeholder="Пароль"
                         />
                         <input
                             ref={passwordConfirmationRef}
                             type="password"
-                            placeholder="Password Confirmation"
+                            placeholder="Подтверждение пароля"
                         />
                         <div className="termsOfUse">
                             <div className="checkBox">
@@ -113,15 +108,17 @@ export default function Signup() {
                             />
                         </div>
                         <RecaptchaChange onChange={handleRecaptchaChange} />
-                        <button className="btn btn-block">Signup</button>
+                        <button className="btn btn-block">
+                            Зарегистрироваться
+                        </button>
                         <p className="message">
-                            Already Registered? <Link to="/login">Sign in</Link>
+                            Уже зарегистрирован? <Link to="/login">Войти</Link>
                         </p>
                     </div>
                 </form>
-                <div className="aion__logo">
+                {/* <div className="aion__logo">
                     <div className="logo"></div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

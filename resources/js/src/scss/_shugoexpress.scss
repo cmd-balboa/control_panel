@@ -150,7 +150,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 552px;
+        gap: 500px;
     }
 }
 
@@ -190,6 +190,24 @@
         animation: pulse 1s infinite; /* Анимация мерцания */
     }
     animation: pulse 2s ease-in-out infinite;
+}
+
+.payment--history {
+    width: 24px;
+    height: 24px;
+    button {
+        width: 24px;
+        height: 24px;
+        background: url(../img/shugoexpress/premium--category/cardholder.svg)
+            top no-repeat;
+        filter: drop-shadow(0 0 10px #fff);
+        transition: filter 0.5s ease-in-out; /* Плавное изменение фильтра (тени) */
+
+        &:hover {
+            animation: pulse 1s infinite; /* Анимация мерцания */
+        }
+        animation: pulse 2s ease-in-out infinite;
+    }
 }
 
 .header--category {
@@ -518,7 +536,7 @@
 .expressmenu::-webkit-scrollbar {
     width: 0px; /* Ширина полосы прокрутки */
 }
-///burger
+///span
 
 [data-tooltip] {
     position: absolute;
