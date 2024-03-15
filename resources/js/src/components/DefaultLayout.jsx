@@ -1,6 +1,6 @@
 import { Link, Navigate, Outlet } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axiosClient from "../axios-client";
 import { NavLink } from "react-router-dom";
 
@@ -9,16 +9,20 @@ export default function DefaultLayout() {
         user,
         token,
         setUser,
+        setUsers,
         setAccount,
         setToken,
         setPersons,
         notification,
         setIsLoading,
         setProducts,
+        setAdvancedInfo,
         setPurchasedLog,
         setPayLog,
         setConnectionVipLog,
     } = useStateContext();
+
+    const [userRole, setUserRole] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,12 +30,16 @@ export default function DefaultLayout() {
                 const productResponse = await axiosClient.get(`/shugoproduct`);
                 setProducts(productResponse.data.data);
 
+                const advancedInfo = await axiosClient.get(`/getAllUsers`);
+                setAdvancedInfo(advancedInfo.data.data);
+
                 const userResponse = await axiosClient.get("/user");
                 setUser(userResponse.data.user);
                 setAccount(userResponse.data.account);
                 setPersons(userResponse.data.persons);
                 setPersons(userResponse.data.persons);
                 setPayLog(userResponse.data.payLog);
+                setUserRole(userResponse.data.user.role); // Сохраняем роль пользователя
                 setPurchasedLog(userResponse.data.purchasedLog);
                 setConnectionVipLog(userResponse.data.connectionVipLog);
                 setIsLoading(false);
@@ -63,6 +71,17 @@ export default function DefaultLayout() {
                     <div className="content_header">
                         <div className="logoAion"></div>
                         <div className="headerInfo">
+                            <div>
+                                {userRole === "admin" && (
+                                    <NavLink
+                                        to="/AdminPanel"
+                                        className="nav-link"
+                                        activeClassName="activeLink"
+                                    >
+                                        <h1>ADMIN PANEL</h1>
+                                    </NavLink>
+                                )}
+                            </div>{" "}
                             <div>
                                 <NavLink
                                     to="/dashboard"
@@ -153,6 +172,7 @@ export default function DefaultLayout() {
                         </a>
                         {/* <p>1 GP = 1 RUB</p> */}
                     </div>
+                    <div className="footer-business">business@worldaion.ru</div>
                     {/* <div className="social-network">
                         <div className="social-icons">
                             <img id="vk" src="src\img\social_icons\vk.svg" />

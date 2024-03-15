@@ -7,6 +7,7 @@ import Unavailable from "./assets/views/Unavailable";
 import NotFound from "./assets/views/NotFound";
 import Dashboard from "./assets/views/Dashboard";
 import ShugoExpress from "./assets/views/ShugoExpress";
+import AdminPanel from "./assets/views/AdminPanel";
 import PurchaseHistory from "./assets/views/PurchaseHistory";
 import PaymentHistory from "./assets/views/PaymentHistory";
 // import Users from "./assets/views/Users";
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "/shugoexpress",
                 element: <ShugoExpress />,
+            },
+            {
+                path: "/adminpanel",
+                element: <AdminPanel />,
             },
             {
                 path: "/PurchaseHistory",

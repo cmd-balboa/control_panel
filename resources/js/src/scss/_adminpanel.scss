@@ -1,0 +1,245 @@
+.admin-panel {
+    display: flex;
+    gap: 5px;
+    overflow: scroll;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px 15px 0px 15px;
+    height: 573px;
+
+    border-radius: 10px;
+
+    background: rgb(16, 16, 16);
+    .online {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        .serverOnline {
+            height: 12px;
+            width: 12px;
+            border-radius: 10px;
+            box-shadow: inset -10px -10px 100px #48ff00;
+            filter: drop-shadow(0 0 5px #01ff27);
+            display: inline-block;
+
+            button {
+                width: 20px;
+            }
+        }
+        margin: 10px 20px 0px 20px;
+    }
+    p {
+        @include paragraphText(16px);
+    }
+
+    .player-cards {
+        display: flex;
+        flex-direction: column;
+    }
+    .player-card {
+        gap: 140px;
+        display: flex;
+        align-items: center;
+        background: black;
+        border-radius: 15px;
+        height: 60px;
+        justify-content: center;
+    }
+
+    button {
+        height: 25px;
+        width: 150px;
+        border-radius: 3px;
+        background: rgb(255, 114, 114);
+        box-shadow: 0 0 10px rgb(255, 114, 114);
+        transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
+
+        &:hover {
+            box-shadow: 0 0 20px rgb(255, 114, 114);
+            transform: scale(1.02);
+        }
+        p {
+            @include paragraphText(13px);
+        }
+    }
+}
+
+.search {
+    input {
+        color: rgb(255, 255, 255);
+        font-family: "El Messiri", sans-serif;
+        font-size: 17px;
+        font-weight: 600;
+        border-radius: 4px;
+        text-align: center;
+
+        padding: 5px;
+        transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+
+        &::placeholder {
+            font-size: 16px;
+            color: #888;
+            font-family: "El Messiri", sans-serif;
+            font-weight: 800;
+            letter-spacing: 0%;
+            text-align: center;
+            transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+        }
+
+        &:focus {
+            outline: none;
+            background-color: rgba(#ff3982, $alpha: 0.1);
+            border-color: #8a2be2; /* Изменение цвета рамки при фокусировке */
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+}
+
+.modal-content {
+    width: 340px;
+    height: 580px;
+    background: #202020;
+    display: flex;
+    border-radius: 15px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    button {
+        height: 25px;
+        border-radius: 3px;
+        background: rgb(255, 114, 114);
+        -webkit-box-shadow: 0 0 10px rgb(255, 114, 114);
+        box-shadow: 0 0 10px rgb(255, 114, 114);
+        -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s,
+            -webkit-transform 0.5s;
+        transition: background-color 0.5s, -webkit-box-shadow 0.5s,
+            -webkit-transform 0.5s;
+        transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
+        transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s,
+            -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+        &:hover {
+            box-shadow: 0 0 20px rgb(255, 114, 114);
+            transform: scale(1.02);
+        }
+        p {
+            @include paragraphText(13px);
+        }
+    }
+}
+
+#serverInformation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.modal-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.admin-panel::-webkit-scrollbar {
+    width: 0px;
+}
+
+.gm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    input {
+        padding: 5px;
+    }
+}
+
+.player-table thead {
+    background: rgba(15, 15, 15, 1);
+    color: white;
+    border-radius: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.player-table th,
+.player-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid rgba(33, 33, 33, 0.9); // Добавлено свойство border-bottom
+}
+
+.player-table th {
+    background-color: rgba(15, 15, 15, 1);
+}
+
+.player-table tbody tr:nth-child(even) {
+    background-color: rgba(16, 16, 16, 0.7);
+}
+
+.player-table tbody tr:hover {
+    background-color: rgba(29, 29, 29, 0.7);
+    transition: background-color 0.3s ease;
+}
+
+table > tbody > tr > td {
+    padding: 0.5rem 0.5rem;
+    border-bottom: 1px solid #efefef;
+    white-space: nowrap;
+}
+
+.player-table tbody tr:hover .additional-info {
+    display: block;
+}
+
+.additional-info {
+    /* Стили блока без раскрытия */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.additional-info.expanded {
+    /* Стили блока при раскрытии */
+    max-height: 1000px; /* или другое значение, достаточное для отображения всей информации */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    border-radius: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content div {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content div:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .serverOnline {
+    background-color: lightgreen;
+}
