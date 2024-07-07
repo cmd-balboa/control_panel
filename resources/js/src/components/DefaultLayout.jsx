@@ -3,6 +3,9 @@ import { useStateContext } from "../contexts/ContextProvider";
 import { useEffect, useState } from "react";
 import axiosClient from "../axios-client";
 import { NavLink } from "react-router-dom";
+import ModalLogin from "./ModalLogin";
+import ModalRegister from "./ModalRegister";
+import { useTranslation } from "react-i18next";
 
 export default function DefaultLayout() {
     const {
@@ -22,24 +25,27 @@ export default function DefaultLayout() {
         setConnectionVipLog,
     } = useStateContext();
 
+    const { t, i18n } = useTranslation();
+
     const [userRole, setUserRole] = useState(null);
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showRegisterModal, setShowRegisterModal] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const productResponse = await axiosClient.get(`/shugoproduct`);
+                const productResponse = await axiosClient.get("/shugoproduct");
                 setProducts(productResponse.data.data);
 
-                const advancedInfo = await axiosClient.get(`/getAllUsers`);
+                const advancedInfo = await axiosClient.get("/getAllUsers");
                 setAdvancedInfo(advancedInfo.data.data);
 
                 const userResponse = await axiosClient.get("/user");
                 setUser(userResponse.data.user);
                 setAccount(userResponse.data.account);
                 setPersons(userResponse.data.persons);
-                setPersons(userResponse.data.persons);
                 setPayLog(userResponse.data.payLog);
-                setUserRole(userResponse.data.user.role); // Сохраняем роль пользователя
+                setUserRole(userResponse.data.user.role);
                 setPurchasedLog(userResponse.data.purchasedLog);
                 setConnectionVipLog(userResponse.data.connectionVipLog);
                 setIsLoading(false);
@@ -64,6 +70,26 @@ export default function DefaultLayout() {
         });
     };
 
+    const handleOpenLoginModal = () => {
+        setShowLoginModal(true);
+    };
+
+    const handleCloseLoginModal = () => {
+        setShowLoginModal(false);
+    };
+
+    const handleOpenRegisterModal = () => {
+        setShowRegisterModal(true);
+    };
+
+    const handleCloseRegisterModal = () => {
+        setShowRegisterModal(false);
+    };
+
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+    };
+
     return (
         <div id="defaultLayout">
             <div className="content">
@@ -78,17 +104,26 @@ export default function DefaultLayout() {
                                         className="nav-link"
                                         activeClassName="activeLink"
                                     >
-                                        <h1>ADMIN PANEL</h1>
+                                        <h1>{t("header.adminPanel")}</h1>
                                     </NavLink>
                                 )}
-                            </div>{" "}
+                            </div>
+                            <div>
+                                <NavLink
+                                    to="/sitee"
+                                    className="nav-link"
+                                    activeClassName="activeLink"
+                                >
+                                    <h1>{t("header.site")}</h1>
+                                </NavLink>
+                            </div>
                             <div>
                                 <NavLink
                                     to="/dashboard"
                                     className="nav-link"
                                     activeClassName="activeLink"
                                 >
-                                    <h1>ГЛАВНАЯ</h1>
+                                    <h1>{t("header.dashboard")}</h1>
                                 </NavLink>
                             </div>
                             <div>
@@ -97,7 +132,7 @@ export default function DefaultLayout() {
                                     className="nav-link"
                                     activeClassName="activeLink"
                                 >
-                                    <h1>СКАЧАТЬ</h1>
+                                    <h1>{t("header.download")}</h1>
                                 </NavLink>
                             </div>
                             <div>
@@ -106,7 +141,7 @@ export default function DefaultLayout() {
                                     className="nav-link"
                                     activeClassName="activeLink"
                                 >
-                                    <h1>ДОНАТ</h1>
+                                    <h1>{t("header.donate")}</h1>
                                 </NavLink>
                             </div>
                             <div>
@@ -115,24 +150,77 @@ export default function DefaultLayout() {
                                     className="nav-link"
                                     activeClassName="activeLink"
                                 >
-                                    <h1>SHUGO EXPRESS</h1>
+                                    <h1>{t("header.shugoExpress")}</h1>
                                 </NavLink>
-                            </div>
-                            <div>
-                                <a href="https://worldaion.com/">
-                                    <h1>САЙТ</h1>
-                                </a>
                             </div>
                         </div>
                     </div>
-
-                    {/* <div className="languageChange">
-                        <div className="flag"></div>
-                        <p>РУССКИЙ</p>
-                        <div className="arrowChange"></div>
-                    </div> */}
                     <div>
                         <div className="playerInfo">
+                            <div className="sign">
+                                <div className="sign-in">
+                                    <button
+                                        onClick={handleOpenLoginModal}
+                                        id="sign-in"
+                                    >
+                                        <p>{t("header.login")}</p>
+                                    </button>
+                                    {showLoginModal && (
+                                        <ModalLogin
+                                            onClose={handleCloseLoginModal}
+                                        />
+                                    )}
+                                </div>
+                                <div className="reg">
+                                    <button
+                                        onClick={handleOpenRegisterModal}
+                                        id="registration"
+                                    >
+                                        <p>{t("header.register")}</p>
+                                    </button>
+                                    {showRegisterModal && (
+                                        <ModalRegister
+                                            onClose={handleCloseRegisterModal}
+                                        />
+                                    )}
+                                </div>
+                                <div className="language-selector">
+                                    <div className="language-button">
+                                        <button className="current-language">
+                                            {i18n.language === "en"
+                                                ? "English"
+                                                : "Русский"}
+                                        </button>
+                                        <div className="language-dropdown">
+                                            <button
+                                                className={
+                                                    i18n.language === "ru"
+                                                        ? "language-item active"
+                                                        : "language-item"
+                                                }
+                                                onClick={() =>
+                                                    changeLanguage("ru")
+                                                }
+                                            >
+                                                Русский
+                                            </button>
+                                            <button
+                                                className={
+                                                    i18n.language === "en"
+                                                        ? "language-item active"
+                                                        : "language-item"
+                                                }
+                                                onClick={() =>
+                                                    changeLanguage("en")
+                                                }
+                                            >
+                                                English
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div className="information--player">
                                 <div className="username">
                                     <p>{user.name}</p>
@@ -141,7 +229,6 @@ export default function DefaultLayout() {
                                     <p>{user.coin} WP</p>
                                 </div>
                             </div>
-
                             <div className="exit">
                                 <button
                                     onClick={onLogout}
@@ -153,7 +240,6 @@ export default function DefaultLayout() {
                     </div>
                 </header>
                 <main>
-                    {/* <div className="backgroundViews"></div> */}
                     <Outlet />
                 </main>
                 {notification && (
@@ -161,31 +247,22 @@ export default function DefaultLayout() {
                 )}
                 <footer>
                     <div className="footer-link">
-                        <a href="#">
-                            <p>Политика конфиденциальности</p>
-                        </a>
-                        <a href="#">
-                            <p>Пользовательское соглашение</p>
-                        </a>
-                        <a href="#">
-                            <p>Безопасность платежей</p>
-                        </a>
-                        {/* <p>1 GP = 1 RUB</p> */}
-                    </div>
-                    <div className="footer-business">business@worldaion.ru</div>
-                    {/* <div className="social-network">
-                        <div className="social-icons">
-                            <img id="vk" src="src\img\social_icons\vk.svg" />
-                            <img
-                                id="telegram"
-                                src="src\img\social_icons\telegram.svg"
-                            />
-                            <img
-                                id="discord"
-                                src="src\img\social_icons\discord.svg"
-                            />
+                        <div className="footer-links">
+                            <a href="#">
+                                <p>{t("privacyPolicy")}</p>
+                            </a>
+                            <a href="#">
+                                <p>{t("userAgreement")}</p>
+                            </a>
+                            <a href="#">
+                                <p>{t("paymentSecurity")}</p>
+                            </a>
                         </div>
-                    </div> */}
+
+                        <div className="footer-business">
+                            business@worldaion.ru
+                        </div>
+                    </div>
                 </footer>
             </div>
         </div>

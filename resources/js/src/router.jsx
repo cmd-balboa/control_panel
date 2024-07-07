@@ -16,6 +16,7 @@ import Settings from "./assets/views/Settings";
 import Download from "./assets/views/Download";
 import Achievement from "./assets/views/Achievement";
 import Donate from "./assets/views/Donate";
+import Sitee from "./components/Sitee";
 
 const router = createBrowserRouter([
     {
@@ -59,6 +60,7 @@ const router = createBrowserRouter([
                 path: "/Download",
                 element: <Download />,
             },
+
             // {
             //     path: "/users",
             //     element: <Users />,
@@ -75,6 +77,10 @@ const router = createBrowserRouter([
             //     path: "/users/:id",
             //     element: <UserForm key="userUpdate" />,
             // },
+            {
+                path: "/Sitee",
+                element: <Sitee />,
+            },
         ],
     },
 
@@ -90,6 +96,7 @@ const router = createBrowserRouter([
                 path: "/signup",
                 element: <Signup />,
             },
+
             // {
             //     path: "/unavailable",
             //     element: <Unavailable />,

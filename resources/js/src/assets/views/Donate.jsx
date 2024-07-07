@@ -1,17 +1,18 @@
-import React, { createRef, useState } from "react";
-import axiosClient from "../../axios-client";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next"; // Import useTranslation hook
 import Payment from "../../components/payment";
 
 const Donate = () => {
-    // Состояние для отслеживания активного состояния каждой кнопки
+    const { t } = useTranslation(); // Initialize the useTranslation hook
+
     const [activeButton, setActiveButton] = useState("informationButton");
 
-    // Обработчик событий для изменения состояний при нажатии на кнопки
     const handleButtonClick = (buttonName) => {
         setActiveButton((prevButton) =>
             prevButton === buttonName ? prevButton : buttonName
         );
     };
+
     const buttons = [
         // { label: "ИНФОРМАЦИЯ", className: "informationBu" },
         { label: "YOOMONEY", className: "yoomoneyButton" },
@@ -23,68 +24,34 @@ const Donate = () => {
         switch (activeButton) {
             case "informationButton":
                 return (
-                    <div>
-                        {/* Добавьте дополнительный контент, связанный с ENOTBUTTON */}
-                        <div className="donatePay animated fadeInDown">
-                            <div className="paymentTitle">
-                                <div className="donate--title">
-                                    <p>
-                                        Делая пожертвование, Вы соглашаетесь с
-                                        правилами, изложенными ниже:
-                                    </p>
-                                </div>
+                    <div className="donatePay animated fadeInDown">
+                        <div className="paymentTitle">
+                            <div className="donate--title">
+                                <p>{t("donate.rules.intro")}</p>{" "}
+                                {/* Localized content */}
                             </div>
-                            <div className="paymentRules animated fadeInDown">
-                                <div className="donate--rules">
+                        </div>
+                        <div className="paymentRules animated fadeInDown">
+                            <div className="donate--rules">
+                                <ul>
+                                    <li>{t("donate.rules.wpReward")}</li>
                                     <li>
-                                        Вы соглашаетесь, что WP это награда за
-                                        добровольное пожертвование от частного
-                                        лица.
+                                        {t("donate.rules.voluntarySupport")}
                                     </li>
                                     <li>
-                                        Пожертвования представляют собой
-                                        средства, предоставленные частными
-                                        лицами без ожидания получения каких-либо
-                                        материальных благ или услуг.
+                                        {t(
+                                            "donate.rules.expressionOfGratitude"
+                                        )}
                                     </li>
                                     <li>
-                                        Сделав пожертвование, вы осознаете, что
-                                        это не является приобретением продукта
-                                        или услуги, а скорее способом выражения
-                                        благодарности.
+                                        {t("donate.rules.serverMaintenance")}
                                     </li>
                                     <li>
-                                        Чтобы выразить свою благодарность, мы
-                                        вознаграждаем доноров в обмен на их
-                                        поддержку.
+                                        {t("donate.rules.finalTransactions")}
                                     </li>
-                                    <li>
-                                        Пожертвования направляются на
-                                        поддержание работы сервера и развитие
-                                        проекта.
-                                    </li>
-                                    <li>
-                                        Вы соглашаетесь, что все сделанные
-                                        транзакции являются окончательными и не
-                                        подлежат возврату.
-                                    </li>
-                                    <li>
-                                        В случае потери или кражи виртуального
-                                        имущества на игровом аккаунте
-                                        восстановление не предоставляется.
-                                    </li>
-                                </div>
+                                    <li>{t("donate.rules.virtualLoss")}</li>
+                                </ul>
                             </div>
-                            {/* <div className="btnPay__row">
-                                <div className="payInput">
-                                    <input type="text" />
-                                </div>
-                                <div className="payBtn">
-                                    <button>
-                                        <h2>ПОЛУЧИТЬ WP</h2>
-                                    </button>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 );
@@ -95,38 +62,7 @@ const Donate = () => {
                     </div>
                 );
 
-            case "lavaButton":
-                return (
-                    <div>
-                        {/* Добавьте дополнительный контент, связанный с LAVABUTTON */}
-                        <div className="btnPay__row">
-                            <div className="payInput">
-                                <input type="text" />
-                            </div>
-                            <div className="payBtn">
-                                <button>
-                                    <h2>ПОЛУЧИТЬ WP</h2>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                );
-            case "paypalychButton":
-                return (
-                    <div>
-                        {/* Добавьте дополнительный контент, связанный с PAYPALYCHBUTTON */}
-                        <div className="btnPay__row">
-                            <div className="payInput">
-                                <input type="text" />
-                            </div>
-                            <div className="payBtn">
-                                <button>
-                                    <h2>ПОЛУЧИТЬ WP</h2>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                );
+            // Cases for other buttons (lavaButton, paypalychButton) can be added similarly
             default:
                 return null;
         }
@@ -148,7 +84,8 @@ const Donate = () => {
                                     handleButtonClick("informationButton")
                                 }
                             >
-                                <h2>ПОДДЕРЖКА И БЛАГОДАРНОСТЬ</h2>
+                                <h2>{t("donate.rules.title")}</h2>{" "}
+                                {/* Localized button label */}
                             </button>
                         </div>
                         <div className="paymentMethods">
@@ -168,9 +105,6 @@ const Donate = () => {
                                     </button>
                                 </div>
                             ))}
-                            {/* <button className="unavailable">
-                                <h2>LAVA</h2>
-                            </button> */}
                             <div className="unavailable-container">
                                 <div className="unavailable">
                                     <div className="icon">&#9888;</div>
@@ -179,15 +113,9 @@ const Donate = () => {
                             <div className="unavailable">
                                 <div className="icon">&#9888;</div>
                             </div>
-                            {/* <div className="unavailable">
-                                <h2>PAYPALYCH</h2>
-                            </div> */}
                         </div>
                     </div>
-                    <div className="additionalContent">
-                        {renderContent()}
-                        {/* Остальной код вашего компонента */}
-                    </div>
+                    <div className="additionalContent">{renderContent()}</div>
                 </div>
             </div>
         </div>

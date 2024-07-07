@@ -163,7 +163,7 @@ input:focus {
 .btn:hover,
 .btn:active,
 .btn:focus {
-    background: #afdeff;
+    background: #ff6969;
 }
 
 .text-center {
@@ -295,8 +295,8 @@ table > tbody > tr > td {
 #defaultLayout header {
     height: 80px;
     padding: 2rem 3rem;
-    background-color: map-get($theme-black, "body-color");
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    // background-color: map-get($theme-black, "body-color");
+    // box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -313,10 +313,10 @@ table > tbody > tr > td {
     flex-direction: column;
     margin: 0;
     height: calc(100vh - 130px);
-    overflow: hidden;
     // background: rgba(62, 62, 62, 0.7)
     //     url(https://images5.alphacoders.com/400/400028.jpg);
-    background: rgba(13, 13, 13, 0.65) url(../img/bg/bg.jpg);
+    // background: rgba(0, 0, 0, 0.7) url(../img/site/bg_header.jpeg);
+    // background: rgba(0, 0, 0, 0.7) url(../img/bg/bg.jpg);
     // background: rgba(0, 0, 0, 0.65) url(../img/bg/background-image.jpeg);
     // background: rgba(0, 0, 0, 0.45) url(../img/bg/image.jpeg);
     background-size: cover;
@@ -324,8 +324,22 @@ table > tbody > tr > td {
     background-blend-mode: multiply;
 }
 
+// #defaultLayout .content {
+//     min-height: 100dvh;
+// }
 #defaultLayout .content {
-    min-height: 100dvh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.7) url(/src/img/site/bg_header.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
 }
 
 // .backgroundViews {
@@ -432,12 +446,17 @@ table > tbody > tr > td {
 footer {
     width: 100%;
     height: 50px;
-    background-color: #191919be;
-    position: absolute;
+    // position: absolute;
+    overflow: hidden;
     display: flex;
     gap: 180px;
     align-items: center;
     justify-content: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
 }
 
 .footer-link {
@@ -446,6 +465,7 @@ footer {
     flex-direction: row;
     gap: 50px;
     align-items: center;
+    justify-content: space-around;
 
     p {
         color: #fff;
