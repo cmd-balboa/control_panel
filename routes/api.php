@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\AdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
@@ -20,9 +21,19 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/updateEmail', [UserController::class, 'updateEmail']);
     Route::post('/repairPerson', [UserController::class, 'repairPerson']);
 
+    
 
     Route::post('/logout', [AuthController::class, 'logout']);
     
+});
+
+
+Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
+    Route::get('/getAllUsers', [AdminController::class, 'getAllUsers']);
+    // Route::get('/getAdvancedInfo/{name}', [AdminController::class, 'getAdvancedInfo']);
+    Route::post('/getAdvancedInfo', [AdminController::class, 'getAdvancedInfo']);
+    Route::post('/updateAccount', [AdminController::class, 'updateAccount']);
+
 });
 
 Route::post('/signup', [AuthController::class, 'signup']);

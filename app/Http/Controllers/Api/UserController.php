@@ -6,17 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Requests\UpdateEmailRequest;
 use App\Http\Requests\RepairPersonRequest;
+use App\Services\Admin\AdminService;
 use Illuminate\Http\Request;
 use App\Services\UserService;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
 
     protected $userService;
+    protected $adminService;
 
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
+
+        // Test
+        $this->adminService = new AdminService;
     }
 
 
