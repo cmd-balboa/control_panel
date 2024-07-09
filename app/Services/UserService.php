@@ -11,12 +11,14 @@ class UserService
 {
 
     protected $userRepository;
-    protected $AionDB;
+    protected $aion_ls;
+    protected $aion_gs;
 
     public function __construct()
     {
         $this->userRepository = new UserRepository;
-        $this->AionDB = DB::connection('aiondb');
+        $this->aion_ls = DB::connection('aion_ls');
+        $this->aion_gs = DB::connection('aion_gs');
     }
 
     public function getAccountInfo($name)
@@ -56,7 +58,7 @@ class UserService
 
         $aion_pass = base64_encode(sha1($newPassword, true));
 
-        $this->AionDB->table('account_data')->where('name', $user->name)
+        $this->aion_ls->table('account_data')->where('name', $user->name)
             ->update(['password' => $aion_pass]);
 
         return response()->json(['message' => 'Пароль успешно изменен'], 200);
@@ -96,7 +98,7 @@ class UserService
 
         switch ($person->race) {
             case 'ELYOS':
-                $this->AionDB->table('players')->where('id', $data['id'])
+                $this->aion_gs->table('players')->where('id', $data['id'])
                     ->update([
                         'x' => 1197,
                         'y' => 1039,
@@ -106,7 +108,7 @@ class UserService
                     ]);
                 break;
             case 'ASMODIANS':
-                $this->AionDB->table('players')->where('id', $data['id'])
+                $this->aion_gs->table('players')->where('id', $data['id'])
                     ->update([
                         'x' => 463,
                         'y' => 2810,

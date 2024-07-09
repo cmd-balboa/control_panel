@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\DB;
 class UserRepository
 {
 
-    private $AionDB;
+    private $aion_ls;
+    private $aion_gs;
 
     public function __construct()
     {
-        $this->AionDB = DB::connection('aiondb');
+        $this->aion_ls = DB::connection('aion_ls');
+        $this->aion_gs = DB::connection('aion_gs');
     }
 
     public function getCharacterLevel($experience)
@@ -42,9 +44,10 @@ class UserRepository
     public function accountInfo($name)
     {
 
-        $account = $this->AionDB->table('account_data')
+        $account = $this->aion_ls->table('account_data')
             ->where('name', '=', $name)
-            ->select('activated', 'membership', 'last_ip', 'expire_access_level', 'expire')
+            // ->select('activated', 'membership', 'last_ip', 'expire_access_level', 'expire')
+            ->select('activated', 'membership', 'last_ip')
             ->first();
 
         return $account;
@@ -53,7 +56,7 @@ class UserRepository
     public function persons($name)
     {
 
-        $persons = $this->AionDB->table('players')
+        $persons = $this->aion_gs->table('players')
             ->where('account_name', '=', $name)
             ->select('id', 'name', 'race', 'player_class', 'creation_date', 'deletion_date', 'last_online', 'online', 'exp')
             ->get();
@@ -69,7 +72,7 @@ class UserRepository
     public function onePerson($id)
     {
 
-        $person = $this->AionDB->table('players')
+        $person = $this->aion_gs->table('players')
             ->where('id', '=', $id)
             ->select('id', 'race', 'online')
             ->first();

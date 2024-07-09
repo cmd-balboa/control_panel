@@ -11,12 +11,12 @@ use App\Services\LogService;
 class VipService
 {
 
-    protected $AionDB;
+    protected $aion_ls;
     protected $logService;
 
     public function __construct()
     {
-        $this->AionDB = DB::connection('aiondb');
+        $this->aion_ls = DB::connection('aion_ls');
         $this->logService = new LogService;
     }
 
@@ -34,7 +34,7 @@ class VipService
         }
 
         // check vip status
-        $currentEndDateVipStatus = $this->AionDB->table('account_data')
+        $currentEndDateVipStatus = $this->aion_ls->table('account_data')
                     ->where('name', $user->name)
                     ->value('expire');
         
@@ -48,7 +48,7 @@ class VipService
         }
 
         // connect vip status
-        $this->AionDB->table('account_data')->where('name', $user->name)
+        $this->aion_ls->table('account_data')->where('name', $user->name)
                     ->update([
                         'membership' => 2,
                         'expire' => $newEndDateVipStatus

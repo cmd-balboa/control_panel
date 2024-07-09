@@ -11,12 +11,12 @@ use App\Services\LogService;
 class ShugoShopService
 {
 
-    protected $AionDB;
+    protected $aion_ls;
     protected $logService;
 
     public function __construct()
     {
-        $this->AionDB = DB::connection('aiondb');
+        $this->aion_ls = DB::connection('aion_ls');
         $this->logService = new LogService;
     }
 
