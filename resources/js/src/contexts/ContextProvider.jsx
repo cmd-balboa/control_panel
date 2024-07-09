@@ -10,6 +10,8 @@ const StateContext = createContext({
     setNotification: () => {},
     setPersons: () => {},
     setProducts: () => {},
+    setAdvancedInfo: () => {},
+    setUsers: () => {},
     setPayLog: () => {},
     setPurchasedLog: () => {},
     setConnectionVipLog: () => {},
@@ -19,7 +21,9 @@ const StateContext = createContext({
 export const ContextProvider = ({ children }) => {
     const [persons, setPersons] = useState({});
     const [user, setUser] = useState({});
+    const [users, setUsers] = useState({});
     const [products, setProducts] = useState({});
+    const [advancedInfo, setAdvancedInfo] = useState({});
     const [purchasedLog, setPurchasedLog] = useState({});
     const [payLog, setPayLog] = useState({});
     const [connectionVipLog, setConnectionVipLog] = useState({});
@@ -63,8 +67,12 @@ export const ContextProvider = ({ children }) => {
                 setIsLoading,
                 products,
                 setProducts,
+                advancedInfo,
+                setAdvancedInfo,
                 purchasedLog,
                 setPurchasedLog,
+                users,
+                setUsers,
                 payLog,
                 setPayLog,
                 connectionVipLog,

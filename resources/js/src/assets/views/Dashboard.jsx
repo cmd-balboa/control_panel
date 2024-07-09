@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axiosClient from "../../axios-client";
 import { useEffect, useState } from "react";
 import { format } from "@formkit/tempo";
+import { useTranslation } from "react-i18next";
 
 export default function Dashboard() {
     const {
@@ -17,6 +18,8 @@ export default function Dashboard() {
         isLoading,
     } = useStateContext();
 
+    const { t } = useTranslation();
+
     const [selectedPerson, setSelectedPerson] = useState("");
     const [classIcon, setClassIcon] = useState("");
     const [error, setError] = useState(null);
@@ -28,35 +31,25 @@ export default function Dashboard() {
     const isNotExpired = expireDate > currentDate;
 
     useEffect(() => {
-        // При изменении selectedPerson установите класс анимации
         setAnimateClass(true);
-
-        // Очистите класс анимации после завершения анимации (1 секунда)
         const timeoutId = setTimeout(() => {
             setAnimateClass(false);
         }, 500);
-
-        // Очистите таймаут при размонтировании компонента или при следующем изменении selectedPerson
         return () => clearTimeout(timeoutId);
     }, [selectedPerson]);
 
     const selectPerson = (ev) => {
         const selectedPersonId = ev.target.value;
         setSelectedPerson(selectedPersonId);
-
-        // Получите значение class_icon из атрибута data-classicon
         const selectedClassIcon =
             ev.target.options[ev.target.selectedIndex].getAttribute(
                 "data-classicon"
             );
-
-        // Установите имя файла изображения в стейт
         setClassIcon(selectedClassIcon);
     };
 
     const RepairHero = (ev) => {
         ev.preventDefault();
-
         const personId = {
             id: selectedPerson,
         };
@@ -98,7 +91,7 @@ export default function Dashboard() {
                         {!isLoading && (
                             <div className="accountTitle">
                                 <div className="toolBar">
-                                    <p>ЛИЧНЫЙ КАБИНЕТ</p>
+                                    <p>{t("dashboard.personalCabinet")}</p>
                                     <div className="settings">
                                         <Link to="/settings">
                                             <div className="tool">
@@ -107,7 +100,9 @@ export default function Dashboard() {
                                         </Link>
                                         <div className="exitBtn">
                                             <a href="#" onClick={onLogout}>
-                                                <button>ВЫЙТИ</button>
+                                                <button>
+                                                    {t("dashboard.logout")}
+                                                </button>
                                             </a>
                                         </div>
                                     </div>
@@ -140,7 +135,9 @@ export default function Dashboard() {
                                                         className="selectDefault"
                                                         hidden
                                                     >
-                                                        Выберите персонажа:
+                                                        {t(
+                                                            "dashboard.selectCharacter"
+                                                        )}
                                                     </option>
 
                                                     {Object.keys(persons).map(
@@ -191,20 +188,21 @@ export default function Dashboard() {
                                             onClick={RepairHero}
                                         >
                                             <button>
-                                                <p>ПОЧИНИТЬ</p>
+                                                <p>{t("dashboard.repair")}</p>
                                             </button>
                                         </div>
-                                        <h2>
-                                            ПЕРСОНАЖ БУДЕТ ПЕРЕМЕЩЁН НА
-                                            СТАРТОВУЮ ЛОКАЦИЮ
-                                        </h2>
+                                        <h2>{t("dashboard.repairNotice")}</h2>
                                     </div>
                                 </div>
                                 <div className="payment animated fadeInDown">
                                     <div className="topUp">
                                         <div className="paymentBoard">
                                             <div className="bonus--table">
-                                                <p>MMOTOP БОНУСЫ</p>
+                                                <p>
+                                                    {t(
+                                                        "dashboard.mmotopBonuses"
+                                                    )}
+                                                </p>
                                             </div>
                                             <div className="bonus--account">
                                                 <button
@@ -212,7 +210,11 @@ export default function Dashboard() {
                                                     id="mmotop-link"
                                                 >
                                                     <a href="https://aion.mmotop.ru/servers/37732">
-                                                        <p>MMOTOP</p>
+                                                        <p>
+                                                            {t(
+                                                                "dashboard.mmotop"
+                                                            )}
+                                                        </p>
                                                     </a>
                                                 </button>
                                                 <button
@@ -220,7 +222,11 @@ export default function Dashboard() {
                                                     id="mmotop-bonus"
                                                 >
                                                     <a href="https://aion.mmotop.ru/servers/37732/votes/new">
-                                                        <p>ПОЛУЧИТЬ +5 WP</p>
+                                                        <p>
+                                                            {t(
+                                                                "dashboard.getBonus"
+                                                            )}
+                                                        </p>
                                                     </a>
                                                 </button>
                                             </div>
@@ -229,12 +235,12 @@ export default function Dashboard() {
                                     <div className="vipAccount">
                                         <div className="statusVipAccount">
                                             <div className="imageVip"></div>
-                                            <p>VIP ACCOUNT</p>
+                                            <p>{t("dashboard.vipAccount")}</p>
                                         </div>
 
                                         <Link to="/shugoexpress">
                                             <button className="blinkLight">
-                                                <p>ПОДКЛЮЧИТЬ</p>
+                                                <p>{t("dashboard.connect")}</p>
                                             </button>
                                         </Link>
                                     </div>
@@ -242,61 +248,35 @@ export default function Dashboard() {
                             </div>
                         )}
                     </div>
-                    {/* {isLoading && (
-                    <div className="isLoading">
-                        <div className="loading"></div>
-                    </div>
-                )} */}
                     <div className="accountStatus">
                         {!isLoading && (
                             <>
-                                {/* <div className="bonusCoin">
-                                <div className="bonusTitle">
-                                    <p>БОНУСЫ</p>
-                                </div>
-                                <div className="mmotopBonus">
-                                    <div className="mmotopBtn">
-                                        <button>
-                                            <p>MMOTOP</p>
-                                        </button>
-                                    </div>
-                                    <div className="getPresentBtn">
-                                        <button>
-                                            <p>ПОЛУЧИТЬ +5 GP</p>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div> */}
                                 <div className="achievement">
                                     <div className="achievementTitle">
-                                        <p>ДОСТИЖЕНИЯ</p>
+                                        <p>{t("dashboard.achievements")}</p>
                                     </div>
                                     <div className="achievement__row">
                                         <div className="achievementValue">
                                             <h1>0 / 0</h1>
                                         </div>
-                                        {/* <Link to="/achievement">
-                                        <div className="achievementIcon"></div>
-                                    </Link> */}
                                     </div>
                                 </div>
                                 <div className="advanced">
                                     <div className="decorative"></div>
                                     <div className="advancedTitle">
-                                        <p>АККАУНТ</p>
+                                        <p>{t("dashboard.account")}</p>
                                     </div>
                                     <div className="accountDetails">
                                         <div className="titleBar">
-                                            <p>Создан:</p>
-                                            <p>Последний вход:</p>
-                                            <p>Статус аккаунта:</p>
-                                            <p>VIP статус:</p>
+                                            <p>{t("dashboard.created")}</p>
+                                            <p>{t("dashboard.lastLogin")}</p>
+                                            <p>
+                                                {t("dashboard.accountStatus")}
+                                            </p>
+                                            <p>{t("dashboard.vipStatus")}</p>
                                         </div>
                                         <div className="dataAccount">
                                             <h1>
-                                                {/* {moment(user.created_at).format(
-                                                    "YYYY.MM.DD"
-                                                )} */}
                                                 {format({
                                                     format: "D MMMM, YYYY HH:mm",
                                                     date: user.created_at,
@@ -311,38 +291,24 @@ export default function Dashboard() {
                                                     locale: "ru",
                                                     genitive: true,
                                                 })}
-                                                {/* {moment(
-                                                    account.expire_access_level
-                                                ).format("YYYY.MM.DD HH:mm")} */}
                                             </h1>
                                             <h1>
                                                 {account.activated == 0
-                                                    ? "Заблокирован"
-                                                    : "Активен"}
+                                                    ? t("dashboard.blocked")
+                                                    : t("dashboard.active")}
                                             </h1>
                                             <h1>
-                                                {/* {format({
-                                                    format: "D",
-                                                    date: account.expire,
-                                                    locale: "ru",
-                                                    genitive: true,
-                                                })} */}
-                                                {/* {account.daysRemaining} */}
                                                 {isNotExpired && (
-                                                    <h1>
-                                                        {`${Math.ceil(
-                                                            (expireDate.getTime() -
-                                                                currentDate.getTime()) /
-                                                                (1000 *
-                                                                    60 *
-                                                                    60 *
-                                                                    24)
-                                                        )}`}
-                                                    </h1>
+                                                    <h1>{`${Math.ceil(
+                                                        (expireDate.getTime() -
+                                                            currentDate.getTime()) /
+                                                            (1000 *
+                                                                60 *
+                                                                60 *
+                                                                24)
+                                                    )}`}</h1>
                                                 )}
-                                                {/* {account.expire} */}
                                             </h1>
-                                            {/* <h1></h1> */}
                                         </div>
                                     </div>
                                     <div className="decorative"></div>

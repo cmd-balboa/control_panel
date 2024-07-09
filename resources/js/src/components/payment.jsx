@@ -1,8 +1,10 @@
 import React from "react";
 import { useStateContext } from ".././contexts/ContextProvider/";
 import { useState } from "react";
+import { useTranslation } from "react-i18next"; // Import useTranslation hook
 
 const Payment = () => {
+    const { t } = useTranslation(); // Initialize the useTranslation hook
     const { user } = useStateContext();
     const [labelValue, setLabelValue] = useState("0");
     const [sumValue, setSumValue] = useState("");
@@ -59,7 +61,7 @@ const Payment = () => {
                             name="sum"
                             value={sumValue}
                             data-type="number"
-                            placeholder="Введите сумму"
+                            placeholder={t("payment.enterSum")}
                             onChange={handleSumChange}
                         />
                         <span>₽</span>
@@ -69,7 +71,7 @@ const Payment = () => {
                         className="blinkPurpleLight"
                         onClick={handlePayClick}
                     >
-                        <p>ОПЛАТИТЬ</p>
+                        <p>{t("payment.pay")}</p>
                     </button>
                 </div>
             </form>

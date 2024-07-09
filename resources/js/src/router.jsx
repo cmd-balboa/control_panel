@@ -7,6 +7,7 @@ import Unavailable from "./assets/views/Unavailable";
 import NotFound from "./assets/views/NotFound";
 import Dashboard from "./assets/views/Dashboard";
 import ShugoExpress from "./assets/views/ShugoExpress";
+import AdminPanel from "./assets/views/AdminPanel";
 import PurchaseHistory from "./assets/views/PurchaseHistory";
 import PaymentHistory from "./assets/views/PaymentHistory";
 // import Users from "./assets/views/Users";
@@ -15,6 +16,7 @@ import Settings from "./assets/views/Settings";
 import Download from "./assets/views/Download";
 import Achievement from "./assets/views/Achievement";
 import Donate from "./assets/views/Donate";
+import Sitee from "./components/Sitee";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
             {
                 path: "/shugoexpress",
                 element: <ShugoExpress />,
+            },
+            {
+                path: "/adminpanel",
+                element: <AdminPanel />,
             },
             {
                 path: "/PurchaseHistory",
@@ -54,6 +60,7 @@ const router = createBrowserRouter([
                 path: "/Download",
                 element: <Download />,
             },
+
             // {
             //     path: "/users",
             //     element: <Users />,
@@ -70,6 +77,10 @@ const router = createBrowserRouter([
             //     path: "/users/:id",
             //     element: <UserForm key="userUpdate" />,
             // },
+            {
+                path: "/Sitee",
+                element: <Sitee />,
+            },
         ],
     },
 
@@ -85,6 +96,7 @@ const router = createBrowserRouter([
                 path: "/signup",
                 element: <Signup />,
             },
+
             // {
             //     path: "/unavailable",
             //     element: <Unavailable />,

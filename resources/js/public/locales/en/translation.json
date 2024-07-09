@@ -1,0 +1,75 @@
+{
+    "site": {
+        "worldTitle": "UNITED KINGDOM, BEST PERSONALITY",
+        "worldDesc": "Open new world of possibilities! At least in exclusive tests. Two ideas are forming soon. The end of the antechamber is already here - first in the center and only a short distance to the change of world"
+    },
+    "header": {
+        "adminPanel": "ADMIN PANEL",
+        "site": "SITE",
+        "dashboard": "DASHBOARD",
+        "download": "DOWNLOAD",
+        "donate": "DONATE",
+        "shugoExpress": "SHUGO EXPRESS",
+        "login": "Login",
+        "register": "Register"
+    },
+    "donate": {
+        "rules": {
+            "intro": "By making a donation, you agree to the following rules:",
+            "wpReward": "You agree that WP is a reward for voluntary donation from private individuals.",
+            "voluntarySupport": "Donations are funds provided by private individuals without expecting any material goods or services.",
+            "expressionOfGratitude": "By donating, you acknowledge that it is not a purchase of a product or service but rather a way to express gratitude.",
+            "serverMaintenance": "To express gratitude, we reward donors in exchange for their support.",
+            "finalTransactions": "You agree that all transactions made are final and non-refundable.",
+            "virtualLoss": "In case of loss or theft of virtual property in the game account, no restoration is provided.",
+            "title": "SUPPORT AND BALANCE"
+        }
+    },
+    "dashboard": {
+        "personalCabinet": "PERSONAL CABINET",
+        "logout": "LOGOUT",
+        "selectCharacter": "Select a character:",
+        "repair": "REPAIR",
+        "repairNotice": "CHARACTER WILL BE MOVED TO STARTING LOCATION",
+        "mmotopBonuses": "MMOTOP BONUSES",
+        "mmotop": "MMOTOP",
+        "getBonus": "GET +5 WP",
+        "vipAccount": "VIP ACCOUNT",
+        "connect": "CONNECT",
+        "created": "Created:",
+        "lastLogin": "Last Login:",
+        "accountStatus": "Account Status:",
+        "vipStatus": "VIP Status:",
+        "blocked": "Blocked",
+        "active": "Active",
+        "achievements": "ACHIEVEMENTS",
+        "account": "ACCOUNT"
+    },
+    "download": {
+        "downloadClient": "DOWNLOAD CLIENT",
+        "download": "DOWNLOAD",
+        "titleDownload": "DOWNLOAD CLIENT",
+        "yandexDisk": "Yandex Disk",
+        "googleDisk": "Google Disk",
+        "torrent": {
+            "utorrent": "uTORRENT"
+        },
+        "downloadHelp": {
+            "troubleshooting": "EXPERIENCING INSTALLATION ISSUES?",
+            "discordServer": "JOIN OUR DISCORD SERVER, WE WILL DEFINITELY HELP YOU"
+        },
+        "buttons": {
+            "download": "DOWNLOAD",
+            "joinDiscord": "JOIN"
+        },
+        "links": {
+            "yandex": "https://disk.yandex.ru/d/2eT-Jn-wNCBVvQ",
+            "google": "https://drive.google.com/file/d/1P60L5d3koX-XanRMwActE609Zq7TbP-x/view?usp=drive_link",
+            "discord": "https://discord.gg/kyGwe46BDE"
+        }
+    },
+    "payment": {
+        "enterSum": "Enter sum",
+        "pay": "PAY"
+    }
+}
