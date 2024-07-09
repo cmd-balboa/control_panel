@@ -61,7 +61,7 @@ export default function ShugoExpress() {
             personName: selectedPerson ? selectedPerson.name : null,
         }));
 
-        console.log(selectedProduct);
+        setModalOpen(true);
         setModalOpen(true);
     };
 
@@ -71,12 +71,10 @@ export default function ShugoExpress() {
         axiosClient
             .post("/productPurchase", selectedProduct)
             .then(({ data }) => {
-                // console.log(data.user.coin);
                 setPurchaseStatus(data.status);
                 setUser(data.user);
                 setPurchasedLog(data.purchasedLog);
                 setConnectionVipLog(data.connectionVipLog);
-                console.log(products);
             })
             .catch((err) => {
                 const response = err.response;
@@ -85,8 +83,6 @@ export default function ShugoExpress() {
                     // setSuccess(data.status);
                 }
             });
-        // console.log(user);
-        console.log(selectedProduct);
 
         setBtnStoreVisible(false);
         return;
@@ -138,6 +134,15 @@ export default function ShugoExpress() {
                                             >
                                                 <button></button>
                                             </span>
+                                        </div>
+                                    </Link>
+                                    <Link to="/paymentHistory">
+                                        <div className="payment--history">
+                                            <span
+                                                data-tooltip="История пополнений"
+                                                data-flow="top"
+                                            ></span>
+                                            <button></button>
                                         </div>
                                     </Link>
                                 </div>

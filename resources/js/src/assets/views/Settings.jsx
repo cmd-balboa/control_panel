@@ -48,14 +48,12 @@ export default function Settings() {
             .then(({ data }) => {
                 setSuccessPassword(data.message);
                 setErrorPassword("");
-                console.log(data);
             })
             .catch((err) => {
                 const response = err.response;
                 if (response && response.status === 422) {
                     setErrorPassword(response.data.message);
                     setSuccessPassword("");
-                    console.log(response.data);
                 }
             });
     };
@@ -72,7 +70,6 @@ export default function Settings() {
         axiosClient
             .post("/updateEmail", changeEmail)
             .then(({ data }) => {
-                console.log(data);
                 setSuccessEmail(data.message);
                 setErrorEmail("");
             })

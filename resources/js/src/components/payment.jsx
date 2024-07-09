@@ -32,7 +32,7 @@ const Payment = () => {
                 // action="https://api.worldaion.com/myform"
                 action="https://yoomoney.ru/quickpay/confirm.xml"
             >
-                <input type="hidden" name="receiver" value="4100117907658443" />
+                <input type="hidden" name="receiver" value="4100118555911366" />
                 <input type="hidden" name="formcomment" value="formcomment" />
 
                 <input type="hidden" name="label" value={labelValue} />

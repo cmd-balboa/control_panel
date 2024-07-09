@@ -23,6 +23,10 @@ export default function Dashboard() {
     const [success, setSuccess] = useState(null);
     const [animateClass, setAnimateClass] = useState(false);
 
+    const currentDate = new Date();
+    const expireDate = new Date(account.expire);
+    const isNotExpired = expireDate > currentDate;
+
     useEffect(() => {
         // При изменении selectedPerson установите класс анимации
         setAnimateClass(true);
@@ -48,10 +52,6 @@ export default function Dashboard() {
 
         // Установите имя файла изображения в стейт
         setClassIcon(selectedClassIcon);
-
-        console.log(selectedClassIcon);
-        console.log(selectedPersonId);
-        console.log(classIcon);
     };
 
     const RepairHero = (ev) => {
@@ -65,17 +65,14 @@ export default function Dashboard() {
             .then(({ data }) => {
                 setSuccess(data.success);
                 setError(data.error);
-                console.log(data.message);
             })
             .catch((err) => {
                 const response = err.response;
                 if (response && response.status === 422) {
                     setError(response.data.message);
                     setSuccess("");
-                    // console.log(response.data);
                 }
             });
-        console.log(personId);
     };
 
     const onLogout = (ev) => {
@@ -214,13 +211,17 @@ export default function Dashboard() {
                                                     className="blinkLight"
                                                     id="mmotop-link"
                                                 >
-                                                    <p>MMTOP</p>
+                                                    <a href="https://aion.mmotop.ru/servers/37732">
+                                                        <p>MMOTOP</p>
+                                                    </a>
                                                 </button>
                                                 <button
                                                     className="blinkGreenLight"
                                                     id="mmotop-bonus"
                                                 >
-                                                    <p>ПОЛУЧИТЬ +5 WP</p>
+                                                    <a href="https://aion.mmotop.ru/servers/37732/votes/new">
+                                                        <p>ПОЛУЧИТЬ +5 WP</p>
+                                                    </a>
                                                 </button>
                                             </div>
                                         </div>
@@ -293,15 +294,15 @@ export default function Dashboard() {
                                         </div>
                                         <div className="dataAccount">
                                             <h1>
+                                                {/* {moment(user.created_at).format(
+                                                    "YYYY.MM.DD"
+                                                )} */}
                                                 {format({
                                                     format: "D MMMM, YYYY HH:mm",
                                                     date: user.created_at,
                                                     locale: "ru",
                                                     genitive: true,
                                                 })}
-                                                {/* {moment(user.created_at).format(
-                                                    "YYYY.MM.DD"
-                                                )} */}
                                             </h1>
                                             <h1>
                                                 {format({
@@ -322,11 +323,24 @@ export default function Dashboard() {
                                             <h1>
                                                 {/* {format({
                                                     format: "D",
-                                                    date: account.daysRemaining,
+                                                    date: account.expire,
                                                     locale: "ru",
                                                     genitive: true,
                                                 })} */}
-                                                {account.daysRemaining}
+                                                {/* {account.daysRemaining} */}
+                                                {isNotExpired && (
+                                                    <h1>
+                                                        {`${Math.ceil(
+                                                            (expireDate.getTime() -
+                                                                currentDate.getTime()) /
+                                                                (1000 *
+                                                                    60 *
+                                                                    60 *
+                                                                    24)
+                                                        )}`}
+                                                    </h1>
+                                                )}
+                                                {/* {account.expire} */}
                                             </h1>
                                             {/* <h1></h1> */}
                                         </div>
