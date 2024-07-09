@@ -69,11 +69,7 @@
     background: linear-gradient(90deg, #f58400 0%, #f5ce00 100%);
 
     h1 {
-        color: #fff;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
+        @include paragraphText(15px, 800);
     }
 }
 
@@ -89,6 +85,20 @@
         border-radius: 4px;
         background: #353535;
         text-align: center;
+
+        &::placeholder {
+            font-size: 15px;
+            color: #888;
+            font-family: "El Messiri", sans-serif;
+            font-weight: 800;
+            letter-spacing: 0%;
+            text-align: center;
+            transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
     }
 }
 
@@ -96,7 +106,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 257px;
+    width: 277px;
     height: 440px;
     border-radius: 0px 7px 7px 0px;
     background: #222;
@@ -124,11 +134,7 @@
         border-radius: 2px;
         background: linear-gradient(88deg, #fc7317 -9.41%, #ffdb5a 131.68%);
         h1 {
-            color: #fff;
-            font-size: 11px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
+            @include paragraphText(15px, 800);
         }
     }
 }
@@ -148,11 +154,7 @@
         border-radius: 2px;
         background: linear-gradient(88deg, #fc7317 -9.41%, #ffdb5a 131.68%);
         h1 {
-            color: #fff;
-            font-size: 11px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
+            @include paragraphText(15px, 800);
         }
     }
 }
@@ -169,6 +171,20 @@
         border-radius: 4px;
         background: #353535;
         text-align: center;
+
+        &::placeholder {
+            font-size: 15px;
+            color: #888;
+            font-family: "El Messiri", sans-serif;
+            font-weight: 800;
+            letter-spacing: 0%;
+            text-align: center;
+            transition: all 0.3s ease; /* Добавлено свойство transition для анимации */
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
     }
 }
 

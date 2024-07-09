@@ -5,17 +5,20 @@ namespace App\Services;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Log;
 
 class UserService
 {
 
     protected $userRepository;
-    protected $AionDB;
+    protected $aion_ls;
+    protected $aion_gs;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct()
     {
-        $this->userRepository = $userRepository;
-        $this->AionDB = DB::connection('aiondb');
+        $this->userRepository = new UserRepository;
+        $this->aion_ls = DB::connection('aion_ls');
+        $this->aion_gs = DB::connection('aion_gs');
     }
 
     public function getAccountInfo($name)
@@ -26,6 +29,22 @@ class UserService
     public function getPersons($name)
     {
         return $this->userRepository->persons($name);
+    }
+    public function getPurchasedLog($name)
+    {
+        return $this->userRepository->purchasedLog($name);
+    }
+    public function getConnectionVipLog($name)
+    {
+        return $this->userRepository->connectionVipLog($name);
+    }
+    public function getAccessLog($name)
+    {
+        return $this->userRepository->accessLog($name);
+    }
+    public function getPayLog($name)
+    {
+        return $this->userRepository->yooumoneyPayLog($name);
     }
 
     public function changeUserPassword($request, $user)
@@ -39,7 +58,7 @@ class UserService
 
         $aion_pass = base64_encode(sha1($newPassword, true));
 
-        $this->AionDB->table('account_data')->where('name', $user->name)
+        $this->aion_ls->table('account_data')->where('name', $user->name)
             ->update(['password' => $aion_pass]);
 
         return response()->json(['message' => 'Пароль успешно изменен'], 200);
@@ -47,7 +66,6 @@ class UserService
 
     public function changeUserEmail($data, $user)
     {
-
         $user->update([
             'email' => $data['email'],
             'updated_email' => Carbon::now()
@@ -80,7 +98,7 @@ class UserService
 
         switch ($person->race) {
             case 'ELYOS':
-                $this->AionDB->table('players')->where('id', $data['id'])
+                $this->aion_gs->table('players')->where('id', $data['id'])
                     ->update([
                         'x' => 1197,
                         'y' => 1039,
@@ -90,7 +108,7 @@ class UserService
                     ]);
                 break;
             case 'ASMODIANS':
-                $this->AionDB->table('players')->where('id', $data['id'])
+                $this->aion_gs->table('players')->where('id', $data['id'])
                     ->update([
                         'x' => 463,
                         'y' => 2810,

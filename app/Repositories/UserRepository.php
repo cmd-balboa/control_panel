@@ -2,16 +2,19 @@
 
 namespace App\Repositories;
 
+use App\Models\PayLog;
 use Illuminate\Support\Facades\DB;
 
 class UserRepository
 {
 
-    private $AionDB;
+    private $aion_ls;
+    private $aion_gs;
 
     public function __construct()
     {
-        $this->AionDB = DB::connection('aiondb');
+        $this->aion_ls = DB::connection('aion_ls');
+        $this->aion_gs = DB::connection('aion_gs');
     }
 
     public function getCharacterLevel($experience)
@@ -41,9 +44,10 @@ class UserRepository
     public function accountInfo($name)
     {
 
-        $account = $this->AionDB->table('account_data')
+        $account = $this->aion_ls->table('account_data')
             ->where('name', '=', $name)
-            ->select('activated', 'membership', 'last_ip', 'expire_access_level')
+            // ->select('activated', 'membership', 'last_ip', 'expire_access_level', 'expire')
+            ->select('activated', 'membership', 'last_ip')
             ->first();
 
         return $account;
@@ -52,7 +56,7 @@ class UserRepository
     public function persons($name)
     {
 
-        $persons = $this->AionDB->table('players')
+        $persons = $this->aion_gs->table('players')
             ->where('account_name', '=', $name)
             ->select('id', 'name', 'race', 'player_class', 'creation_date', 'deletion_date', 'last_online', 'online', 'exp')
             ->get();
@@ -67,11 +71,53 @@ class UserRepository
     // for repair
     public function onePerson($id)
     {
-        $person = $this->AionDB->table('players')
+
+        $person = $this->aion_gs->table('players')
             ->where('id', '=', $id)
             ->select('id', 'race', 'online')
             ->first();
 
         return $person;
+    }
+
+    public function purchasedLog($name)
+    {
+
+        $log = DB::table('product_logs')
+            ->where('account_name', '=', $name)
+            ->select('id', 'account_name', 'personName', 'title', 'price', 'lot', 'created_at')
+            ->get();
+
+        return $log;
+    }
+    public function connectionVipLog($name)
+    {
+
+        $log = DB::table('connect_vip_logs')
+            ->where('account_name', '=', $name)
+            ->select('id', 'account_name', 'title', 'price', 'created_at')
+            ->get();
+
+        return $log;
+    }
+
+    public function accessLog($name)
+    {
+
+        $log = DB::table('access_user_logs')
+            ->where('account_name', '=', $name)
+            ->select('id', 'account_name', 'email', 'ip')
+            ->get();
+
+        return $log;
+    }
+
+    public function yooumoneyPayLog($name)
+    {
+        $log = PayLog::select('id', 'account_name', 'withdraw_amount', 'created_at')
+            ->where('account_name', $name)
+            ->get();
+
+        return $log;
     }
 }

@@ -1,0 +1,191 @@
+.downloadBoard {
+    display: flex;
+    justify-content: center;
+
+    .clientBoard {
+        width: 575px;
+        height: 634px;
+        border-radius: 7px 0px 0px 7px;
+        background: rgb(25, 25, 25);
+
+        .downloadBlock {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+
+            .downloadTorrent {
+                width: 319px;
+                height: 330px;
+                border-radius: 8px;
+                background: rgb(16, 16, 16);
+            }
+            .downloadYandex {
+                display: flex;
+                width: 253px;
+                height: 330px;
+                border-radius: 8px;
+                background: rgb(16, 16, 16);
+            }
+            .downloadGoogle {
+                width: 253px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 50px;
+                justify-content: center;
+                height: 330px;
+                border-radius: 8px;
+                background: rgb(16, 16, 16);
+            }
+        }
+
+        .titleDownload {
+            color: rgb(255, 255, 255);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 27px;
+            letter-spacing: 0%;
+            text-align: center;
+        }
+    }
+}
+
+.torrent__row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.yandex__row {
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.yandexName h1 {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: 0%;
+}
+
+.torrentName h1 {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: 0%;
+}
+
+.download__row {
+    display: flex;
+    margin-top: 33px;
+    gap: 36px;
+    flex-direction: column;
+}
+
+@mixin btn($width, $height) {
+    width: $width;
+    height: $height;
+    -webkit-box-flex: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    border-radius: 3px;
+    background: linear-gradient(
+        18.57deg,
+        rgb(252, 130, 23) -22.517%,
+        rgb(255, 195, 90) 157.192%
+    );
+}
+
+.helpBtn button {
+    @include btn(275px, 30px);
+    p {
+        @include paragraphText(16px, 700);
+    }
+}
+
+.downloadBtn button {
+    @include btn(225px, 30px);
+
+    p {
+        @include paragraphText(16px, 700);
+    }
+}
+
+.downloadTorrent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.downloadYandex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.torrentLogo {
+    width: 89px;
+    height: 89px;
+    background: url(../img/svg/downloadHelp/torrentLogo.svg);
+}
+
+.yandexLogo {
+    width: 89px;
+    height: 89px;
+    background: url(../img/svg/downloadHelp/yandexDiskLogo.svg);
+}
+.googleLogo {
+    width: 89px;
+    height: 89px;
+    background: url(../img/svg/downloadHelp/Google_Drive.png) top no-repeat;
+    background-size: contain;
+}
+
+.downloadHelp {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 20px 0px 20px;
+    gap: 20px;
+
+    .helpInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        h1 {
+            @include paragraphText(17px, 800);
+        }
+
+        h2 {
+            @include paragraphText(16px, 800);
+            color: #777777;
+            white-space: pre-wrap; // Разрешает перенос строк по пробелам
+            word-wrap: break-word; // Разрывает слова, когда они не умещаются в контейнере
+        }
+    }
+}

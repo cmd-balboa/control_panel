@@ -1,12 +1,14 @@
-import React, { createRef, useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axiosClient from "../../axios-client";
 import { useStateContext } from "../../contexts/ContextProvider";
+import RecaptchaChange from "./recaptcha";
 import "../../css/index.css";
 
 export default function Login() {
     const emailRef = createRef();
     const passwordRef = createRef();
+    const [recaptchaToken, setRecaptchaToken] = useState(null); // Используйте состояние для хранения токена
     const { setUser, setToken } = useStateContext();
     const [message, setMessage] = useState(null);
     const [isDarkMode, setIsDarkMode] = useState(true);
@@ -17,12 +19,17 @@ export default function Login() {
         skinSet((prevMode) => !prevMode);
     };
 
+    const handleRecaptchaChange = (value) => {
+        setRecaptchaToken(value);
+    };
+
     const onSubmit = (ev) => {
         ev.preventDefault();
 
         const payload = {
             email: emailRef.current.value,
             password: passwordRef.current.value,
+            recaptchaToken: recaptchaToken,
         };
 
         axiosClient
@@ -54,40 +61,36 @@ export default function Login() {
                 <div className="form">
                     <form onSubmit={onSubmit}>
                         <div className="loginTitle">
-                            <h1 className="title">Login</h1>
+                            <h1 className="title">Авторизоваться</h1>
                         </div>
                         <div className="login">
                             <input
                                 ref={emailRef}
                                 type="email"
-                                placeholder="Email"
+                                placeholder="Почта"
                             />
                             <input
                                 ref={passwordRef}
                                 type="password"
-                                placeholder="Password"
+                                placeholder="Пароль"
                             />
-                            <button className="btn btn-block">Login</button>
+                            <RecaptchaChange onChange={handleRecaptchaChange} />
+                            {message && (
+                                <div className="alert">
+                                    <p>{message}</p>
+                                </div>
+                            )}
+                            <button className="btn btn-block">Войти</button>
+
                             <p className="message">
-                                Not registered?{" "}
-                                <Link to="/signup">Create an account</Link>
+                                Не зарегистрирован?{" "}
+                                <Link to="/signup">Создать аккаунт</Link>
+                                {/* <Link to="/unavailable">
+                                    Зарегистрироваться
+                                </Link> */}
                             </p>
                         </div>
-                        <div className="captcha">
-                            <div
-                                className="g-recaptcha"
-                                data-sitekey="6LfxumopAAAAABYuPuN5dLOGUiyMOhGZFQdE4P18"
-                            ></div>
-                        </div>
                     </form>
-                    <div className="aion__logo">
-                        <div className="logo"></div>
-                    </div>
-                    {message && (
-                        <div className="alert">
-                            <p>{message}</p>
-                        </div>
-                    )}
                 </div>
             </div>
             <div

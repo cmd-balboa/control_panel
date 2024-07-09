@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 use App\Rules\UniqueAionNameRule;
+use App\Rules\ReCaptcha;
 
 class SignupRequest extends FormRequest
 {
@@ -33,7 +34,9 @@ class SignupRequest extends FormRequest
                     ->letters()
                     // ->symbols()
                     ->numbers()
-            ]
+            ],
+            'agreement' => ['required', 'accepted'],
+            'recaptchaToken' => ['required', new ReCaptcha],
         ];
     }
 }

@@ -2,6 +2,7 @@ import { Link, Navigate, Outlet } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
 import { useEffect } from "react";
 import axiosClient from "../axios-client";
+import { NavLink } from "react-router-dom";
 
 export default function DefaultLayout() {
     const {
@@ -13,7 +14,34 @@ export default function DefaultLayout() {
         setPersons,
         notification,
         setIsLoading,
+        setProducts,
+        setPurchasedLog,
+        setPayLog,
+        setConnectionVipLog,
     } = useStateContext();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const productResponse = await axiosClient.get(`/shugoproduct`);
+                setProducts(productResponse.data.data);
+
+                const userResponse = await axiosClient.get("/user");
+                setUser(userResponse.data.user);
+                setAccount(userResponse.data.account);
+                setPersons(userResponse.data.persons);
+                setPersons(userResponse.data.persons);
+                setPayLog(userResponse.data.payLog);
+                setPurchasedLog(userResponse.data.purchasedLog);
+                setConnectionVipLog(userResponse.data.connectionVipLog);
+                setIsLoading(false);
+            } catch (error) {
+                setIsLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     if (!token) {
         return <Navigate to="/login" />;
@@ -28,68 +56,85 @@ export default function DefaultLayout() {
         });
     };
 
-    useEffect(() => {
-        axiosClient
-            .get("/user")
-            .then(({ data }) => {
-                console.log(data);
-                setUser(data.user);
-                setAccount(data.account);
-                setPersons(data.persons);
-                setIsLoading(false);
-            })
-            .catch((err) => {
-                setIsLoading(false);
-            });
-    }, []);
-
     return (
         <div id="defaultLayout">
             <div className="content">
                 <header>
-                    <div>
+                    <div className="content_header">
                         <div className="logoAion"></div>
+                        <div className="headerInfo">
+                            <div>
+                                <NavLink
+                                    to="/dashboard"
+                                    className="nav-link"
+                                    activeClassName="activeLink"
+                                >
+                                    <h1>ГЛАВНАЯ</h1>
+                                </NavLink>
+                            </div>
+                            <div>
+                                <NavLink
+                                    to="/download"
+                                    className="nav-link"
+                                    activeClassName="activeLink"
+                                >
+                                    <h1>СКАЧАТЬ</h1>
+                                </NavLink>
+                            </div>
+                            <div>
+                                <NavLink
+                                    to="/donate"
+                                    className="nav-link"
+                                    activeClassName="activeLink"
+                                >
+                                    <h1>ДОНАТ</h1>
+                                </NavLink>
+                            </div>
+                            <div>
+                                <NavLink
+                                    to="/shugoexpress"
+                                    className="nav-link"
+                                    activeClassName="activeLink"
+                                >
+                                    <h1>SHUGO EXPRESS</h1>
+                                </NavLink>
+                            </div>
+                            <div>
+                                <a href="https://worldaion.com/">
+                                    <h1>САЙТ</h1>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div className="headerInfo">
-                        <div>
-                            <a href="#" className="active">
-                                ГЛАВНАЯ
-                            </a>
-                        </div>
-                        <div>
-                            <a href="#">СКАЧАТЬ</a>
-                        </div>
-                        <div>
-                            <a href="#">ПРЕМИУМ</a>
-                        </div>
-                        <div>
-                            <a href="#">САЙТ</a>
-                        </div>
-                    </div>
-                    <div className="languageChange">
+
+                    {/* <div className="languageChange">
                         <div className="flag"></div>
                         <p>РУССКИЙ</p>
                         <div className="arrowChange"></div>
-                    </div>
+                    </div> */}
                     <div>
                         <div className="playerInfo">
-                            <div className="username">
-                                {user.name} &nbsp; &nbsp;
+                            <div className="information--player">
+                                <div className="username">
+                                    <p>{user.name}</p>
+                                </div>
+                                <div className="balance">
+                                    <p>{user.coin} WP</p>
+                                </div>
                             </div>
-                            <hr />
-                            <div className="balance">
-                                <p>Баланс:</p>
-                                {user.coin} &nbsp; &nbsp;
+
+                            <div className="exit">
+                                <button
+                                    onClick={onLogout}
+                                    className="btn-logout"
+                                    href="#"
+                                ></button>
                             </div>
                         </div>
-
-                        {/* <a onClick={onLogout} className="btn-logout" href="#">
-                            Logout
-                        </a> */}
                     </div>
                 </header>
-                <div className="backgroundViews"></div>
                 <main>
+                    {/* <div className="backgroundViews"></div> */}
                     <Outlet />
                 </main>
                 {notification && (
@@ -106,9 +151,9 @@ export default function DefaultLayout() {
                         <a href="#">
                             <p>Безопасность платежей</p>
                         </a>
-                        <p>1 GP = 1 RUB</p>
+                        {/* <p>1 GP = 1 RUB</p> */}
                     </div>
-                    <div className="social-network">
+                    {/* <div className="social-network">
                         <div className="social-icons">
                             <img id="vk" src="src\img\social_icons\vk.svg" />
                             <img
@@ -120,7 +165,7 @@ export default function DefaultLayout() {
                                 src="src\img\social_icons\discord.svg"
                             />
                         </div>
-                    </div>
+                    </div> */}
                 </footer>
             </div>
         </div>

@@ -10,17 +10,34 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\AuthAionService;
 use Carbon\Carbon;
+use App\Services\LogService;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
+
+    protected $logService;
+
+    public function __construct(LogService $logService)
+    {
+        $this->logService = $logService;
+    }
+
+
     public function signup(SignupRequest $request, AuthAionService $aionService)
     {
 
         $data = $request->validated();
+        $ip = $request->getClientIp();
+
+        unset($data['recaptchaToken']);
 
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'role' => 'user',
+            'coin' => 0,
+            'agreement' => $data['agreement'],
             'password' => bcrypt($data['password']),
             'updated_password' => Carbon::now(),
             'updated_email' => Carbon::now()
@@ -28,9 +45,11 @@ class AuthController extends Controller
 
         $token = $user->createToken('main')->plainTextToken;
 
-        // NOTE registration in the Aion
+        // registration in the Aion
         $aion_pass = base64_encode(sha1($data['password'], true));
         $aionService->aionRegistration($data['name'], $aion_pass);
+
+        $this->logService->accessLog($user, $ip);
 
         return response(compact('user', 'token'));
     }
@@ -39,6 +58,8 @@ class AuthController extends Controller
     {
         
         $credentials = $request->validated();
+        $ip = $request->getClientIp();
+
         unset($credentials['recaptchaToken']);
 
         if (!Auth::attempt($credentials)) {
@@ -50,6 +71,9 @@ class AuthController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
         $token = $user->createToken('main')->plainTextToken;
+
+        $this->logService->accessLog($user, $ip);
+
         return response(compact('user', 'token'));
     }
 

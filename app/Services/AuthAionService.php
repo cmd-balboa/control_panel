@@ -7,17 +7,17 @@ use Illuminate\Support\Facades\DB;
 class AuthAionService
 {
 
-    protected $AionDB;
+    protected $aion_ls;
 
     public function __construct()
     {
-        $this->AionDB = DB::connection('aiondb');
+        $this->aion_ls = DB::connection('aion_ls');
     }
 
     public function aionRegistration($user, $aionPassword)
     {
 
-        $this->AionDB->table('account_data')->insert([
+         $accountId = $this->aion_ls->table('account_data')->insertGetId([
             'name' => $user,
             'password' => $aionPassword,
             'activated' => 1,
@@ -25,6 +25,10 @@ class AuthAionService
             'membership' => 0,
             'last_ip' => '0.0.0.0',
             'last_server' => -1,
+        ]);
+
+        $this->aion_ls->table('account_time')->insert([
+            'account_id' => $accountId,
         ]);
     }
 }

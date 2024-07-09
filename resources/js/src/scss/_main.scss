@@ -3,6 +3,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    text-align: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -22,6 +23,9 @@
     box-sizing: border-box;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
+    &::placeholder {
+        color: #999; // Цвет текста placeholder
+    }
 }
 
 $theme-black: (
@@ -140,15 +144,20 @@ input:focus {
     background-color: #b72424;
 }
 
-.btn-logout {
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    color: #fff;
-    transition: all 0.3s;
-    border-radius: 6px;
-}
-.btn-logout:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+// .btn-logout {
+//     text-decoration: none;
+//     padding: 0.75rem 1.5rem;
+//     color: #fff;
+//     transition: all 0.3s;
+//     border-radius: 6px;
+// }
+// .btn-logout:hover {
+//     background-color: rgba(0, 0, 0, 0.1);
+// }
+
+.information--player {
+    display: flex;
+    gap: 10px;
 }
 
 .btn:hover,
@@ -167,11 +176,11 @@ table {
     border-collapse: collapse;
 }
 
-table > thead > tr > th {
-    text-align: left;
-    padding: 0.5rem 0.5rem;
-    background-color: #efefef;
-}
+// table > thead > tr > th {
+//     text-align: left;
+//     padding: 0.5rem 0.5rem;
+//     background-color: #efefef;
+// }
 
 table > tbody > tr > td {
     padding: 0.5rem 0.5rem;
@@ -217,12 +226,12 @@ table > tbody > tr > td {
 }
 
 .login-signup-form .form {
-    width: 360px;
+    width: 370px;
     border-radius: 10px;
     position: relative;
     z-index: 1;
     background: map-get($theme-black, "form-color");
-    max-width: 360px;
+    max-width: 370px;
     padding: 34px;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
 }
@@ -275,6 +284,14 @@ table > tbody > tr > td {
     flex: 1;
 }
 
+// #defaultLayout {
+//     width: 100vw; /* 100% ширины окна браузера */
+//     height: 100vh; /* 100% высоты окна браузера */
+//     max-width: 1920px; /* Максимальная ширина блока */
+//     max-height: 1080px; /* Максимальная высота блока */
+//     margin: auto; /* Центрирование блока по горизонтали */
+// }
+
 #defaultLayout header {
     height: 80px;
     padding: 2rem 3rem;
@@ -285,21 +302,46 @@ table > tbody > tr > td {
     align-items: center;
 }
 
-#defaultLayout main {
-    min-height: 86vh;
-    padding: 10rem;
+.downloadBoard {
+    margin: auto;
+    display: flex;
+    align-items: center;
 }
 
-.backgroundViews {
-    position: absolute;
-    min-height: 91vh;
-    width: 100%;
-    background: url(https://fonoteka.top/uploads/posts/2022-01/1642451358_26-phonoteka-org-p-aion-fon-krasivo-28.jpg);
+#defaultLayout main {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: calc(100vh - 130px);
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.45)
+        url(https://fonoteka.top/uploads/posts/2022-01/1642451358_26-phonoteka-org-p-aion-fon-krasivo-28.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 45%;
-    // animation: bgAnimation 4s ease infinite alternate;
+    background-blend-mode: multiply;
 }
+
+#defaultLayout .content {
+    min-height: 100dvh;
+}
+
+// .backgroundViews {
+//     position: absolute;
+//     min-height: 100vh;
+//     width: 100%;
+//     background: url(https://fonoteka.top/uploads/posts/2022-01/1642451358_26-phonoteka-org-p-aion-fon-krasivo-28.jpg);
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     opacity: 45%;
+//     // animation: bgAnimation 4s ease infinite alternate;
+// }
+
+// #defaultLayout main {
+//     background: rgba(0, 0, 0, 0.45)
+//         url(https://fonoteka.top/uploads/posts/2022-01/1642451358_26-phonoteka-org-p-aion-fon-krasivo-28.jpg);
+//     background-size: cover;
+//     background-repeat: no-repeat;
+// }
 
 @keyframes bgAnimation {
     0% {
@@ -576,5 +618,16 @@ footer {
         background-color: #d8093a !important;
 
         color: #ffffff;
+    }
+}
+
+.termsOfUse {
+    display: flex;
+    gap: 16px;
+
+    .titleTermsOfUse {
+        h1 {
+            font-size: 16px;
+        }
     }
 }

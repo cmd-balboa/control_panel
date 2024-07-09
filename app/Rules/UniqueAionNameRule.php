@@ -11,7 +11,7 @@ class UniqueAionNameRule implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void {
 
-        $existsInDatabase = DB::connection('aiondb')
+        $existsInDatabase = DB::connection('aion_ls')
             ->table('account_data')
             ->where('name', $value)
             ->exists();
