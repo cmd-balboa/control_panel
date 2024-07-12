@@ -677,32 +677,25 @@
 
 .language-selector {
     position: relative;
-  }
-  
-  .language-button {
+}
+
+.language-button {
     position: relative;
     display: inline-block;
-  }
-  
-  .current-language {
-    padding: 10px 20px;
+}
+
+.current-language {
     font-size: 16px;
-    border: 1px solid #ccc;
-    background-color: #f0f0f0;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
-  
-    &:hover {
-      background-color: #e0e0e0;
+    img {
+        background-size: contain;
+        width: 100px;
+        height: 100px;
     }
-  
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-    }
-  }
-  
-  .language-dropdown {
+}
+
+.language-dropdown {
     position: absolute;
     top: 100%;
     left: 0;
@@ -710,13 +703,9 @@
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .language-button:hover .language-dropdown {
-    display: block;
-  }
-  
-  .language-item {
+}
+
+.language-item {
     width: 100%;
     padding: 10px 20px;
     font-size: 16px;
@@ -724,18 +713,17 @@
     background-color: transparent;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
-  
+
     &:hover {
-      background-color: #e0e0e0;
+        background-color: #e0e0e0;
     }
-  
+
     &.active {
-      background-color: #007bff;
-      color: #fff;
-  
-      &:hover {
-        background-color: #0056b3;
-      }
+        background-color: #007bff;
+        color: #fff;
+
+        &:hover {
+            background-color: #0056b3;
+        }
     }
-  }
-  
+}

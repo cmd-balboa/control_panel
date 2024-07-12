@@ -1,24 +1,17 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { useState, createRef } from "react";
 import { Link } from "react-router-dom";
 import axiosClient from "../axios-client";
 import RecaptchaChange from "../assets/views/recaptcha";
 import { useStateContext } from "../contexts/ContextProvider";
-// import Modal from "../assets/views/TermsOfUseModal";
+import { useTranslation } from "react-i18next";
 
-const ModalLogin = ({
-    editedUser,
-    onSaveChanges,
-    onClose,
-    isLoading,
-    setIsLoading,
-}) => {
+const ModalLogin = ({ onClose, isLoading, setIsLoading }) => {
     const emailRef = createRef();
     const passwordRef = createRef();
-    const passwordConfirmationRef = createRef();
-    const nameRef = createRef(); // Add this line
     const [recaptchaToken, setRecaptchaToken] = useState(null);
     const { setUser, setToken } = useStateContext();
     const [message, setMessage] = useState(null);
+    const { t, i18n } = useTranslation();
 
     async function onSubmit(ev) {
         ev.preventDefault();
@@ -32,6 +25,7 @@ const ModalLogin = ({
             .then(({ data }) => {
                 setUser(data.user);
                 setToken(data.token);
+                onClose(); // Close the modal after successful login
             })
             .catch((err) => {
                 const response = err.response;
@@ -45,23 +39,9 @@ const ModalLogin = ({
         setRecaptchaToken(value);
     };
 
-    const handleTermsOfUse = () => {
-        setModalOpen(true);
-    };
-
-    const handleModalClose = () => {
-        setChecked(false);
-        setModalOpen(false);
-    };
-
-    const handleAgreement = () => {
-        setChecked(true);
-        setModalOpen(false);
-    };
-
     const handleOverlayClick = () => {
         onClose();
-        setUserData({});
+        // Removed the undefined setUserData call
     };
 
     return (
@@ -70,51 +50,44 @@ const ModalLogin = ({
                 className="modal-content animated fadeInDown"
                 onClick={(e) => e.stopPropagation()}
             >
-                <div
-                    className={`login-signup-form"
-            }`}
-                >
-                    <div className="formWrapper animated fadeInDown">
-                        <div className="form">
-                            <form onSubmit={onSubmit}>
-                                <div className="loginTitle">
-                                    <h1 className="title">Авторизоваться</h1>
-                                </div>
-                                <div className="login">
-                                    <input
-                                        ref={emailRef}
-                                        type="email"
-                                        placeholder="Почта"
-                                    />
-                                    <input
-                                        ref={passwordRef}
-                                        type="password"
-                                        placeholder="Пароль"
-                                    />
-                                    <RecaptchaChange
-                                        onChange={handleRecaptchaChange}
-                                    />
-                                    {message && (
-                                        <div className="alert">
-                                            <p>{message}</p>
-                                        </div>
-                                    )}
-                                    <button className="btn btn-block">
-                                        Войти
-                                    </button>
-
-                                    <p className="message">
-                                        Не зарегистрирован?{" "}
-                                        <Link to="/signup">
-                                            Создать аккаунт
-                                        </Link>
-                                        {/* <Link to="/unavailable">
-                                    Зарегистрироваться
-                                </Link> */}
-                                    </p>
-                                </div>
-                            </form>
-                        </div>
+                <div className="formWrapper animated fadeInDown">
+                    <div className="form">
+                        <form onSubmit={onSubmit}>
+                            <div className="loginTitle">
+                                <h1 className="title">
+                                    {t("modal.authorization")}
+                                </h1>
+                            </div>
+                            <div className="login">
+                                <input
+                                    ref={emailRef}
+                                    type="email"
+                                    placeholder={t("modal.email")}
+                                />
+                                <input
+                                    ref={passwordRef}
+                                    type="password"
+                                    placeholder={t("modal.password")}
+                                />
+                                <RecaptchaChange
+                                    onChange={handleRecaptchaChange}
+                                />
+                                {message && (
+                                    <div className="alert">
+                                        <p>{message}</p>
+                                    </div>
+                                )}
+                                <button className="btn btn-block">
+                                    {t("modal.sign")}
+                                </button>
+                                <p className="message">
+                                    {t("modal.сreateAccount")}{" "}
+                                    <Link to="/signup">
+                                        {t("modal.notRegistered")}
+                                    </Link>
+                                </p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

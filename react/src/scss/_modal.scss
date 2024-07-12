@@ -3,10 +3,36 @@
     position: fixed;
     top: 0;
     left: 0;
+    width: 100vw; // Используем viewport width для гарантированного покрытия ширины экрана
+    height: 100vh; // Используем viewport height для гарантированного покрытия высоты экрана
+    background: url("../img/site/registr__layer_dashboard.png") no-repeat center
+        center;
+    background-size: cover; // Покрывает весь экран, обрезая лишние части
+    z-index: 1000; // Обеспечивает правильный порядок наложения
+}
+.modal-overlay-terms {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 2;
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.8
+    ); /* Slightly darker for better visibility */
+    z-index: 2000; /* Ensure this is higher than the registration overlay */
+}
+
+.modalTerms {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    z-index: 2001; /* Ensure this is higher than the registration modal */
 }
 
 .modal {

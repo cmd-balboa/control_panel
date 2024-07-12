@@ -12,7 +12,8 @@
     -ms-flex-align: center;
     align-items: center;
     outline: 0;
-    background: #2e2e2e;
+    border-radius: 10px;
+    background: rgb(43, 43, 61);
     color: #fff;
     width: 100%;
     font-family: "El Messiri", sans-serif;
@@ -163,7 +164,7 @@ input:focus {
 .btn:hover,
 .btn:active,
 .btn:focus {
-    background: #ff6969;
+    background: #a3a3e0;
 }
 
 .text-center {
@@ -487,10 +488,13 @@ footer {
 }
 
 .social-icons {
+    position: absolute;
+    top: 55%; // Позиционирование от верхней части экрана
+    right: 20px; // Позиционирование от правой части экрана
+    transform: translateY(-50%); // Центрирование по вертикали
     display: flex;
-    flex-direction: row;
-
-    gap: 25px;
+    flex-direction: column; // Вертикальное расположение
+    gap: 75px; // Расстояние между иконками
 }
 
 .__select {

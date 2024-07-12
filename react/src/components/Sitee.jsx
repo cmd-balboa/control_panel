@@ -22,21 +22,21 @@ class Sitee extends Component {
 
         return (
             <div className="container-site">
-                <div class="block_row">
-                    <div class="header">
-                        <div class="left__bar">
-                            <div class="title">
-                                <div class="desc">
+                <div className="block_row">
+                    <div className="header">
+                        <div className="left__bar">
+                            <div className="title">
+                                <div className="desc">
                                     <h1>WORLD AION</h1>
                                     <p>{t("site.worldTitle")}</p>
                                 </div>
                             </div>
 
-                            <div class="decorative_content"></div>
-                            <div class="open__desc">
+                            <div className="decorative_content"></div>
+                            <div className="open__desc">
                                 <p>{t("site.worldDesc")}</p>
                             </div>
-                            <div class="event_btn" id="scrollButton">
+                            <div className="event_btn" id="scrollButton">
                                 <button></button>
                             </div>
                             {/* <div className="login">

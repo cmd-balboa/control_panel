@@ -1,0 +1,22 @@
+<svg width="49.000000" height="50.000000" viewBox="0 0 49 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_96_172_dd" x="9.296387" y="18.680176" width="30.677612" height="21.500000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="0" dy="4"/>
+			<feGaussianBlur stdDeviation="1.33333"/>
+			<feComposite in2="hardAlpha" operator="out" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+			<feBlend mode="normal" in2="BackgroundImageFix" result="effect_dropShadow_1"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="effect_dropShadow_1" result="shape"/>
+		</filter>
+	</defs>
+	<g filter="url(#filter_96_172_dd)">
+		<path id="RU" d="M13.29 18.68L13.29 32L15.74 32L15.74 26.7L17.84 26.7L20.69 32L23.41 32L20.35 26.41Q21.39 26.05 22.03 25.34Q22.19 25.17 22.33 24.97Q22.57 24.62 22.72 24.23Q23.01 23.52 23.01 22.69Q23.01 21.81 22.69 21.07Q22.6 20.85 22.48 20.65Q22.36 20.45 22.22 20.26Q21.72 19.62 20.93 19.21Q19.91 18.68 18.48 18.68L13.29 18.68ZM27.98 31.61Q29.18 32.18 30.66 32.18Q32.17 32.18 33.37 31.61Q33.91 31.35 34.36 30.97Q34.89 30.52 35.27 29.89Q35.97 28.74 35.97 26.99L35.97 18.68L33.54 18.68L33.54 26.99Q33.54 27.9 33.15 28.6Q33.01 28.83 32.84 29.05Q32.76 29.14 32.68 29.22Q31.98 29.87 30.66 29.87Q29.38 29.87 28.68 29.23Q28.59 29.15 28.51 29.05Q28.35 28.85 28.22 28.64Q27.82 27.93 27.82 26.99L27.82 18.68L25.37 18.68L25.37 26.99Q25.37 28.74 26.07 29.89Q26.45 30.51 26.98 30.97Q27.42 31.35 27.98 31.61ZM15.74 20.8L18.44 20.8Q19.34 20.8 19.87 21.24Q19.94 21.3 20.01 21.37Q20.27 21.65 20.4 21.99Q20.55 22.34 20.55 22.74Q20.55 23.13 20.42 23.47Q20.28 23.82 20.01 24.12Q19.93 24.2 19.85 24.27Q19.33 24.7 18.44 24.7L15.74 24.7L15.74 20.8Z" fill="#BBBDC0" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+	<ellipse id="Эллипс 2" cx="24.500000" cy="25.000000" rx="24.500000" ry="25.000000" fill="#BBBDC0" fill-opacity="0"/>
+	<ellipse id="Эллипс 2" cx="24.500000" cy="25.000000" rx="23.000000" ry="23.500000" stroke="#BBBDC0" stroke-opacity="1.000000" stroke-width="3.000000"/>
+</svg>

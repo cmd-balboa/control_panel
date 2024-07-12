@@ -100,9 +100,13 @@
 }
 
 .modal-content {
-    width: 340px;
-    height: 580px;
-    background: #202020;
+    width: 400px;
+    height: 650px;
+    box-sizing: border-box;
+    border: 1px solid rgb(163, 163, 219);
+    border-radius: 15px;
+    box-shadow: 0px 0px 100px -1px rgba(111, 111, 220, 0.25);
+    background: rgb(33, 33, 46);
     display: flex;
     border-radius: 15px;
     flex-direction: column;
@@ -110,10 +114,14 @@
     align-items: center;
     justify-content: center;
     button {
-        border-radius: 3px;
-        background: rgb(255, 114, 114);
+        border-radius: 10px;
+        background: linear-gradient(
+            180deg,
+            rgb(163, 163, 224),
+            rgba(255, 255, 255, 0.3) 99.237%
+        );
         -webkit-box-shadow: 0 0 10px rgb(255, 114, 114);
-        box-shadow: 0 0 10px rgb(255, 114, 114);
+        box-shadow: 0px 0px 19px 0px rgba(255, 255, 255, 0.25);
         -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s,
             -webkit-transform 0.5s;
         transition: background-color 0.5s, -webkit-box-shadow 0.5s,
@@ -122,7 +130,11 @@
         transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s,
             -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
         &:hover {
-            box-shadow: 0 0 20px rgb(255, 114, 114);
+            background: linear-gradient(
+                180deg,
+                rgb(163, 163, 224),
+                rgba(255, 255, 255, 0.3) 99.237%
+            );
             transform: scale(1.02);
         }
         p {

@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import axiosClient from "../axios-client";
 import { useStateContext } from "../contexts/ContextProvider";
+import RecaptchaChange from "../assets/views/recaptcha";
 import Modal from "../assets/views/TermsOfUseModal";
+import { useTranslation } from "react-i18next";
 
 const ModalRegister = ({ onClose }) => {
     const nameRef = useRef();
@@ -13,6 +15,8 @@ const ModalRegister = ({ onClose }) => {
     const [errors, setErrors] = useState(null);
     const [checked, setChecked] = useState(false);
     const [isModalOpen, setModalOpen] = useState(false);
+
+    const { t, i18n } = useTranslation();
 
     const { setUser, setToken } = useStateContext();
 
@@ -35,6 +39,7 @@ const ModalRegister = ({ onClose }) => {
             .then(({ data }) => {
                 setUser(data.user);
                 setToken(data.token);
+                onClose(); // Close the modal after successful registration
             })
             .catch((err) => {
                 const response = err.response;
@@ -60,7 +65,7 @@ const ModalRegister = ({ onClose }) => {
 
     const handleOverlayClick = () => {
         onClose();
-        setUserData({});
+        // Removed the undefined setUserData call
     };
 
     return (
@@ -72,7 +77,7 @@ const ModalRegister = ({ onClose }) => {
                 <div className="form">
                     <form onSubmit={onSubmit}>
                         <div className="titleRegistration">
-                            <h1 className="title">Регистрация</h1>
+                            <h1 className="title">{t("modal.registration")}</h1>
                             {errors && (
                                 <div className="alert">
                                     {Object.keys(errors).map((key) => (
@@ -85,22 +90,22 @@ const ModalRegister = ({ onClose }) => {
                             <input
                                 ref={nameRef}
                                 type="text"
-                                placeholder="Логин"
+                                placeholder={t("modal.login")}
                             />
                             <input
                                 ref={emailRef}
                                 type="email"
-                                placeholder="Электронная почта"
+                                placeholder={t("modal.email")}
                             />
                             <input
                                 ref={passwordRef}
                                 type="password"
-                                placeholder="Пароль"
+                                placeholder={t("modal.password")}
                             />
                             <input
                                 ref={passwordConfirmationRef}
                                 type="password"
-                                placeholder="Подтверждение пароля"
+                                placeholder={t("modal.confirmPassword")}
                             />
                             <div className="termsOfUse">
                                 <div className="checkBox">
@@ -111,7 +116,7 @@ const ModalRegister = ({ onClose }) => {
                                     />
                                 </div>
                                 <div className="titleTermsOfUse">
-                                    <h1>Пользовательское соглашение</h1>
+                                    <h1>{t("modal.terms")}</h1>
                                 </div>
                                 <Modal
                                     isOpen={isModalOpen}
@@ -119,15 +124,13 @@ const ModalRegister = ({ onClose }) => {
                                     agreement={handleAgreement}
                                 />
                             </div>
-                            {/* <RecaptchaChange
-                                    onChange={handleRecaptchaChange}
-                                /> */}
+                            <RecaptchaChange onChange={handleRecaptchaChange} />
                             <button className="btn btn-block">
-                                Зарегистрироваться
+                                {t("modal.registration")}
                             </button>
                             <p className="message">
-                                Уже зарегистрирован?{" "}
-                                <Link to="/login">Войти</Link>
+                                {t("modal.alreadyRegistered")}{" "}
+                                <Link to="/login">{t("modal.sign")}</Link>
                             </p>
                         </div>
                     </form>
