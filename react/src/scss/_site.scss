@@ -811,11 +811,7 @@ img {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 130px);
-    width: 630px;
-}
-
-.container-site {
-    margin-left: 70px;
+    width: 100%;
 }
 
 .block__position {
@@ -1131,23 +1127,223 @@ img {
 
 .sign {
     display: flex;
-    gap: 10px;
+    gap: 50px;
 }
 
 #sign-in {
-    width: 140px;
-    height: 35px;
-    border-radius: 5px;
-    p {
-        color: #303030;
+    // Заменяем фон на ваше изображение
+    width: 30px;
+    height: 30px;
+    background: url("../img/site/login-icon.svg") center no-repeat;
+    background-size: contain; // Подгоняем изображение по размеру контейнера
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(1px 1px 30px rgb(255, 255, 255));
+    transition: transform 0.6s ease, filter 0.6s ease; // Переходы для ховер-эффектов
+
+    &:hover {
+        transform: scale(1.1); // Легкое увеличение при наведении
+        filter: drop-shadow(
+            0 0 10px rgb(255, 255, 255)
+        ); // Эффект свечения при наведении
     }
+
+    .login-icon {
+        width: 35px;
+        height: 35px;
+        transition: transform 0.6s ease, filter 0.6s ease;
+
+        &:hover {
+            transform: scale(1.2); // Увеличение при наведении
+            filter: brightness(1.2) drop-shadow(0 0 15px rgb(255, 255, 255)); // Эффект яркости и свечения при наведении
+        }
+    }
+}
+
+.sign-in {
+    display: flex;
+    align-items: center;
 }
 
 #registration {
     width: 140px;
     height: 35px;
-    border-radius: 5px;
-    p {
-        color: #303030;
+    border-radius: 44px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    background: linear-gradient(
+        180deg,
+        rgb(159, 159, 226),
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    &:hover {
+        transform: scale(1.02);
     }
+    box-shadow: 0px 0px 8px 0px rgb(154, 154, 198);
+    p {
+        @include elMessiri(14px);
+        color: #fff;
+        font-weight: 700;
+    }
+}
+
+.header-bg {
+    width: 40%;
+    height: 95vh;
+    background: url("../img/tyolka.svg") center center no-repeat;
+    background-size: cover;
+}
+
+.site-title {
+    display: flex;
+    flex-direction: column;
+    width: 754px;
+    height: auto; // Сделаем высоту авто, чтобы содержимое определяло высоту
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 25px;
+    margin-bottom: 100px;
+
+    p {
+        color: #ffffff;
+        font-weight: 1000; // Максимальный вес шрифта
+        font-size: 50px;
+        word-wrap: break-word; // для старых браузеров
+        overflow-wrap: break-word; // для современных браузеров
+        text-align: left; // Выравнивание по левому краю
+        border-radius: 10px; // Скругленные углы
+    }
+}
+
+h2 {
+    @include elMessiri(18px);
+    color: #ffffff;
+    font-weight: 500;
+    word-wrap: break-word; // для старых браузеров
+    overflow-wrap: break-word; // для современных браузеров
+    text-align: left; // Выравнивание по левому краю
+}
+
+.container-site {
+    margin-top: 50px;
+}
+
+.wrapper-site {
+    width: 100%;
+    display: flex;
+    gap: 120px;
+    align-items: center;
+}
+.site-btn {
+    display: flex;
+    gap: 50px;
+    margin-left: 50px;
+
+    .site-install {
+        width: 250px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: #ffffff; // Цвет текста
+        font-size: 22px; // Размер шрифта
+        font-weight: 600; // Жирность шрифта
+        text-decoration: none; // Убирает подчеркивание текста
+        border-radius: 65px; // Скругленные углы
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Тень для кнопки
+        transition: background-color 0.3s ease, transform 0.3s ease,
+            box-shadow 0.3s ease; // Плавные переходы для фона, тени и transform
+        cursor: pointer; // Указатель курсора при наведении
+
+        &:hover {
+            background-color: #a0a0f1; // Цвет фона при наведении
+            transform: translateY(-2px); // Легкий подъем кнопки при наведении
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); // Увеличение тени при наведении
+        }
+
+        &:active {
+            background-color: #a0a0f1; // Цвет фона при нажатии
+            transform: translateY(
+                0
+            ); // Возврат кнопки в исходное положение при нажатии
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Тень при нажатии
+        }
+
+        h2 {
+            margin: 0; // Убираем внешние отступы у заголовка
+            padding: 0; // Убираем внутренние отступы у заголовка
+            font-size: inherit; // Наследуем размер шрифта от родительского элемента
+            font-weight: inherit; // Наследуем жирность шрифта от родительского элемента
+        }
+    }
+
+    .site-registration {
+        box-sizing: border-box;
+        border-radius: 65px;
+        box-shadow: inset 0px 0px 7px 0px rgb(160, 162, 201),
+            0px 0px 5px 0px rgb(163, 163, 211);
+
+        &:hover {
+            background-color: #a0a0f1; // Цвет фона при наведении
+            border-color: #a0a0f1; // Цвет обводки при наведении
+        }
+
+        &:active {
+            background-color: #a0a0f1; // Цвет фона при нажатии
+            border-color: #a0a0f1; // Цвет обводки при нажатии
+        }
+    }
+
+    .site-install {
+        box-shadow: inset 0px 0px 22px 3px rgb(163, 163, 221); // Тень внутренней границы
+        background: linear-gradient(
+            180deg,
+            rgb(163, 163, 224),
+            rgba(255, 255, 255, 0.3) 99.237%
+        );
+    }
+}
+.site-information {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.language-button {
+    width: 25px;
+    height: 25px;
+    position: relative; /* Для корректного отображения выпадающего меню */
+    /* Добавьте другие необходимые стили */
+}
+
+.language-button button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none; /* Изначально скрытое */
+}
+
+.language-dropdown button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.language-dropdown.active {
+    display: block; /* Показать выпадающее меню по клику на текущий язык */
+}
+
+/* Пример стилей для изображений */
+.language-button img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle; /* Выравнивание по вертикали */
+    margin-right: 5px; /* Дополнительный отступ от текста, если нужен */
 }

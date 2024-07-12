@@ -16,7 +16,7 @@ import Settings from "./assets/views/Settings";
 import Download from "./assets/views/Download";
 import Achievement from "./assets/views/Achievement";
 import Donate from "./assets/views/Donate";
-import Sitee from "./components/Sitee";
+import Site from "./components/Site";
 
 const router = createBrowserRouter([
     {
@@ -78,8 +78,8 @@ const router = createBrowserRouter([
             //     element: <UserForm key="userUpdate" />,
             // },
             {
-                path: "/Sitee",
-                element: <Sitee />,
+                path: "/site",
+                element: <Site />,
             },
         ],
     },
@@ -88,15 +88,18 @@ const router = createBrowserRouter([
         path: "/",
         element: <GuestLayout />,
         children: [
+            // {
+            //     path: "/login",
+            //     element: <Login />,
+            // },
+            // {
+            //     path: "/signup",
+            //     element: <Signup />,
+            // },
             {
-                path: "/login",
-                element: <Login />,
+                path: "/site",
+                element: <Site />,
             },
-            {
-                path: "/signup",
-                element: <Signup />,
-            },
-
             // {
             //     path: "/unavailable",
             //     element: <Unavailable />,
@@ -105,7 +108,7 @@ const router = createBrowserRouter([
     },
     {
         path: "*",
-        element: <Navigate to="/Dashboard" />,
+        element: <Navigate to="/site" />,
     },
 ]);
 

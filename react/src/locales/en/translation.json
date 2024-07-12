@@ -1,7 +1,8 @@
 {
     "site": {
-        "worldTitle": "UNITED KINGDOM, BEST PERSONALITY",
-        "worldDesc": "Open new world of possibilities! At least in exclusive tests. Two ideas are forming soon. The end of the antechamber is already here - first in the center and only a short distance to the change of world"
+        "worldTitle": "UNITED KINGDOM - BEST PERSONALITY",
+        "worldDesc": "Open new world of possibilities! At least in exclusive tests. Two ideas are forming soon. The end of the antechamber is already here - first in the center and only a short distance to the change of world",
+        "install": "INSTALL"
     },
     "header": {
         "adminPanel": "ADMIN PANEL",
@@ -11,7 +12,7 @@
         "donate": "DONATE",
         "shugoExpress": "SHUGO EXPRESS",
         "login": "Login",
-        "register": "Register"
+        "startNow": "START NOW"
     },
     "donate": {
         "rules": {
@@ -71,5 +72,18 @@
     "payment": {
         "enterSum": "Enter sum",
         "pay": "PAY"
+    },
+    "modal": {
+        "login": "LOGIN",
+        "email": "EMAIL",
+        "password": "PASSWORD",
+        "confirmPassword": "CONFIRM PASSWORD",
+        "terms": "Terms of use",
+        "registration": "REGISTRATION",
+        "alreadyRegistered": "Already registered?",
+        "authorization": "Authorization",
+        "notRegistered": "Not registered?",
+        "сreateAccount": "Create an account",
+        "sign": "Sign in"
     }
 }
