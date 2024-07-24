@@ -237,7 +237,7 @@ export default function DefaultLayout() {
                         <a href="https://discord.gg/kyGwe46BDE">
                             <div className="discord"></div>
                         </a>
-                        <a href="">
+                        <a href="https://vk.com/world.aion">
                             <div className="vk"></div>
                         </a>
                         <a href="">
