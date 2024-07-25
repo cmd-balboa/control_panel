@@ -1,7 +1,8 @@
 {
     "site": {
-        "worldTitle": "UNITED KINGDOM, BEST PERSONALITY",
-        "worldDesc": "Open new world of possibilities! At least in exclusive tests. Two ideas are forming soon. The end of the antechamber is already here - first in the center and only a short distance to the change of world"
+        "worldTitle": "UNITED KINGDOM - BEST PERSONALITY",
+        "worldDesc": "Open new world of possibilities! At least in exclusive tests. Two ideas are forming soon. The end of the antechamber is already here - first in the center and only a short distance to the change of world",
+        "install": "INSTALL"
     },
     "header": {
         "adminPanel": "ADMIN PANEL",
@@ -11,7 +12,7 @@
         "donate": "DONATE",
         "shugoExpress": "SHUGO EXPRESS",
         "login": "Login",
-        "register": "Register"
+        "startNow": "START NOW"
     },
     "donate": {
         "rules": {
@@ -63,13 +64,26 @@
             "joinDiscord": "JOIN"
         },
         "links": {
-            "yandex": "https://disk.yandex.ru/d/2eT-Jn-wNCBVvQ",
-            "google": "https://drive.google.com/file/d/1P60L5d3koX-XanRMwActE609Zq7TbP-x/view?usp=drive_link",
+            "yandex": "https://disk.yandex.ru/d/DRkEW6yVaWx97A",
+            "google": "https://drive.google.com/file/d/1gz5OCiwoldsq7tN1w9FxNlgFfnRBr1SI/view?usp=sharing",
             "discord": "https://discord.gg/kyGwe46BDE"
         }
     },
     "payment": {
         "enterSum": "Enter sum",
         "pay": "PAY"
+    },
+    "modal": {
+        "login": "LOGIN",
+        "email": "EMAIL",
+        "password": "PASSWORD",
+        "confirmPassword": "CONFIRM PASSWORD",
+        "terms": "Terms of use",
+        "registration": "REGISTRATION",
+        "alreadyRegistered": "Already registered?",
+        "authorization": "Authorization",
+        "notRegistered": "Not registered?",
+        "сreateAccount": "Create an account",
+        "sign": "Sign in"
     }
 }

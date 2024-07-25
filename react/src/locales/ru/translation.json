@@ -1,7 +1,8 @@
 {
     "site": {
-        "worldTitle": "ЕДИНЫЙ МИР, БЕСКРАЙНИЕ ВОЗМОЖНОСТИ",
-        "worldDesc": "Открой новый мир возможностей! Прими участие в эксклюзивных испытаниях. Твои идеи формируют будущее. Заполни анкету прямо сейчас – будь первым в центре перемен и получи уникальный доступ к изменению мира"
+        "worldTitle": "ЕДИНЫЙ МИР - БЕСКРАЙНИЕ ВОЗМОЖНОСТИ",
+        "worldDesc": "Прими участие в эксклюзивных испытаниях. Твои идеи формируют будущее. Заполни анкету прямо сейчас – будь первым в центре перемен и получи уникальный доступ к изменению мира!",
+        "install": "УСТАНОВИТЬ"
     },
     "header": {
         "adminPanel": "АДМИН ПАНЕЛЬ",
@@ -11,7 +12,7 @@
         "donate": "ПОЖЕРТВОВАНИЯ",
         "shugoExpress": "ШИГО ЭКСПРЕСС",
         "login": "Логин",
-        "register": "Регистрация"
+        "startNow": "НАЧАТЬ СЕЙЧАС"
     },
     "dashboard": {
         "personalCabinet": "ЛИЧНЫЙ КАБИНЕТ",
@@ -49,7 +50,7 @@
             "joinDiscord": "ПРИСОЕДИНИТЬСЯ"
         },
         "links": {
-            "yandex": "https://disk.yandex.ru/d/2eT-Jn-wNCBVvQ",
+            "yandex": "https://disk.yandex.ru/d/DRkEW6yVaWx97A",
             "google": "https://drive.google.com/file/d/1P60L5d3koX-XanRMwActE609Zq7TbP-x/view?usp=drive_link",
             "discord": "https://discord.gg/kyGwe46BDE"
         }
@@ -69,5 +70,18 @@
     "payment": {
         "enterSum": "Введите сумму",
         "pay": "ОПЛАТИТЬ"
+    },
+    "modal": {
+        "login": "ЛОГИН",
+        "email": "ПОЧТА",
+        "password": "ПАРОЛЬ",
+        "confirmPassword": "ПОДТВЕРЖДЕНИЕ ПАРОЛЯ",
+        "terms": "Пользовательское соглашение",
+        "registration": "Зарегистрироваться",
+        "alreadyRegistered": "Уже зарегистрирован?",
+        "authorization": "Авторизация",
+        "notRegistered": "Не зарегистрирован?",
+        "сreateAccount": "Создать аккаунт",
+        "sign": "Войти"
     }
 }

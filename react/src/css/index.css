@@ -147,7 +147,8 @@ input {
   -ms-flex-align: center;
   align-items: center;
   outline: 0;
-  background: #2e2e2e;
+  border-radius: 10px;
+  background: rgb(43, 43, 61);
   color: #fff;
   width: 100%;
   font-family: "El Messiri", sans-serif;
@@ -199,7 +200,8 @@ input {
   -ms-flex-align: center;
   align-items: center;
   outline: 0;
-  background: #2e2e2e;
+  border-radius: 10px;
+  background: rgb(43, 43, 61);
   color: #fff;
   width: 100%;
   font-family: "El Messiri", sans-serif;
@@ -278,7 +280,7 @@ input:focus {
 .btn:hover,
 .btn:active,
 .btn:focus {
-  background: #ff6969;
+  background: #a3a3e0;
 }
 
 .text-center {
@@ -665,14 +667,20 @@ footer {
 }
 
 .social-icons {
+  position: absolute;
+  top: 55%;
+  right: 20px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  gap: 25px;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 75px;
 }
 
 .__select {
@@ -1702,21 +1710,15 @@ footer {
 }
 
 .current-language {
-  padding: 10px 20px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  background-color: #f0f0f0;
   cursor: pointer;
   -webkit-transition: background-color 0.3s ease, color 0.3s ease;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-.current-language:hover {
-  background-color: #e0e0e0;
-}
-.current-language:focus {
-  outline: none;
-  -webkit-box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+.current-language img {
+  background-size: contain;
+  width: 100px;
+  height: 100px;
 }
 
 .language-dropdown {
@@ -1728,10 +1730,6 @@ footer {
   border: 1px solid #ccc;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.language-button:hover .language-dropdown {
-  display: block;
 }
 
 .language-item {
@@ -2217,9 +2215,13 @@ footer {
 }
 
 .logoAion {
-  min-width: 45px;
-  min-height: 45px;
-  background: url(../img/svg/aionworld_logo.png) top no-repeat;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+  height: 50px;
+  background-size: contain;
+  background: url(../img/site/aionWorld-logo.svg) top no-repeat;
   background-size: contain;
   -webkit-filter: drop-shadow(1px 1px 30px rgba(255, 255, 255, 0.7));
           filter: drop-shadow(1px 1px 30px rgba(255, 255, 255, 0.7));
@@ -2230,9 +2232,6 @@ footer {
 }
 
 .logoAion:hover {
-  -webkit-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-          transform: rotate(360deg);
   -webkit-filter: drop-shadow(1px 1px 30px rgb(255, 255, 255));
           filter: drop-shadow(1px 1px 30px rgb(255, 255, 255));
 }
@@ -4212,10 +4211,33 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("../img/site/registr__layer_dashboard.png") no-repeat center center;
+  background-size: cover;
+  z-index: 1000;
+}
+
+.modal-overlay-terms {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8); /* Slightly darker for better visibility */
+  z-index: 2000; /* Ensure this is higher than the registration overlay */
+}
+
+.modalTerms {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  z-index: 2001; /* Ensure this is higher than the registration modal */
 }
 
 .modal {
@@ -5253,9 +5275,15 @@ footer {
 }
 
 .modal-content {
-  width: 340px;
-  height: 580px;
-  background: #202020;
+  width: 400px;
+  height: 650px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid rgb(163, 163, 219);
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 100px -1px rgba(111, 111, 220, 0.25);
+          box-shadow: 0px 0px 100px -1px rgba(111, 111, 220, 0.25);
+  background: rgb(33, 33, 46);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5273,18 +5301,19 @@ footer {
           justify-content: center;
 }
 .modal-content button {
-  border-radius: 3px;
-  background: rgb(255, 114, 114);
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(163, 163, 224)), color-stop(99.237%, rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(180deg, rgb(163, 163, 224), rgba(255, 255, 255, 0.3) 99.237%);
   -webkit-box-shadow: 0 0 10px rgb(255, 114, 114);
-  box-shadow: 0 0 10px rgb(255, 114, 114);
+  box-shadow: 0px 0px 19px 0px rgba(255, 255, 255, 0.25);
   -webkit-transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
   transition: background-color 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
   transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
   transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
 }
 .modal-content button:hover {
-  -webkit-box-shadow: 0 0 20px rgb(255, 114, 114);
-          box-shadow: 0 0 20px rgb(255, 114, 114);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(163, 163, 224)), color-stop(99.237%, rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(180deg, rgb(163, 163, 224), rgba(255, 255, 255, 0.3) 99.237%);
   -webkit-transform: scale(1.02);
       -ms-transform: scale(1.02);
           transform: scale(1.02);
@@ -6036,11 +6065,7 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   height: calc(100vh - 130px);
-  width: 630px;
-}
-
-.container-site {
-  margin-left: 70px;
+  width: 100%;
 }
 
 .block__position {
@@ -6423,23 +6448,270 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
+  gap: 50px;
 }
 
 #sign-in {
-  width: 140px;
-  height: 35px;
-  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  background: url("../img/site/login-icon.svg") center no-repeat;
+  background-size: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-filter: drop-shadow(1px 1px 30px rgb(255, 255, 255));
+          filter: drop-shadow(1px 1px 30px rgb(255, 255, 255));
+  -webkit-transition: -webkit-transform 0.6s ease, -webkit-filter 0.6s ease;
+  transition: -webkit-transform 0.6s ease, -webkit-filter 0.6s ease;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  transition: transform 0.6s ease, filter 0.6s ease, -webkit-transform 0.6s ease, -webkit-filter 0.6s ease;
 }
-#sign-in p {
-  color: #303030;
+#sign-in:hover {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-filter: drop-shadow(0 0 10px rgb(255, 255, 255));
+          filter: drop-shadow(0 0 10px rgb(255, 255, 255));
+}
+#sign-in .login-icon {
+  width: 35px;
+  height: 35px;
+  -webkit-transition: -webkit-transform 0.6s ease, -webkit-filter 0.6s ease;
+  transition: -webkit-transform 0.6s ease, -webkit-filter 0.6s ease;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  transition: transform 0.6s ease, filter 0.6s ease, -webkit-transform 0.6s ease, -webkit-filter 0.6s ease;
+}
+#sign-in .login-icon:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-filter: brightness(1.2) drop-shadow(0 0 15px rgb(255, 255, 255));
+          filter: brightness(1.2) drop-shadow(0 0 15px rgb(255, 255, 255));
+}
+
+.sign-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #registration {
   width: 140px;
   height: 35px;
-  border-radius: 5px;
+  border-radius: 44px;
+  -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(159, 159, 226)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(180deg, rgb(159, 159, 226), rgba(255, 255, 255, 0.3) 100%);
+  -webkit-box-shadow: 0px 0px 8px 0px rgb(154, 154, 198);
+          box-shadow: 0px 0px 8px 0px rgb(154, 154, 198);
+}
+#registration:hover {
+  -webkit-transform: scale(1.02);
+      -ms-transform: scale(1.02);
+          transform: scale(1.02);
 }
 #registration p {
-  color: #303030;
+  text-align: center;
+  font-family: "El Messiri", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  color: #fff;
+  font-weight: 700;
+}
+
+.header-bg {
+  width: 40%;
+  height: 95vh;
+  background: url("../img/welcome_model.svg") center center no-repeat;
+  background-size: cover;
+}
+
+.site-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 754px;
+  height: auto;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  gap: 25px;
+  margin-bottom: 100px;
+}
+.site-title p {
+  color: #ffffff;
+  font-weight: 1000;
+  font-size: 50px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+  font-family: "El Messiri", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  color: #ffffff;
+  font-weight: 500;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.container-site {
+  margin-top: 50px;
+}
+
+.wrapper-site {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 120px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.site-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 50px;
+  margin-left: 50px;
+}
+.site-btn .site-install {
+  width: 250px;
+  height: 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 65px;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.site-btn .site-install:hover {
+  background-color: #a0a0f1;
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px);
+  -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.site-btn .site-install:active {
+  background-color: #a0a0f1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.site-btn .site-install h2 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.site-btn .site-registration {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 65px;
+  -webkit-box-shadow: inset 0px 0px 7px 0px rgb(160, 162, 201), 0px 0px 5px 0px rgb(163, 163, 211);
+          box-shadow: inset 0px 0px 7px 0px rgb(160, 162, 201), 0px 0px 5px 0px rgb(163, 163, 211);
+}
+.site-btn .site-registration:hover {
+  background-color: #a0a0f1;
+  border-color: #a0a0f1;
+}
+.site-btn .site-registration:active {
+  background-color: #a0a0f1;
+  border-color: #a0a0f1;
+}
+.site-btn .site-install {
+  -webkit-box-shadow: inset 0px 0px 22px 3px rgb(163, 163, 221);
+          box-shadow: inset 0px 0px 22px 3px rgb(163, 163, 221);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(163, 163, 224)), color-stop(99.237%, rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(180deg, rgb(163, 163, 224), rgba(255, 255, 255, 0.3) 99.237%);
+}
+
+.site-information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+}
+
+.language-button {
+  width: 25px;
+  height: 25px;
+  position: relative; /* Для корректного отображения выпадающего меню */
+  /* Добавьте другие необходимые стили */
+}
+
+.language-button button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none; /* Изначально скрытое */
+}
+
+.language-dropdown button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.language-dropdown.active {
+  display: block; /* Показать выпадающее меню по клику на текущий язык */
+}
+
+/* Пример стилей для изображений */
+.language-button img {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle; /* Выравнивание по вертикали */
+  margin-right: 5px; /* Дополнительный отступ от текста, если нужен */
 }

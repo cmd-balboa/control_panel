@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const StateContext = createContext({
     currentUser: null,
@@ -18,6 +18,8 @@ const StateContext = createContext({
     setIsLoading: () => {},
 });
 
+const TOKEN_EXPIRATION_TIME = 7200000; // 2 час в миллисекундах
+
 export const ContextProvider = ({ children }) => {
     const [persons, setPersons] = useState({});
     const [user, setUser] = useState({});
@@ -29,16 +31,37 @@ export const ContextProvider = ({ children }) => {
     const [connectionVipLog, setConnectionVipLog] = useState({});
     const [account, setAccount] = useState({});
     const [token, _setToken] = useState(localStorage.getItem("ACCESS_TOKEN"));
-    // const [token, _setToken] = useState("321");
     const [notification, _setNotification] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const tokenTimestamp = localStorage.getItem("TOKEN_TIMESTAMP");
+
+        if (tokenTimestamp) {
+            const currentTime = new Date().getTime();
+            const timePassed = currentTime - parseInt(tokenTimestamp, 10);
+
+            if (timePassed > TOKEN_EXPIRATION_TIME) {
+                setToken(null);
+            } else {
+                const remainingTime = TOKEN_EXPIRATION_TIME - timePassed;
+                setTimeout(() => setToken(null), remainingTime);
+            }
+        }
+    }, []);
 
     const setToken = (token) => {
         _setToken(token);
         if (token) {
+            const timestamp = new Date().getTime();
             localStorage.setItem("ACCESS_TOKEN", token);
+            localStorage.setItem("TOKEN_TIMESTAMP", timestamp.toString());
+            setTimeout(() => {
+                setToken(null);
+            }, TOKEN_EXPIRATION_TIME);
         } else {
             localStorage.removeItem("ACCESS_TOKEN");
+            localStorage.removeItem("TOKEN_TIMESTAMP");
         }
     };
 

@@ -5,7 +5,7 @@ const Modal = ({ isOpen, onClose, agreement }) => {
 
     return ReactDOM.createPortal(
         <>
-            <div className="modal-overlay" onClick={onClose}></div>
+            <div className="modal-overlay-terms" onClick={onClose}></div>
             <div className="modalTerms">
                 <div className="agreement">
                     <div className="title-terms">
