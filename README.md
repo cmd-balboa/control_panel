@@ -1,4 +1,4 @@
-# Control Panel Aion World
+# Control Panel Aion World.
 
 - [Getting Started](#getting-started)
   - [Installation](#installation)
